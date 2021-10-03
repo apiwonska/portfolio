@@ -15,7 +15,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "sass": "sass src/:src/ --watch --no-source-map"
   },
   "eslintConfig": {
     "extends": [
