@@ -1,0 +1,18 @@
+.sectionHeader {
+  position: relative;
+  font-family: "Yeseva One", cursive;
+  font-size: 6rem;
+  z-index: 0;
+  margin-left: 100px;
+}
+.sectionHeader::before {
+  content: "";
+  position: absolute;
+  top: -1rem;
+  left: -3rem;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  background-color: #FEE2CD;
+  z-index: -1;
+}

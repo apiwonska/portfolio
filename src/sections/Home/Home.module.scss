@@ -1,0 +1,35 @@
+@use '../../styles/variables'as *;
+@use '../../styles/mixins'as *;
+
+.section {
+  min-height: 100vh;
+  @include main-vertical-grid;
+  grid-template-rows: [section-top] 1fr [content-top] minmax(100px, 100%) [content-bottom] 1fr [section-bottom];
+}
+
+.banner {
+  background-color: get-color(main);
+  padding: 80px 20px;
+  grid-column: content-left / content-right;
+  grid-row: content-top/ content-bottom;
+
+
+  &_title {
+    display: block;
+    font-size: 7rem;
+    font-family: get-font(title);
+    line-height: 1;
+    margin-bottom: 2rem;
+  }
+
+  &_subtitle {
+    display: block;
+    font-size: 40px;
+  }
+
+  &_margin {
+    background-color: get-color(main);
+    grid-column: page-left/ content-left;
+    grid-row: content-top/ content-bottom;
+  }
+}

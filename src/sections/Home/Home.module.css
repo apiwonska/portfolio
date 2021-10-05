@@ -1,0 +1,29 @@
+.section {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: [page-left] 1fr [content-left] minmax(10px, 1000px) [content-right] 1fr [page-right];
+  grid-template-rows: [section-top] 1fr [content-top] minmax(100px, 100%) [content-bottom] 1fr [section-bottom];
+}
+
+.banner {
+  background-color: #A6CFBF;
+  padding: 80px 20px;
+  grid-column: content-left/content-right;
+  grid-row: content-top/content-bottom;
+}
+.banner_title {
+  display: block;
+  font-size: 7rem;
+  font-family: "Yeseva One", cursive;
+  line-height: 1;
+  margin-bottom: 2rem;
+}
+.banner_subtitle {
+  display: block;
+  font-size: 40px;
+}
+.banner_margin {
+  background-color: #A6CFBF;
+  grid-column: page-left/content-left;
+  grid-row: content-top/content-bottom;
+}

@@ -8,7 +8,16 @@ $colors: (main: #A6CFBF,
   neutrals-white: #F9F9F9,
   neutrals-light-gray:#E5E5E5);
 
-$font-types: (default: "xxx",
-  page-title: ('Yeseva One', cursive));
+@function get-color($color) {
+  @return map-get($colors, $color)
+}
+
+
+$font-types: (default: ('Open Sans', sans-serif),
+  title: ('Yeseva One', cursive));
+
+@function get-font($type) {
+  @return map-get($font-types, $type)
+}
 
 $header-sizes: (h1: 3.2rem, h2: 2.4rem, h3: 1.8rem, h4: 1.6rem, h5: 1.3rem);

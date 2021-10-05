@@ -1,0 +1,4 @@
+@mixin main-vertical-grid {
+  display: grid;
+  grid-template-columns: [page-left] 1fr [content-left] minmax(10px, 1000px) [content-right] 1fr [page-right];
+}

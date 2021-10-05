@@ -1,0 +1,18 @@
+@use '../../styles/variables'as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: linear-gradient(to right, get-color(neutrals-white) 50%, get-color(secondary) 50%)
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: get-color(neutrals-black);
+  color: get-color(neutrals-white);
+  font-size: 1.6rem;
+  padding: 30px 0;
+}

@@ -1,0 +1,6 @@
+.section {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: [page-left] 1fr [content-left] minmax(10px, 1000px) [content-right] 1fr [page-right];
+  grid-template-rows: [section-top] 1fr [content-top] minmax(200px, 100%) [content-bottom] 1fr [section-bottom];
+}

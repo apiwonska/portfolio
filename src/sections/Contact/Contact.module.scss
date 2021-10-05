@@ -1,0 +1,8 @@
+@use '../../styles/variables'as *;
+@use '../../styles/mixins'as *;
+
+.section {
+  min-height: 100vh;
+  @include main-vertical-grid;
+  grid-template-rows: [section-top] 1fr [content-top] minmax(200px, 100%) [content-bottom] 1fr [section-bottom];
+}

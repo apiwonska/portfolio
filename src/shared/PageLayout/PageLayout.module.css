@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: linear-gradient(to right, #F9F9F9 50%, #FEE2CD 50%);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  color: #F9F9F9;
+  font-size: 1.6rem;
+  padding: 30px 0;
+}

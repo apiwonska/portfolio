@@ -1,0 +1,77 @@
+@use '../../styles/variables'as *;
+
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: get-color(neutrals-black);
+  color: get-color(neutrals-white);
+  width: 150px;
+  font-size: 1.6rem;
+  padding: 3rem 0;
+
+  &_linkIcon {
+    display: block;
+    width: 3rem;
+    margin: 4rem auto;
+
+    &:visited {
+      color: get-color(neutrals-white);
+    }
+  }
+
+  &_main {
+    align-self: stretch;
+    text-align: center;
+  }
+
+  &_list {
+    list-style: none;
+  }
+
+  &_item {
+    width: 100%;
+  }
+
+  &_link {
+    display: block;
+    position: relative;
+    color: get-color(neutrals-white);
+    text-decoration: none;
+    padding: 1.5rem;
+    transition: .4s;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 0.2rem;
+      width: 0;
+      background-color: get-color(neutrals-white);
+      transition: .4s;
+    }
+
+    &__active {
+      color: get-color(secondary);
+    }
+
+    &:visited {
+      color: get-color(neutrals-white);
+    }
+
+    &:hover {
+      color: get-color(secondary);
+
+      &::after {
+        width: 5rem;
+        background-color: get-color(secondary);
+      }
+    }
+
+
+  }
+}

@@ -1,15 +1,23 @@
 @use './variables'as *;
 
 html {
-  padding: 0;
-  margin: 0;
+  font-family: get-font(default);
   font-size: 10px;
   line-height: 1.45;
+  color: get-color(neutrals-black);
+  background-color: get-color(neutrals-white);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
 }
 
 *,
 *::before,
 *::after {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
@@ -17,10 +25,6 @@ html {
 $font-size in $header-sizes {
 
   #{$class} {
-    font-size: $font-size;
-  }
-
-  .#{$class} {
     font-size: $font-size;
   }
 }
