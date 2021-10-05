@@ -50,11 +50,16 @@
 .nav_link__active {
   color: #FEE2CD;
 }
+.nav_link__active::after {
+  width: 5rem;
+  background-color: #FEE2CD;
+}
 .nav_link:visited {
   color: #F9F9F9;
 }
 .nav_link:hover {
   color: #FEE2CD;
+  cursor: pointer;
 }
 .nav_link:hover::after {
   width: 5rem;

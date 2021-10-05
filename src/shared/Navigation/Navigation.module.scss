@@ -57,6 +57,11 @@
 
     &__active {
       color: get-color(secondary);
+
+      &::after {
+        width: 5rem;
+        background-color: get-color(secondary);
+      }
     }
 
     &:visited {
@@ -65,6 +70,7 @@
 
     &:hover {
       color: get-color(secondary);
+      cursor: pointer;
 
       &::after {
         width: 5rem;
