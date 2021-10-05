@@ -20,6 +20,14 @@ body {
   box-sizing: border-box;
 }
 
+*:focus-visible {
+  outline: #fff 1px dashed;
+}
+
+*:focus {
+  outline: none;
+}
+
 @each $class,
 $font-size in $header-sizes {
 

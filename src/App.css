@@ -18,6 +18,14 @@ body {
   box-sizing: border-box;
 }
 
+*:focus-visible {
+  outline: #fff 1px dashed;
+}
+
+*:focus {
+  outline: none;
+}
+
 h1 {
   font-size: 3.2rem;
 }

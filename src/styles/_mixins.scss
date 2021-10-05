@@ -2,3 +2,15 @@
   display: grid;
   grid-template-columns: [page-left] 1fr [content-left] minmax(10px, 1000px) [content-right] 1fr [page-right];
 }
+
+@mixin a11-outline-light {
+  &:focus-visible {
+    outline: #fff 1px dashed;
+  }
+}
+
+@mixin a11-outline-dark {
+  &:focus-visible {
+    outline: #333 1px dashed;
+  }
+}
