@@ -6,6 +6,16 @@ html {
   background-color: #F9F9F9;
 }
 
+@media (max-width: 800px) {
+  html {
+    font-size: 9px;
+  }
+}
+@media (max-width: 400px) {
+  html {
+    font-size: 8px;
+  }
+}
 body {
   min-height: 100vh;
 }
@@ -24,6 +34,20 @@ body {
 
 *:focus {
   outline: none;
+}
+
+*:link,
+*:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  margin: 0.4em 0 0.5em;
+}
+
+ul {
+  list-style: none;
 }
 
 h1 {
