@@ -1,6 +1,101 @@
-.section {
-  min-height: 100vh;
+.grid {
+  width: 100%;
+  font-size: 1.6rem;
+  margin-bottom: 7rem;
   display: grid;
-  grid-template-columns: [page-left] 1fr [content-left] minmax(10px, 1000px) [content-right] 1fr [page-right];
-  grid-template-rows: [section-top] 1fr [content-top] minmax(200px, 100%) [content-bottom] 1fr [section-bottom];
+  grid-template-columns: [LM-l] 1fr [LB-l SH-l] repeat(5, min(8.33%, 120px)) [LB-r RB-l] repeat(5, min(8.33%, 120px)) [RB-r] 1fr;
+  grid-template-rows: auto [LB-t RB-t] auto [RB-b LB-b] auto;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 0;
+  margin: 5rem 0;
+}
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: [LB-l SH-l] repeat(5, 1fr) [LB-r RB-l] repeat(5, 1fr) [RB-r];
+  }
+}
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: [LB-l RB-l] 1fr [SH-l] repeat(11, 1fr) [LB-r RB-r];
+    grid-template-rows: auto [LB-t] auto [LB-b RB-t] auto [RB-b] auto;
+  }
+}
+
+.title {
+  grid-column: SH-l/-1;
+  grid-row: 1/2;
+}
+
+.description {
+  position: relative;
+  z-index: 0;
+  grid-column: LB-l/LB-r;
+  grid-row: LB-t/LB-b;
+  background-color: #A6CFBF;
+  font-size: 2rem;
+  line-height: 1.8;
+  display: grid;
+  align-items: center;
+  padding: 2em 2em;
+}
+
+.project_name {
+  font-size: 4rem;
+  font-weight: bold;
+  line-height: 1;
+  margin: 1em 0 1em;
+  position: relative;
+}
+
+.project_summary {
+  font-size: 1.8rem;
+}
+
+.project_links {
+  display: flex;
+  justify-content: center;
+  margin: 2.5rem 0;
+}
+
+.project_linkItem {
+  margin: 0 2rem;
+}
+
+.project_link {
+  margin: 1em;
+  font-weight: 600;
+}
+
+.project_tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.project_tag {
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 0.3em 1em;
+  margin: 0.7rem 0.5em;
+  border-radius: 1em;
+  background-color: #D0EEE2;
+}
+
+.photo {
+  grid-column: RB-l/RB-r;
+  grid-row: RB-t/RB-b;
+  background-color: #F9F9F9;
+}
+
+.dec_number {
+  position: absolute;
+  font-family: "Yeseva One", cursive;
+  font-size: 18rem;
+  color: #fff;
+  opacity: 0.3;
+  line-height: 1;
+  top: 0;
+  right: 0;
+  z-index: -1;
 }

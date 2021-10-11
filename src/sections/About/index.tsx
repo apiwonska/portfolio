@@ -1,19 +1,29 @@
 import SectionHeader from 'shared/SectionHeader';
+import photo from 'assets/my-photo.png';
 import styles from './About.module.css';
 
 const About: React.FC = () => (
   <section id="about" className={styles.section}>
-    <SectionHeader>About</SectionHeader>
-    {/* <div className={styles.card_margin} />
-    <div className={styles.card_description}>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum soluta
-      vitae quasi. Doloribus, non reiciendis? Porro architecto officia
-      necessitatibus nostrum id dolorem ut, quas quaerat facere voluptatum sequi
-      illo cupiditate alias recusandae itaque adipisci maxime laudantium ea
-      dolorum numquam ducimus sint vitae temporibus vero. Amet suscipit
-      repellendus placeat maiores voluptatum.
+    <div className={styles.title}>
+      <SectionHeader>About</SectionHeader>
     </div>
-    <div className={styles.card_photo} /> */}
+    <div className={styles.margin__deco} />
+    <div className={styles.description}>
+      <p>
+        I’m a self-taught developer based in Warsaw, Poland. I love to create
+        beautiful, functional and accessible applications. I’m interested mostly
+        in front-end part. Former structural enginer.
+      </p>
+      <p>
+        Except passion for coding I enjoy afro-cuban dance, spanish language,
+        travelling and painting.
+      </p>
+    </div>
+    <div className={styles.photo}>
+      <div className={styles.img}>
+        <img src={photo} alt="" />
+      </div>
+    </div>
   </section>
 );
 

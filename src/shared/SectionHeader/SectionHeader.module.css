@@ -3,7 +3,7 @@
   font-family: "Yeseva One", cursive;
   font-size: 6rem;
   z-index: 0;
-  margin-left: 100px;
+  margin: 15rem 0 5rem 7rem;
 }
 .sectionHeader::before {
   content: "";
@@ -13,6 +13,6 @@
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
-  background-color: #FEE2CD;
+  background-color: #Fff;
   z-index: -1;
 }

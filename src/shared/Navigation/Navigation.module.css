@@ -92,17 +92,17 @@
   color: #F9F9F9;
 }
 .nav_link:hover {
-  color: #FEE2CD;
+  color: #Fff;
   cursor: pointer;
 }
 .nav_link:hover::after {
   width: calc(100% - 3rem);
-  background-color: #FEE2CD;
+  background-color: #Fff;
 }
 .nav_link__active {
-  color: #FEE2CD;
+  color: #Fff;
 }
 .nav_link__active::after {
   width: calc(100% - 3rem);
-  background-color: #FEE2CD;
+  background-color: #Fff;
 }

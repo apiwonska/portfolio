@@ -2,9 +2,15 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-image: linear-gradient(to right, #F9F9F9 50%, #FEE2CD 50%);
+  background-color: #F9F9F9;
+  background-image: linear-gradient(to right, #F9F9F9 50%, #Fff 50%);
 }
 
+@media (max-width: 900px) {
+  .wrapper {
+    background-image: none;
+  }
+}
 .footer {
   display: flex;
   justify-content: center;

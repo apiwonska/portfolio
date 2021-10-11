@@ -1,6 +1,101 @@
 .section {
-  min-height: 100vh;
+  width: 100%;
+  font-size: 1.6rem;
+  margin-bottom: 7rem;
   display: grid;
-  grid-template-columns: [page-left] 1fr [content-left] minmax(10px, 1000px) [content-right] 1fr [page-right];
-  grid-template-rows: [section-top] 1fr [content-top] minmax(200px, 100%) [content-bottom] 1fr [section-bottom];
+  grid-template-columns: [LM-l] 1fr [LB-l SH-l] repeat(5, min(8.33%, 120px)) [LB-r RB-l] repeat(5, min(8.33%, 120px)) [RB-r] 1fr;
+  grid-template-rows: auto [LB-t RB-t] auto [RB-b LB-b] auto;
+}
+@media (max-width: 1200px) {
+  .section {
+    grid-template-columns: [LB-l SH-l] repeat(5, 1fr) [LB-r RB-l] repeat(5, 1fr) [RB-r];
+  }
+}
+@media (max-width: 900px) {
+  .section {
+    grid-template-columns: [LB-l RB-l] 1fr [SH-l] repeat(11, 1fr) [LB-r RB-r];
+    grid-template-rows: auto [LB-t] auto [LB-b RB-t] auto [RB-b] auto;
+  }
+}
+
+.title {
+  grid-column: SH-l/-1;
+  grid-row: 1/2;
+}
+
+.margin__deco {
+  grid-column: 1Lm-l;
+  grid-row: LB-t/RB-b;
+  background-color: #A6CFBF;
+  position: relative;
+}
+.margin__deco::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: max(2rem, 15%);
+  background-color: #9DB0A3;
+}
+.margin__deco::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: max(2rem, 15%);
+  height: 100%;
+  width: max(2.5rem, 15%);
+  background-color: #A4C2B6;
+}
+
+.description {
+  grid-column: LB-l/LB-r;
+  grid-row: LB-t/LB-b;
+  background-color: #A6CFBF;
+  font-size: 2rem;
+  line-height: 1.8;
+  display: grid;
+  align-items: center;
+  padding: 3em 1.5em;
+}
+@media (max-width: 900px) {
+  .description {
+    padding: 3em 10%;
+  }
+}
+
+.photo {
+  grid-column: RB-l/RB-r;
+  grid-row: RB-t/RB-b;
+  background-color: #A6CFBF;
+  display: grid;
+  align-items: center;
+  padding: 3em 1.5em;
+  justify-items: center;
+}
+@media (max-width: 900px) {
+  .photo {
+    padding: 3em 10%;
+  }
+}
+
+@media (max-width: 900px) {
+  .photo {
+    position: relative;
+    top: -3em;
+  }
+}
+.img {
+  position: relative;
+  display: block;
+  width: 25rem;
+  height: 25rem;
+  border-radius: 50%;
+  outline: 1.25rem solid #9DB0A3;
+  z-index: 1;
+}
+.img img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
 }

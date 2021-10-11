@@ -42,6 +42,12 @@ module.exports = {
         printWidth: 80,
       },
     ],
+    'import/no-extraneous-dependencies': [
+      'warn',
+      {
+        devDependencies: true,
+      },
+    ],
     // rules for Typescript
     'import/extensions': [
       'error',

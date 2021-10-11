@@ -3,16 +3,22 @@
 
 .section {
   min-height: 100vh;
-  @include main-vertical-grid;
-  grid-template-rows: [section-top] 1fr [content-top] minmax(100px, 100%) [content-bottom] 1fr [section-bottom];
+  display: grid;
+  grid-template-columns: 1fr repeat(10, min(8.33%, 100px)) 1fr;
+  grid-template-rows: 1fr 500px 1fr;
 }
 
 .banner {
   background-color: get-color(main);
-  padding: 80px 20px;
-  grid-column: content-left / content-right;
-  grid-row: content-top/ content-bottom;
+  padding: 8rem 2rem;
+  grid-column: 1 / 10;
+  grid-row: 2/ 3;
 
+  &_content {
+    grid-column: 2 / 10;
+    grid-row: 2/ 3;
+    align-self: center;
+  }
 
   &_title {
     display: block;
@@ -26,10 +32,10 @@
     display: block;
     font-size: 40px;
   }
+}
 
-  &_margin {
-    background-color: get-color(main);
-    grid-column: page-left/ content-left;
-    grid-row: content-top/ content-bottom;
+@media (max-width: 900px) {
+  .banner {
+    grid-column: 1/ -1;
   }
 }

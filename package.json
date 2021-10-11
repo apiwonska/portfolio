@@ -3,13 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@hookform/resolvers": "^2.8.2",
+    "classnames": "^2.3.1",
     "cra-template-typescript": "1.1.2",
     "hamburger-react": "^2.4.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hook-form": "^7.17.1",
     "react-scripts": "4.0.3",
     "react-scroll": "^1.8.4",
-    "web-vitals": "^2.1.0"
+    "react-textarea-autosize": "^8.3.3",
+    "web-vitals": "^2.1.0",
+    "yup": "^0.32.9"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -47,6 +52,7 @@
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
     "@types/react-scroll": "^1.8.3",
+    "@types/uuid": "^8.3.1",
     "@typescript-eslint/eslint-plugin": "^4.31.2",
     "@typescript-eslint/parser": "^4.31.2",
     "eslint": "^7.32.0",
@@ -60,6 +66,7 @@
     "eslint-plugin-react": "^7.26.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.4.1",
-    "sass": "^1.42.1"
+    "sass": "^1.42.1",
+    "uuid": "^3.4.0"
   }
 }

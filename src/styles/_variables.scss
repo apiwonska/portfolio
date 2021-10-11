@@ -6,12 +6,14 @@ $colors: (main: #A6CFBF,
   secondary-darkened: #BAA89B,
   neutrals-black: #333,
   neutrals-white: #F9F9F9,
-  neutrals-light-gray:#E5E5E5);
+  neutrals-light-gray:#E5E5E5,
+  form-field: #D0EEE2,
+  form-error: #8b201c,
+  form-success: #10664c);
 
 @function get-color($color) {
   @return map-get($colors, $color)
 }
-
 
 $font-types: (default: ('Open Sans', sans-serif),
   title: ('Yeseva One', cursive));

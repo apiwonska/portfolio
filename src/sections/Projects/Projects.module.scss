@@ -1,8 +1,117 @@
 @use '../../styles/variables'as *;
 @use '../../styles/mixins'as *;
 
-.section {
-  min-height: 100vh;
-  @include main-vertical-grid;
-  grid-template-rows: [section-top] 1fr [content-top] minmax(200px, 100%) [content-bottom] 1fr [section-bottom];
+.grid {
+  @include section-grid;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 0;
+  margin: 5rem 0;
 }
+
+.title {
+  grid-column: SH-l / -1;
+  grid-row: 1 / 2;
+}
+
+.description {
+  position: relative;
+  z-index: 0;
+  grid-column: LB-l / LB-r;
+  grid-row: LB-t / LB-b;
+  background-color: get-color(main);
+  font-size: 2rem;
+  line-height: 1.8;
+
+  display: grid;
+  align-items: center;
+  padding: 2em 2em;
+}
+
+.project_name {
+  font-size: 4rem;
+  font-weight: bold;
+  line-height: 1;
+  margin: 1em 0 1em;
+  // font-family: get-font(title);
+  position: relative;
+  // left: -3em;
+  // text-transform: uppercase;
+}
+
+.project_summary {
+  font-size: 1.8rem;
+}
+
+.project_links {
+  display: flex;
+  justify-content: center;
+  margin: 2.5rem 0;
+}
+
+.project_linkItem {
+  margin: 0 2rem;
+}
+
+.project_link {
+  margin: 1em;
+  font-weight: 600;
+}
+
+.project_tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.project_tag {
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 0.3em 1em;
+  margin: 0.7rem 0.5em;
+  border-radius: 1em;
+  background-color: get-color(form-field);
+}
+
+.photo {
+  grid-column: RB-l/ RB-r;
+  grid-row: RB-t / RB-b;
+  background-color: get-color(neutrals-white);
+}
+
+// .dec_watermark {
+//   position: absolute;
+//   font-family: get-font(title);
+//   font-size: 30rem;
+//   line-height: 1;
+//   color: rgba(0, 0, 0, .1);
+//   top: 0;
+//   left: 0;
+//   transform: translate(-25%, 0);
+//   z-index: -1;
+// }
+
+.dec_number {
+  position: absolute;
+  font-family: get-font(title);
+  font-size: 18rem;
+  // color: get-color(main);
+  color: #fff;
+  opacity: 0.3;
+  line-height: 1;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  // transform: translate(-25%, -40%);
+}
+
+// .dec_hash {
+//   position: absolute;
+//   font-family: get-font(title);
+//   font-size: 15rem;
+//   color: get-color(main-darkened);
+//   line-height: 1;
+//   top: 0;
+//   left: 0;
+//   z-index: -1;
+// }
