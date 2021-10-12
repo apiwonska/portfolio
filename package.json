@@ -65,8 +65,8 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "nanoid": "^3.1.29",
     "prettier": "^2.4.1",
-    "sass": "^1.42.1",
-    "uuid": "^3.4.0"
+    "sass": "^1.42.1"
   }
 }

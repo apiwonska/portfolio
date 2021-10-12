@@ -6,6 +6,7 @@ html {
   line-height: 1.45;
   color: get-color(neutrals-black);
   background-color: get-color(neutrals-white);
+  scroll-behavior: smooth;
 }
 
 @media (max-width: 800px) {
@@ -33,11 +34,27 @@ body {
 }
 
 *:focus-visible {
-  outline: #fff 1px dashed;
+  outline: none;
 }
 
 *:focus {
   outline: none;
+}
+
+body {
+
+  // input,
+  // textarea 
+  // select,
+  a,
+  button {
+    &:focus {
+      outline-color: get-color(main);
+      outline-offset: -.2rem;
+      outline-style: dashed;
+      outline-width: 1px;
+    }
+  }
 }
 
 *:link,
@@ -60,4 +77,16 @@ $font-size in $header-sizes {
   #{$class} {
     font-size: $font-size;
   }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
