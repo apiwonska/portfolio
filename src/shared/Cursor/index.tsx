@@ -15,7 +15,7 @@ const Cursor: React.FC = () => {
   const [hoverLink, setHoverLink] = useState(false);
 
   const onMouseMove = (e: MouseEvent) => {
-    setPosition({ x: e.pageX, y: e.pageY });
+    setPosition({ x: e.clientX, y: e.clientY });
   };
 
   const handleMouseHide = () => {
@@ -42,7 +42,7 @@ const Cursor: React.FC = () => {
     setHoverLink(false);
   };
 
-  const links = document.querySelectorAll('a, button, .hamburger-react');
+  const links = document.querySelectorAll('a, button, [role="button"]');
   const formFields = document.querySelectorAll('input, textarea');
 
   useEffect(() => {
