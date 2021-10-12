@@ -7,11 +7,11 @@ type Props = {
 };
 
 const NavLink: React.FC<Props> = ({ to, children }) => (
-  <li className={styles.nav_item}>
+  <li className={styles.item}>
     <Link
       to={to}
-      className={styles.nav_link}
-      activeClass={styles.nav_link__active}
+      className={styles.link}
+      activeClass={styles.link__active}
       spy
       smooth
       offset={0}

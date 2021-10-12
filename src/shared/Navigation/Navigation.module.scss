@@ -1,129 +1,152 @@
 @use '../../styles/variables'as *;
 
-.nav {
+.nav_container {
   position: fixed;
   top: 0;
-  right: 0;
-  background-color: get-color(neutrals-black);
-  color: get-color(neutrals-white);
-  min-width: 13rem;
-  padding: 3rem 0;
-  transition: .3s;
-  overflow: hidden;
+  left: 0;
+  font-size: 24px;
   z-index: 10;
 
-  @media (max-width: 1400px) {
-    width: 200px;
-    font-size: 2rem;
-    height: 100vh;
-  }
-
-  @media (max-width: 500px) {
-    width: 100%;
-    height: 100vh;
-  }
-
-  &__closed {
-    position: fixed;
-    top: -5rem;
-    right: -7rem;
-    width: 15rem;
-    height: 13rem;
-    border-bottom-left-radius: 50%;
-    border-top-left-radius: 30%;
-    border-bottom-right-radius: 30%;
-    background-color: get-color(neutrals-black);
-    color: get-color(neutrals-white);
-  }
-
-  &_content {
-    opacity: 1;
-    transform: translate(0, 0);
-    transition: .3s .3s;
-  }
-
-  &_content__hidden {
-    opacity: 0;
-    transform: translate(0rem, -2rem);
-  }
-
-  &_hamburger {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-  }
-
-  &_linkIcon {
-    display: block;
-    width: 3rem;
-    margin: 15rem auto 4rem;
-
-    &:visited,
-    &:link {
-      color: get-color(neutrals-white);
-    }
-  }
-
-  &_main {
-    align-self: stretch;
-    text-align: center;
-  }
-
-  &_list {
-    list-style: none;
-  }
-
-  &_item {
-    width: 100%;
-  }
-
-  &_link {
-    display: inline-block;
-    position: relative;
-    color: get-color(neutrals-white);
+  @media (min-width: 500px) {
+    width: 100vw;
+    height: 7rem;
     font-size: 1.8rem;
-    text-decoration: none;
-    padding: 1rem;
-    margin: 1rem 0;
+  }
+}
+
+.nav_main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: get-color(neutrals-black);
+  color: get-color(neutrals-white);
+  transition: transform .2s ease-out;
+
+  @media (min-width: 500px) {
+    flex-direction: row;
+    margin: 0 auto;
+    height: 100%;
+    transition: none;
+  }
+
+  &__hidden {
+    @extend .nav_main;
+    transform: translateX(-100%);
+  }
+}
+
+.hamburger {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  color: get-color(neutrals-white);
+}
+
+.hamburger_bg {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background-color: get-color(neutrals-black);
+
+  &__open {
+    display: none;
+  }
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity transform 1s ease-out;
+
+  @media (min-width: 500px) {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 2em;
+    width: min(100%, 600px);
+  }
+
+  &__hidden {
+    opacity: 0;
+    transform: translateY(-40%);
+  }
+}
+
+.item {}
+
+.link {
+  display: inline-block;
+  opacity: 0;
+  position: relative;
+  color: get-color(neutrals-white);
+  text-decoration: none;
+  padding: 0.5em 1em;
+  margin: .5em 0;
+  transform: translateY(-40%);
+  animation: animated-link .2s ease-out forwards;
+  // animation: name duration timing-function delay iteration-count direction fill-mode;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 0;
+    background-color: get-color(neutrals-white);
     transition: .4s;
+  }
+
+  &:visited {
+    color: get-color(neutrals-white);
+  }
+
+  &:hover {
+    color: get-color(secondary);
+    cursor: pointer;
 
     &::after {
-      content: "";
-      position: absolute;
-      bottom: 0.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      height: 2px;
-      width: 0;
-      background-color: get-color(neutrals-white);
-      transition: .4s;
+      width: calc(100% - 3rem);
+      background-color: get-color(secondary);
     }
+  }
 
-    &:visited {
-      color: get-color(neutrals-white);
+  &__active {
+    color: get-color(secondary);
+
+    &::after {
+      width: calc(100% - 3rem);
+      background-color: get-color(secondary);
     }
+  }
+}
 
-    &:hover {
-      color: get-color(secondary);
-      cursor: pointer;
+@keyframes animated-link {
+  from {
+    opacity: 0;
+    transform: translateY(-40%);
+  }
 
-      &::after {
-        width: calc(100% - 3rem);
-        background-color: get-color(secondary);
-      }
-    }
-
-    &__active {
-      color: get-color(secondary);
-
-      &::after {
-        width: calc(100% - 3rem);
-        background-color: get-color(secondary);
-      }
-    }
-
-
-
-
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -1,36 +1,49 @@
 import { useState, useEffect, useRef } from 'react';
 import { Fade as Hamburger } from 'hamburger-react';
-import Icon, { iconEnum } from 'assets/Icon';
+// import Icon, { iconEnum } from 'assets/Icon';
 import NavLink from './NavLink';
 
 import styles from './Navigation.module.css';
 
 const Navigation: React.FC = () => {
   const [isOpen, setOpen] = useState(false);
-  const [largeScreen, setLargeScreen] = useState<boolean | null>(null);
+  const [smallScreen, setSmallScreen] = useState<boolean | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const setScreen = () => {
-      const isLargeScreen = window.innerWidth >= 1400;
-      if (largeScreen !== isLargeScreen) {
-        setOpen(!!isLargeScreen);
-        setLargeScreen(isLargeScreen);
+      if (window.matchMedia('(max-width: 500px)').matches) {
+        setSmallScreen(true);
+        setOpen(false);
+      } else {
+        setSmallScreen(false);
+        setOpen(true);
       }
     };
 
-    if (largeScreen === null) setScreen();
+    setScreen();
     window.addEventListener('resize', setScreen);
-
     return () => {
       window.removeEventListener('resize', setScreen);
     };
-  });
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen && smallScreen ? 'hidden' : 'unset';
+    // console.log(isOpen, smallScreen);
+  }, [isOpen, smallScreen]);
 
   return (
-    <div className={isOpen ? styles.nav : styles.nav__closed} ref={navRef}>
-      {!largeScreen && (
-        <div className={styles.nav_hamburger}>
+    <div
+      // className={isOpen ? styles.nav_container : styles.nav_container__closed}
+      className={styles.nav_container}
+      ref={navRef}
+    >
+      {smallScreen && (
+        <div className={styles.hamburger}>
+          <div
+            className={isOpen ? styles.hamburger_bg__open : styles.hamburger_bg}
+          />
           <Hamburger
             toggled={isOpen}
             toggle={setOpen}
@@ -41,24 +54,23 @@ const Navigation: React.FC = () => {
         </div>
       )}
 
-      <div className={isOpen ? styles.nav_content : styles.nav_content__hidden}>
-        <a
+      <nav className={isOpen ? styles.nav_main : styles.nav_main__hidden}>
+        <ul className={isOpen ? styles.list : styles.list__hidden}>
+          <NavLink to="home">Home</NavLink>
+          <NavLink to="about">About</NavLink>
+          <NavLink to="skills">Skills</NavLink>
+          <NavLink to="projects">Projects</NavLink>
+          <NavLink to="contact">Contact</NavLink>
+        </ul>
+
+        {/* <a
           href="https://github.com/apiwonska"
-          className={styles.nav_linkIcon}
+          className={styles.linkIcon}
           aria-label="go to Anna Piwonska Github Page"
         >
           <Icon name={iconEnum.Github} />
-        </a>
-        <nav className={styles.nav_main}>
-          <ul className={styles.nav_list}>
-            <NavLink to="home">Home</NavLink>
-            <NavLink to="about">About</NavLink>
-            <NavLink to="skills">Skills</NavLink>
-            <NavLink to="projects">Projects</NavLink>
-            <NavLink to="contact">Contact</NavLink>
-          </ul>
-        </nav>
-      </div>
+        </a> */}
+      </nav>
     </div>
   );
 };
