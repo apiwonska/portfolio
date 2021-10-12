@@ -1,0 +1,46 @@
+@use '../../../styles/variables'as *;
+
+.link {
+  display: inline-block;
+  position: relative;
+  color: get-color(neutrals-white);
+  text-decoration: none;
+  text-transform: capitalize;
+  padding: 0.5em 1em;
+  margin: .5em 0;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 0;
+    background-color: get-color(neutrals-white);
+    transition: .4s;
+  }
+
+  &:visited {
+    color: get-color(neutrals-white);
+  }
+
+  &:hover {
+    color: get-color(secondary);
+    cursor: pointer;
+
+    &::after {
+      width: calc(100% - 3rem);
+      background-color: get-color(secondary);
+    }
+  }
+
+  &__active {
+    color: get-color(secondary);
+
+    &::after {
+      width: calc(100% - 3rem);
+      background-color: get-color(secondary);
+    }
+  }
+}

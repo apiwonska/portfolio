@@ -1,76 +1,49 @@
-import { useState, useEffect, useRef } from 'react';
-import { Fade as Hamburger } from 'hamburger-react';
-// import Icon, { iconEnum } from 'assets/Icon';
-import NavLink from './NavLink';
+import { useState, useEffect } from 'react';
+
+import Hamburger from './Hamburger';
+import Nav from './Nav';
 
 import styles from './Navigation.module.css';
 
 const Navigation: React.FC = () => {
   const [isOpen, setOpen] = useState(false);
   const [smallScreen, setSmallScreen] = useState<boolean | null>(null);
-  const navRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const setScreen = () => {
-      if (window.matchMedia('(max-width: 500px)').matches) {
-        setSmallScreen(true);
+    const mediaQueryList = window.matchMedia('(max-width: 500px)');
+
+    if (mediaQueryList.matches) {
+      setOpen(false);
+      setSmallScreen(true);
+    } else {
+      setSmallScreen(false);
+    }
+
+    const onChange = (e: MediaQueryListEvent) => {
+      if (e.matches) {
         setOpen(false);
+        setSmallScreen(true);
       } else {
         setSmallScreen(false);
-        setOpen(true);
       }
     };
 
-    setScreen();
-    window.addEventListener('resize', setScreen);
+    // more performant than listening on resize
+    mediaQueryList.addEventListener('change', onChange);
     return () => {
-      window.removeEventListener('resize', setScreen);
+      mediaQueryList.removeEventListener('change', onChange);
     };
   }, []);
 
+  // Prevent page scroll in the background when mobile navigation open
   useEffect(() => {
     document.body.style.overflow = isOpen && smallScreen ? 'hidden' : 'unset';
-    // console.log(isOpen, smallScreen);
   }, [isOpen, smallScreen]);
 
   return (
-    <div
-      // className={isOpen ? styles.nav_container : styles.nav_container__closed}
-      className={styles.nav_container}
-      ref={navRef}
-    >
-      {smallScreen && (
-        <div className={styles.hamburger}>
-          <div
-            className={isOpen ? styles.hamburger_bg__open : styles.hamburger_bg}
-          />
-          <Hamburger
-            toggled={isOpen}
-            toggle={setOpen}
-            hideOutline={false}
-            easing="ease-in"
-            label="Toggle menu"
-          />
-        </div>
-      )}
-
-      <nav className={isOpen ? styles.nav_main : styles.nav_main__hidden}>
-        <ul className={isOpen ? styles.list : styles.list__hidden}>
-          <NavLink to="home">Home</NavLink>
-          <NavLink to="about">About</NavLink>
-          <NavLink to="skills">Skills</NavLink>
-          <NavLink to="projects">Projects</NavLink>
-          <NavLink to="contact">Contact</NavLink>
-        </ul>
-
-        {/* <a
-          href="https://github.com/apiwonska"
-          className={styles.linkIcon}
-          aria-label="go to Anna Piwonska Github Page"
-        >
-          <Icon name={iconEnum.Github} />
-        </a> */}
-      </nav>
+    <div className={styles.nav_container}>
+      <Hamburger smallScreen={smallScreen} isOpen={isOpen} setOpen={setOpen} />
+      <Nav smallScreen={smallScreen} isOpen={isOpen} setOpen={setOpen} />
     </div>
   );
 };

@@ -1,0 +1,38 @@
+.link {
+  display: inline-block;
+  position: relative;
+  color: #F9F9F9;
+  text-decoration: none;
+  text-transform: capitalize;
+  padding: 0.5em 1em;
+  margin: 0.5em 0;
+}
+.link::after {
+  content: "";
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 0;
+  background-color: #F9F9F9;
+  transition: 0.4s;
+}
+.link:visited {
+  color: #F9F9F9;
+}
+.link:hover {
+  color: #FEE2CD;
+  cursor: pointer;
+}
+.link:hover::after {
+  width: calc(100% - 3rem);
+  background-color: #FEE2CD;
+}
+.link__active {
+  color: #FEE2CD;
+}
+.link__active::after {
+  width: calc(100% - 3rem);
+  background-color: #FEE2CD;
+}

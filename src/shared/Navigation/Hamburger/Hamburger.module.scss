@@ -1,0 +1,30 @@
+@use '../../../styles/variables'as *;
+
+.hamburger {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  color: get-color(neutrals-white);
+
+  &__hidden {
+    display: none;
+  }
+}
+
+.hamburger_bg {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background-color: get-color(neutrals-black);
+
+  &__open {
+    display: none;
+  }
+}

@@ -1,0 +1,73 @@
+.navDesktop, .navMobile, .navMobile__hidden {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #333;
+  color: #F9F9F9;
+}
+
+.navMobile, .navMobile__hidden {
+  flex-direction: column;
+  height: 100vh;
+  z-index: -1;
+  transition: transform 0.2s ease-out;
+}
+.navMobile__hidden {
+  transform: translateX(-100%);
+}
+
+.navDesktop {
+  height: 7rem;
+  transform: translateY(-100%);
+  opacity: 0;
+  animation: navDesktopInit 0.2s ease-out forwards;
+}
+
+@keyframes navDesktopInit {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.listDesktop, .listMobile {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(-25px);
+  animation: animated-links 0.2s 0.3s linear forwards;
+}
+
+.listMobile {
+  flex-direction: column;
+}
+.listMobile__hidden {
+  opacity: 0;
+  transform: translateY(-25px);
+}
+
+.listDesktop {
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 2em;
+  width: min(100%, 600px);
+}
+
+@keyframes animated-links {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
