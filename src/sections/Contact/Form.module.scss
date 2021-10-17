@@ -1,0 +1,64 @@
+@use '../../styles/variables'as *;
+
+.form {
+  font-size: 16px;
+  text-align: center;
+}
+
+.form_group {
+  margin: 1.2em 0;
+  text-align: left;
+  ;
+}
+
+.form_label {
+  display: flex;
+  flex-direction: column;
+  font-size: 1em;
+  margin-bottom: .6em;
+}
+
+.form_input {
+  width: 100%;
+  font-size: 1em;
+  font-family: get-font(default);
+  color: get-color(neutrals-black);
+  background-color: #fff;
+  padding: .5em;
+  line-height: 1.5;
+  border: none;
+  border-bottom: 2px solid get-color(neutrals-black);
+}
+
+.form_textarea {
+  @extend .form_input;
+  height: calc(6* 1.5 * 1em);
+}
+
+.form_button {
+  align-self: center;
+  padding: .6em 3em;
+  margin: 1em 0;
+  text-transform: uppercase;
+  border: 2px solid get-color(neutrals-black);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus-visible {
+    outline: #333 1px dashed;
+    outline-offset: 5px;
+  }
+}
+
+.form_error {
+  font-size: 14px;
+  margin-top: .6em;
+  color: get-color(form-error);
+}
+
+.form_success {
+  font-size: 14px;
+  color: get-color(form-success);
+}

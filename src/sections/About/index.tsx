@@ -3,11 +3,9 @@ import photo from 'assets/my-photo.png';
 import styles from './About.module.css';
 
 const About: React.FC = () => (
-  <section id="about" className={styles.section}>
-    <div className={styles.title}>
-      <SectionHeader>About</SectionHeader>
-    </div>
-    <div className={styles.margin__deco} />
+  <section id="about">
+    <SectionHeader>About</SectionHeader>
+
     <div className={styles.description}>
       <p>
         I’m a self-taught developer based in Warsaw, Poland. I love to create

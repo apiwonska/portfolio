@@ -2,17 +2,20 @@
   position: relative;
   font-family: "Yeseva One", cursive;
   font-size: 6rem;
+  line-height: 1;
   z-index: 0;
-  margin: 15rem 0 5rem 7rem;
 }
 .sectionHeader::before {
-  content: "";
+  display: block;
+  content: " ";
   position: absolute;
-  top: -1rem;
-  left: -3rem;
-  width: 10rem;
-  height: 10rem;
-  border-radius: 50%;
-  background-color: #Fff;
+  top: 0;
+  left: 0;
+  transform: translate(-100%, -50%);
+  background-image: url("../../assets/two-triangles.svg");
+  background-size: 1em 1.2em;
+  background-repeat: no-repeat;
+  height: 1.2em;
+  width: 1em;
   z-index: -1;
 }

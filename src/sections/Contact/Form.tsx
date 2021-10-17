@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import TextareaAutosize from 'react-textarea-autosize';
-import styles from './Contact.module.css';
+import styles from './Form.module.css';
 
 const schema = yup
   .object({

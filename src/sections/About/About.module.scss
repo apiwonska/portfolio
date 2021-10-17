@@ -1,5 +1,4 @@
 @use '../../styles/variables'as *;
-@use '../../styles/mixins'as *;
 
 @mixin block-wrapper {
   display: grid;
@@ -11,46 +10,8 @@
   }
 }
 
-.section {
-  @include section-grid;
-}
-
-.title {
-  grid-column: SH-l / -1;
-  grid-row: 1 / 2;
-}
-
-.margin__deco {
-  grid-column: 1Lm-l;
-  grid-row: LB-t / RB-b;
-  background-color: get-color(main);
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: max(2rem, 15%);
-    background-color: get-color(main-darkened);
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: max(2rem, 15%);
-    height: 100%;
-    width: max(2.5rem, 15%);
-    background-color: get-color(main-lightened);
-  }
-}
-
 .description {
-  grid-column: LB-l / LB-r;
-  grid-row: LB-t / LB-b;
-  background-color: get-color(main);
+
   font-size: 2rem;
   line-height: 1.8;
 
@@ -58,12 +19,8 @@
 }
 
 .photo {
-  grid-column: RB-l/ RB-r;
-  grid-row: RB-t / RB-b;
-  background-color: get-color(main);
-
   @include block-wrapper;
-  justify-items: center;
+
 }
 
 @media (max-width: 900px) {
@@ -79,7 +36,6 @@
   width: 25rem;
   height: 25rem;
   border-radius: 50%;
-  outline: 1.25rem solid get-color(main-darkened);
   z-index: 1;
 
   & img {

@@ -1,26 +1,3 @@
-@mixin section-grid {
-  width: 100%;
-  font-size: 1.6rem;
-  margin-bottom: 7rem;
-
-  // Legend for axis names:
-  // LB for Left Block, RB for Right Block, SH for Section Header, 
-  // -l, -r, -t, -b for left, right, top and bottom border
-  display: grid;
-  grid-template-columns: [LM-l] 1fr [LB-l SH-l] repeat(5, min(8.33%, 120px)) [LB-r RB-l] repeat(5, min(8.33%, 120px)) [RB-r] 1fr;
-  grid-template-rows: auto [LB-t RB-t] auto [RB-b LB-b] auto;
-
-  @media (max-width: 1200px) {
-    grid-template-columns: [LB-l SH-l] repeat(5, 1fr) [LB-r RB-l] repeat(5, 1fr) [RB-r];
-  }
-
-  @media (max-width: 900px) {
-    grid-template-columns: [LB-l RB-l] 1fr [SH-l] repeat(11, 1fr) [LB-r RB-r];
-    grid-template-rows: auto [LB-t] auto [LB-b RB-t] auto [RB-b] auto;
-  }
-}
-
-
 @mixin a11-outline-light {
   &:focus-visible {
     outline: #fff 1px dashed;

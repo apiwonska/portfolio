@@ -5,7 +5,7 @@
   top: 50%;
   left: -0.2em;
   transform: translate(-50%, -50%) scaleX(0.5);
-  background-image: url("../../../assets/nav-link-active.svg");
+  background-image: url("../../../assets/two-triangles.svg");
   background-size: 1em 1.2em;
   background-repeat: no-repeat;
   height: 1.2em;

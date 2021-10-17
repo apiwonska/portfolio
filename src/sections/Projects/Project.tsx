@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid';
-import styles from './Projects.module.css';
+import styles from './Project.module.css';
 import { TProject } from './projects';
 
 type Props = {
