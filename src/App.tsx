@@ -6,10 +6,13 @@ import Projects from 'sections/Projects';
 import Contact from 'sections/Contact';
 import PageLayout from 'shared/PageLayout';
 import 'App.css';
+import { animateScroll } from 'react-scroll';
 
 const App: React.FC = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Don't change if it's working. Before changing test in different browsers.
+    // With different options and scroll-behaviour it may not work.
+    animateScroll.scrollToTop({ duration: 300, smooth: true });
   }, []);
 
   return (

@@ -6,7 +6,8 @@ html {
   line-height: 1.45;
   color: get-color(neutrals-black);
   background-color: get-color(neutrals-white);
-  scroll-behavior: smooth;
+  // causing problems with duration option in react-scroll and scrolling in Chrome
+  // scroll-behavior: smooth;   
 }
 
 @media (max-width: 800px) {
