@@ -1,26 +1,30 @@
 .hamburger {
   display: inline-block;
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   z-index: 1;
   color: #F9F9F9;
 }
-.hamburger__hidden {
+
+.dark {
+  color: #333;
+}
+
+.hidden {
   display: none;
 }
 
-.hamburger_bg {
+.bg {
   display: inline-block;
   position: absolute;
   top: 0;
   left: 0;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #333;
+  width: 55px;
+  height: 52px;
+  border-bottom-left-radius: 5px;
+  background-color: #F9F9F9;
 }
-.hamburger_bg__open {
+.bg__open {
   display: none;
 }

@@ -1,20 +1,31 @@
-import { nanoid } from 'nanoid';
+import classNames from 'classnames';
+
 import NavLink from '../NavLink';
 import styles from './Nav.module.css';
+import { TNavbarThemes } from '../index';
 
 interface IProps {
   smallScreen: null | boolean;
   isOpen: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  theme: TNavbarThemes;
 }
 
 const sections = ['home', 'about', 'skills', 'projects', 'contact'];
 
-const Nav: React.FC<IProps> = ({ smallScreen, isOpen, setOpen }) => {
+const Nav: React.FC<IProps> = ({ smallScreen, isOpen, setOpen, theme }) => {
+  const navClass = classNames({
+    [styles.navDesktop__dark]: theme === 'dark',
+    [styles.navDesktop__light]: theme === 'light',
+    [styles.navDesktop__transparent]: theme === 'transparent',
+  });
+
   const renderLinks = sections.map((section) => (
-    <NavLink to={section} key={nanoid()} setOpen={setOpen}>
-      {section}
-    </NavLink>
+    <li key={section}>
+      <NavLink to={section} setOpen={setOpen}>
+        {section}
+      </NavLink>
+    </li>
   ));
 
   if (smallScreen) {
@@ -27,7 +38,7 @@ const Nav: React.FC<IProps> = ({ smallScreen, isOpen, setOpen }) => {
     );
   }
   return (
-    <nav className={styles.navDesktop}>
+    <nav className={navClass}>
       <ul className={styles.listDesktop}>{renderLinks}</ul>
     </nav>
   );

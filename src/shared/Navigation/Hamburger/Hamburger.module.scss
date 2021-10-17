@@ -2,27 +2,31 @@
 
 .hamburger {
   display: inline-block;
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   z-index: 1;
   color: get-color(neutrals-white);
-
-  &__hidden {
-    display: none;
-  }
 }
 
-.hamburger_bg {
+.dark {
+  color: get-color(neutrals-black);
+}
+
+.hidden {
+  display: none;
+}
+
+
+.bg {
   display: inline-block;
   position: absolute;
   top: 0;
   left: 0;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  background-color: get-color(neutrals-black);
+  width: 55px;
+  height: 52px;
+  border-bottom-left-radius: 5px;
+  background-color: get-color(neutrals-white);
 
   &__open {
     display: none;

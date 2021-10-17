@@ -1,38 +1,41 @@
+.link__active::after, .link:hover::after, .link::after {
+  display: block;
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: -0.2em;
+  transform: translate(-50%, -50%) scaleX(0.5);
+  background-image: url("../../../assets/nav-link-active.svg");
+  background-size: 1em 1.2em;
+  background-repeat: no-repeat;
+  height: 1.2em;
+  width: 1em;
+}
+
 .link {
   display: inline-block;
   position: relative;
-  color: #F9F9F9;
   text-decoration: none;
   text-transform: capitalize;
   padding: 0.5em 1em;
   margin: 0.5em 0;
 }
 .link::after {
-  content: "";
-  position: absolute;
-  bottom: 0.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 2px;
-  width: 0;
-  background-color: #F9F9F9;
-  transition: 0.4s;
+  opacity: 0;
+  transition: 0.3s ease-in;
+  transition-property: transform, opacity;
 }
 .link:visited {
-  color: #F9F9F9;
+  color: inherit;
 }
 .link:hover {
-  color: #FEE2CD;
   cursor: pointer;
 }
 .link:hover::after {
-  width: calc(100% - 3rem);
-  background-color: #FEE2CD;
-}
-.link__active {
-  color: #FEE2CD;
+  transform: translate(0, -50%) scaleX(1);
+  opacity: 1;
 }
 .link__active::after {
-  width: calc(100% - 3rem);
-  background-color: #FEE2CD;
+  transform: translate(0, -50%) scaleX(1);
+  opacity: 1;
 }

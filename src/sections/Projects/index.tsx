@@ -1,5 +1,5 @@
 import SectionHeader from 'shared/SectionHeader';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import styles from './Projects.module.css';
 import Project from './Project';
 import projects from './projects';
@@ -12,7 +12,7 @@ const Projects: React.FC = () => (
       </div>
     </div>
     {projects.map((project, ind) => (
-      <Project project={project} ind={ind} key={uuidv4()} />
+      <Project project={project} ind={ind} key={nanoid()} />
     ))}
   </section>
 );

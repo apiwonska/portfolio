@@ -2,12 +2,17 @@ import { useState, useEffect } from 'react';
 
 import Hamburger from './Hamburger';
 import Nav from './Nav';
-
 import styles from './Navigation.module.css';
+
+export type TNavbarThemes = 'transparent' | 'dark' | 'light';
+export type THamburgerColors = 'dark' | 'light';
 
 const Navigation: React.FC = () => {
   const [isOpen, setOpen] = useState(false);
   const [smallScreen, setSmallScreen] = useState<boolean | null>(null);
+  const [navbarTheme, setNavbarTheme] = useState<TNavbarThemes>('transparent');
+  const [hamburgerColor, setHamburgerColor] =
+    useState<THamburgerColors>('light');
 
   useEffect(() => {
     const mediaQueryList = window.matchMedia('(max-width: 500px)');
@@ -40,10 +45,41 @@ const Navigation: React.FC = () => {
     document.body.style.overflow = isOpen && smallScreen ? 'hidden' : 'unset';
   }, [isOpen, smallScreen]);
 
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.scrollY < 100) {
+        setNavbarTheme('transparent');
+      } else if (window.scrollY <= window.innerHeight - 70) {
+        setNavbarTheme('dark');
+      } else setNavbarTheme('light');
+
+      if (window.scrollY <= window.innerHeight - 50) {
+        setHamburgerColor('light');
+      } else {
+        setHamburgerColor('dark');
+      }
+    };
+
+    window.addEventListener('scroll', onScroll);
+    return () => {
+      window.addEventListener('scroll', onScroll);
+    };
+  }, []);
+
   return (
     <div className={styles.nav_container}>
-      <Hamburger smallScreen={smallScreen} isOpen={isOpen} setOpen={setOpen} />
-      <Nav smallScreen={smallScreen} isOpen={isOpen} setOpen={setOpen} />
+      <Hamburger
+        smallScreen={smallScreen}
+        isOpen={isOpen}
+        setOpen={setOpen}
+        color={hamburgerColor}
+      />
+      <Nav
+        smallScreen={smallScreen}
+        isOpen={isOpen}
+        setOpen={setOpen}
+        theme={navbarTheme}
+      />
     </div>
   );
 };

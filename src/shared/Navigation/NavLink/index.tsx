@@ -13,20 +13,18 @@ const NavLink: React.FC<Props> = ({ to, setOpen, children }) => {
   };
 
   return (
-    <li>
-      <Link
-        to={to}
-        className={styles.link}
-        activeClass={styles.link__active}
-        spy
-        smooth
-        offset={0}
-        duration={500}
-        onClick={onClick}
-      >
-        {children}
-      </Link>
-    </li>
+    <Link
+      to={to}
+      className={styles.link}
+      activeClass={styles.link__active}
+      spy
+      smooth
+      offset={0}
+      duration={500}
+      onClick={onClick}
+    >
+      {children}
+    </Link>
   );
 };
 

@@ -26,13 +26,27 @@
   }
 }
 
-.navDesktop {
+.navDesktop__transparent {
   @extend %nav;
   height: 7rem;
   transform: translateY(-100%);
   opacity: 0;
   animation: navDesktopInit .2s ease-out forwards;
+  background-color: transparent;
+  transition: background-color .3s ease;
 }
+
+.navDesktop__dark {
+  @extend .navDesktop__transparent;
+  background-color: rgba(get-color(neutrals-black), .95);
+}
+
+.navDesktop__light {
+  @extend .navDesktop__transparent;
+  background-color: rgba(get-color(neutrals-white), .95);
+  color: get-color(neutrals-black);
+}
+
 
 @keyframes navDesktopInit {
   from {
@@ -42,7 +56,7 @@
 
   to {
     transform: translateY(0);
-    opacity: 1;
+    opacity: 1.8;
   }
 }
 

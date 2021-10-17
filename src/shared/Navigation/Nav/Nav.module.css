@@ -1,4 +1,4 @@
-.navDesktop, .navMobile, .navMobile__hidden {
+.navDesktop__transparent, .navDesktop__light, .navDesktop__dark, .navMobile, .navMobile__hidden {
   position: absolute;
   top: 0;
   left: 0;
@@ -20,11 +20,22 @@
   transform: translateX(-100%);
 }
 
-.navDesktop {
+.navDesktop__transparent, .navDesktop__light, .navDesktop__dark {
   height: 7rem;
   transform: translateY(-100%);
   opacity: 0;
   animation: navDesktopInit 0.2s ease-out forwards;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.navDesktop__dark {
+  background-color: rgba(51, 51, 51, 0.95);
+}
+
+.navDesktop__light {
+  background-color: rgba(249, 249, 249, 0.95);
+  color: #333;
 }
 
 @keyframes navDesktopInit {
@@ -34,7 +45,7 @@
   }
   to {
     transform: translateY(0);
-    opacity: 1;
+    opacity: 1.8;
   }
 }
 .listDesktop, .listMobile {

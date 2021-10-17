@@ -1,46 +1,54 @@
 @use '../../../styles/variables'as *;
 
+%active-link-pseudo-element {
+  display: block;
+  content: ' ';
+  position: absolute;
+  top: 50%;
+  left: -.2em;
+  transform: translate(-50%, -50%) scaleX(.5);
+  background-image: url('../../../assets/nav-link-active.svg');
+  background-size: 1em 1.2em;
+  background-repeat: no-repeat;
+  height: 1.2em;
+  width: 1em;
+}
+
 .link {
   display: inline-block;
   position: relative;
-  color: get-color(neutrals-white);
   text-decoration: none;
   text-transform: capitalize;
   padding: 0.5em 1em;
   margin: .5em 0;
 
   &::after {
-    content: "";
-    position: absolute;
-    bottom: 0.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 2px;
-    width: 0;
-    background-color: get-color(neutrals-white);
-    transition: .4s;
+    @extend %active-link-pseudo-element;
+    opacity: 0;
+    transition: .3s ease-in;
+    transition-property: transform, opacity;
   }
 
   &:visited {
-    color: get-color(neutrals-white);
+    color: inherit;
   }
 
   &:hover {
-    color: get-color(secondary);
     cursor: pointer;
 
     &::after {
-      width: calc(100% - 3rem);
-      background-color: get-color(secondary);
+      @extend %active-link-pseudo-element;
+      transform: translate(0, -50%) scaleX(1);
+      opacity: 1;
     }
   }
 
   &__active {
-    color: get-color(secondary);
 
     &::after {
-      width: calc(100% - 3rem);
-      background-color: get-color(secondary);
+      @extend %active-link-pseudo-element;
+      transform: translate(0, -50%) scaleX(1);
+      opacity: 1;
     }
   }
 }

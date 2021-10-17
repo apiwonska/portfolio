@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import styles from './Projects.module.css';
 import { TProject } from './projects';
 
@@ -16,7 +16,9 @@ const Project: React.FC<Props> = ({
     <div className={styles.grid}>
       {/* <div className={styles.dec_watermark}>{index}</div> */}
       <div className={styles.description}>
-        <div className={styles.dec_number}>{index}</div>
+        <div className={styles.dec_number} aria-hidden="true">
+          {index}
+        </div>
         {/* <div className={styles.dec_hash}>#</div> */}
         <div className={styles.description_wrapper}>
           <h3 className={styles.project_name}>{title}</h3>
@@ -38,7 +40,7 @@ const Project: React.FC<Props> = ({
             aria-label="Technologies used in the project"
           >
             {technologies.map((technology) => (
-              <li className={styles.project_tag} key={uuidv4()}>
+              <li className={styles.project_tag} key={nanoid()}>
                 {technology}
               </li>
             ))}

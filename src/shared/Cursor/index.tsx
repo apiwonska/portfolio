@@ -42,10 +42,12 @@ const Cursor: React.FC = () => {
     setHoverLink(false);
   };
 
-  const links = document.querySelectorAll('a, button, [role="button"]');
-  const formFields = document.querySelectorAll('input, textarea');
-
   useEffect(() => {
+    const links = document.querySelectorAll(
+      'a, button, [role="button"], [role="link"]'
+    );
+    const formFields = document.querySelectorAll('input, textarea');
+
     // Prevent adding listeners if the device doesn't support hoover
     if (window.matchMedia('(hover: hover)').matches) {
       document.body.addEventListener('mousemove', onMouseMove);
