@@ -1,6 +1,7 @@
 import { nanoid } from 'nanoid';
 import ArrowDown from 'assets/ArrowDownSVG';
 import BigLogoSVG from 'assets/BigLogoSVG';
+import { Link } from 'react-scroll';
 import styles from './Home.module.css';
 
 const Home: React.FC = () => {
@@ -8,15 +9,13 @@ const Home: React.FC = () => {
   const titleLetters = title.split('').map((letter) => {
     const style = !letter ? { width: '0.5em' } : {};
     return (
-      <>
-        <span
-          key={nanoid()}
-          className={letter !== ' ' ? styles.titleLetter : ''}
-          style={style}
-        >
-          {letter}
-        </span>
-      </>
+      <span
+        key={nanoid()}
+        className={letter !== ' ' ? styles.titleLetter : ''}
+        style={style}
+      >
+        {letter}
+      </span>
     );
   });
 
@@ -34,9 +33,15 @@ const Home: React.FC = () => {
           <span className={styles.subtitleText}>Front-End Developer</span>
         </div>
       </div>
-      <a className={styles.arrow_wrapper} href="#about">
+      <Link
+        to="about"
+        className={styles.arrow_wrapper}
+        smooth
+        offset={0}
+        duration={500}
+      >
         <ArrowDown />
-      </a>
+      </Link>
     </section>
   );
 };
