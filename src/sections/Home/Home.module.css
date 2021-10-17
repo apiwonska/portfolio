@@ -1,35 +1,152 @@
 .section {
+  position: relative;
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr repeat(10, min(8.33%, 100px)) 1fr;
-  grid-template-rows: 1fr 500px 1fr;
+  background-color: #333;
+  background-color: #333333;
+  background-image: radial-gradient(#333, #222);
+  color: #F9F9F9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: min(2.8vw, 1.8rem);
 }
 
-.banner {
-  background-color: #A6CFBF;
-  padding: 8rem 2rem;
-  grid-column: 1/10;
-  grid-row: 2/3;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 6em 0;
 }
-.banner_content {
-  grid-column: 2/10;
-  grid-row: 2/3;
-  align-self: center;
+
+.bigLogo_wrapper {
+  width: max(20rem, 12.5vw);
+  margin: 1.5em;
+  transform: scale(1);
 }
-.banner_title {
-  display: block;
-  font-size: 7rem;
+
+.title {
+  font-size: max(20px, 3.5em);
   font-family: "Yeseva One", cursive;
   line-height: 1;
-  margin-bottom: 2rem;
-}
-.banner_subtitle {
-  display: block;
-  font-size: 40px;
+  margin: 0.3em 0.5em 0.2em;
 }
 
-@media (max-width: 900px) {
-  .banner {
-    grid-column: 1/-1;
+.titleLetter {
+  display: inline-block;
+  min-width: 0.3em;
+  opacity: 0;
+  animation: title-animation 0.2s ease-in 1 forwards;
+}
+
+.titleLetter:nth-child(1) {
+  animation-delay: 1.4s;
+}
+
+.titleLetter:nth-child(2) {
+  animation-delay: 1.5s;
+}
+
+.titleLetter:nth-child(3) {
+  animation-delay: 1.6s;
+}
+
+.titleLetter:nth-child(4) {
+  animation-delay: 1.7s;
+}
+
+.titleLetter:nth-child(5) {
+  animation-delay: 1.8s;
+}
+
+.titleLetter:nth-child(6) {
+  animation-delay: 1.9s;
+}
+
+.titleLetter:nth-child(7) {
+  animation-delay: 2s;
+}
+
+.titleLetter:nth-child(8) {
+  animation-delay: 2.1s;
+}
+
+.titleLetter:nth-child(9) {
+  animation-delay: 2.2s;
+}
+
+.titleLetter:nth-child(10) {
+  animation-delay: 2.3s;
+}
+
+.titleLetter:nth-child(11) {
+  animation-delay: 2.4s;
+}
+
+.titleLetter:nth-child(12) {
+  animation-delay: 2.5s;
+}
+
+.titleLetter:nth-child(13) {
+  animation-delay: 2.6s;
+}
+
+@keyframes title-animation {
+  0% {
+    opacity: 0;
+    transform: translate(-2em, -2em) skew(10deg, 10deg) rotateY(180deg) rotateZ(30deg);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) skew(0, 0) rotateY(0) rotateZ(0deg);
+    filter: blur(0px);
+  }
+}
+.subtitle {
+  font-size: max(14px, 1.4em);
+  padding: 0 1em 0.6em;
+  overflow: hidden;
+  color: #ddd;
+}
+
+.subtitleText {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(2em);
+  animation: subtitle 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2.5s forwards;
+}
+
+@keyframes subtitle {
+  from {
+    opacity: 0;
+    transform: translateY(2em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.arrow_wrapper {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 0);
+  width: 2em;
+  margin: 0.5em;
+  animation: jump 1.5s ease-in 4s infinite;
+}
+
+@keyframes jump {
+  0% {
+    transform: translate(-50%, 0);
+  }
+  60% {
+    transform: translate(-50%, -0.8em);
+  }
+  100% {
+    transform: translate(-50%, 0em);
   }
 }

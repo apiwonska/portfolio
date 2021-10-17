@@ -1,0 +1,100 @@
+@mixin letter-wireframe-animation($animation-name, $pathLength) {
+  @keyframes #{$animation-name} {
+    0% {
+      stroke-dasharray: $pathLength;
+      stroke-dashoffset: $pathLength;
+      opacity: 1;
+    }
+
+    90% {
+      stroke-dasharray: $pathLength;
+      stroke-dashoffset: 0%;
+      opacity: 1;
+    }
+
+    100% {
+      stroke-dasharray: $pathLength;
+      stroke-dashoffset: 0%;
+      opacity: 1;
+    }
+  }
+}
+
+.bigLogo {
+  border-radius: 50%;
+  animation: scale 2.1s ease forwards;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+
+  65% {
+    transform: scale(1);
+    box-shadow: 0 0 .1rem .3rem rgba(80, 80, 80, 0)
+  }
+
+  90% {
+    transform: scale(1.05);
+    box-shadow: 0 0 1rem 3rem rgba(80, 80, 80, 0.2)
+  }
+
+  99% {
+    transform: scale(1);
+    box-shadow: 0 0 1rem 5rem rgba(80, 80, 80, 0.1)
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+}
+
+.letterA_wireframe {
+  stroke-dasharray: 800px;
+  stroke-dashoffset: 800px;
+  opacity: 1;
+  animation: drawletterA 1.3s linear forwards;
+}
+
+@include letter-wireframe-animation(drawletterA, 800px);
+
+.letterP_wireframe {
+  stroke-dasharray: 620px;
+  stroke-dashoffset: 620px;
+  opacity: 1;
+  animation: drawletterP 1.3s linear forwards;
+}
+
+@include letter-wireframe-animation(drawletterP, 620px);
+
+.letterA_fill,
+.letterP_fill {
+  opacity: 0;
+  animation: show 2.2s ease forwards;
+}
+
+.bg {
+  opacity: 0;
+  animation: show 2.2s ease forwards;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+
+  62% {
+    opacity: 0;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
