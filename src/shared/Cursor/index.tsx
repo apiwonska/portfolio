@@ -12,7 +12,8 @@ const Cursor: React.FC = () => {
   const [position, setPosition] = useState<TPosition>(null);
   const [isHidden, setIsHidden] = useState(false);
   const [clicked, setClicked] = useState(false);
-  const [hoverLink, setHoverLink] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const [highlighted, setHighlighted] = useState(false);
 
   const onMouseMove = (e: MouseEvent) => {
     setPosition({ x: e.clientX, y: e.clientY });
@@ -34,17 +35,28 @@ const Cursor: React.FC = () => {
     setClicked(false);
   };
 
-  const onMouseEnterLink = () => {
-    setHoverLink(true);
+  const onMouseHoverStart = () => {
+    setHovered(true);
   };
 
-  const onMouseLeaveLink = () => {
-    setHoverLink(false);
+  const onMouseHoverEnd = () => {
+    setHovered(false);
+  };
+
+  const onMouseHighlightStart = () => {
+    setHighlighted(true);
+  };
+
+  const onMouseHighlightEnd = () => {
+    setHighlighted(false);
   };
 
   useEffect(() => {
-    const links = document.querySelectorAll(
+    const interactiveElements = document.querySelectorAll(
       'a, button, [role="button"], [role="link"]'
+    );
+    const highlightedElements = document.querySelectorAll(
+      '[class*=BigLogo], [class*=Home_title]'
     );
     const formFields = document.querySelectorAll('input, textarea');
 
@@ -59,9 +71,13 @@ const Cursor: React.FC = () => {
         field.addEventListener('mouseenter', handleMouseHide);
         field.addEventListener('mouseleave', handleMouseShow);
       });
-      links.forEach((link) => {
-        link.addEventListener('mouseenter', onMouseEnterLink);
-        link.addEventListener('mouseleave', onMouseLeaveLink);
+      interactiveElements.forEach((el) => {
+        el.addEventListener('mouseenter', onMouseHoverStart);
+        el.addEventListener('mouseleave', onMouseHoverEnd);
+      });
+      highlightedElements.forEach((el) => {
+        el.addEventListener('mouseenter', onMouseHighlightStart);
+        el.addEventListener('mouseleave', onMouseHighlightEnd);
       });
     }
 
@@ -76,9 +92,13 @@ const Cursor: React.FC = () => {
           field.removeEventListener('mouseenter', handleMouseHide);
           field.removeEventListener('mouseleave', handleMouseShow);
         });
-        links.forEach((link) => {
-          link.removeEventListener('mouseenter', onMouseEnterLink);
-          link.removeEventListener('mouseleave', onMouseLeaveLink);
+        interactiveElements.forEach((el) => {
+          el.removeEventListener('mouseenter', onMouseHoverStart);
+          el.removeEventListener('mouseleave', onMouseHoverEnd);
+        });
+        highlightedElements.forEach((el) => {
+          el.removeEventListener('mouseenter', onMouseHighlightStart);
+          el.removeEventListener('mouseleave', onMouseHighlightEnd);
         });
       }
     };
@@ -87,7 +107,8 @@ const Cursor: React.FC = () => {
   const cursorClasses = classNames(styles.cursor, {
     [styles.hidden]: isHidden,
     [styles.clicked]: clicked,
-    [styles.hover]: hoverLink,
+    [styles.hover]: hovered,
+    [styles.highlight]: highlighted,
   });
 
   // Prevent component display on mobile devices (and tablets)
