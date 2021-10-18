@@ -4,6 +4,7 @@
   font-size: 6rem;
   line-height: 1;
   z-index: 0;
+  margin: calc(7rem + 0.6em) calc(1em + 5vh) 1em;
 }
 .sectionHeader::before {
   display: block;
@@ -13,9 +14,9 @@
   left: 0;
   transform: translate(-100%, -50%);
   background-image: url("../../assets/two-triangles.svg");
-  background-size: 1em 1.2em;
+  background-size: 0.8em 1em;
   background-repeat: no-repeat;
-  height: 1.2em;
-  width: 1em;
+  height: 1em;
+  width: 0.8em;
   z-index: -1;
 }

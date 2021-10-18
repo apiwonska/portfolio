@@ -1,4 +1,6 @@
 @use './variables'as *;
+@use './mixins'as *;
+@use './variables'as *;
 
 html {
   font-family: get-font(default);
@@ -24,6 +26,7 @@ html {
 
 body {
   min-height: 100vh;
+  min-width: 300px;
 }
 
 *,
@@ -90,4 +93,14 @@ $font-size in $header-sizes {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: min($container-max-width, 100vw);
+  margin: 0 auto;
 }
