@@ -6,7 +6,10 @@
   font-size: 6rem;
   line-height: 1;
   z-index: 0;
-  margin: calc(7rem + .6em) calc(1em + 5vh) 1em;
+  margin-top: calc(7rem + .6em);
+  margin-bottom: 1em;
+  margin-left: calc(1em + 3vw);
+
 
   &::before {
     display: block;

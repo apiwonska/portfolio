@@ -2,6 +2,8 @@
 
 .form {
   font-size: 16px;
+  padding: 2.5em;
+  background-color: get-color(neutrals-white);
   text-align: center;
 }
 
@@ -23,7 +25,7 @@
   font-size: 1em;
   font-family: get-font(default);
   color: get-color(neutrals-black);
-  background-color: #fff;
+  background-color: get-color(neutrals-white);
   padding: .5em;
   line-height: 1.5;
   border: none;
@@ -41,9 +43,13 @@
   margin: 1em 0;
   text-transform: uppercase;
   border: 2px solid get-color(neutrals-black);
+  background-color: get-color(neutrals-white);
+  transform: translateY(0);
+  transition: .4s ease;
 
   &:hover {
     cursor: pointer;
+    transform: translateY(1px);
   }
 
   &:focus-visible {

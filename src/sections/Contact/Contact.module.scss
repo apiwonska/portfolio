@@ -1,9 +1,49 @@
 @use '../../styles/variables'as *;
 
+$breakpoint: 1000px;
 
-.form_container {
-  padding: 2em 1.5em;
+.content_bg {
+  background-color: get-color(main);
+}
+
+.content_bgClip {
+  background-color: get-color(neutrals-light-gray);
   display: flex;
-  flex-direction: column;
+  clip-path: polygon(30% 0, 100% 0, 100% 90%, 70% 100%, 0 100%, 0 10%);
+  margin: -1px;
+
+  @media (min-width: 1200px) {
+    clip-path: polygon(5% 0, 100% 0, 100% 60%, 95% 100%, 0 100%, 0 40%);
+  }
+}
+
+.content_wrapper {
+  width: min($container-max-width, 100vw);
+  display: flex;
+  align-items: center;
   justify-content: center;
+  font-size: 16px;
+
+  @media (min-width: $breakpoint) {
+    justify-content: auto;
+    margin: 0 auto;
+  }
+}
+
+.form_wrapper {
+  width: min(700px, 100%);
+  margin: 4em 0;
+
+  @media (min-width: $breakpoint) {
+    margin: 4em;
+  }
+}
+
+.arrows_wrapper {
+  display: none;
+
+  @media (min-width: $breakpoint) {
+    display: block;
+    margin: 0 auto;
+  }
 }
