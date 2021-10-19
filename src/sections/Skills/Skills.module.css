@@ -1,25 +1,58 @@
+.content_bg {
+  position: relative;
+  background-color: #E5E5E5;
+  width: min(1200px, 100vw);
+  margin: 0 auto;
+  padding: 3em;
+  font-size: 1.6rem;
+}
+.content_bg:before {
+  display: block;
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+  background-image: url("../../assets/triangles-bg.svg");
+  background-size: 4.8em 20em;
+  background-repeat: no-repeat;
+  height: 20em;
+  width: 4.8em;
+}
+
+.skills_group:not(:last-child) {
+  margin-bottom: 2.5em;
+}
+
 .skills_title {
   position: relative;
-  font-size: 3rem;
+  font-size: 2em;
   text-transform: capitalize;
+  line-height: 1;
+  margin-left: 1.5em;
+  margin-bottom: 0.4em;
 }
 .skills_title:before {
+  display: block;
+  content: " ";
   position: absolute;
-  content: "";
-  width: 0.8em;
-  height: 0.8em;
-  border-radius: 50%;
-  top: 50%;
+  top: 0;
   left: 0;
-  transform: translate(-200%, -50%);
-  background-color: #A6CFBF;
+  transform: translate(-120%, 0);
+  background-image: url("../../assets/bullet.svg");
+  background-size: 1.4em 0.85em;
+  background-repeat: no-repeat;
+  height: 0.85em;
+  width: 1.4em;
 }
 
 .skills_list {
   list-style: none;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .skills_item {
-  font-size: 2rem;
-  margin: 0.5em 0;
+  font-size: 1.8rem;
+  margin: 0.5em;
 }
