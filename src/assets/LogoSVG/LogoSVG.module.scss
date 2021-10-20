@@ -1,0 +1,51 @@
+@mixin letter-animation($animation-name, $path-length, $start-draw) {
+  @keyframes #{$animation-name} {
+    0% {
+      stroke-dasharray: $path-length;
+      stroke-dashoffset: $path-length;
+      stroke-opacity: 1;
+      fill-opacity: 0;
+    }
+
+    #{$start-draw} {
+      stroke-dasharray: $path-length;
+      stroke-dashoffset: $path-length;
+      stroke-opacity: 1;
+      fill-opacity: 0;
+    }
+
+    75% {
+      stroke-dasharray: $path-length;
+      stroke-dashoffset: 0%;
+      stroke-opacity: 1;
+      fill-opacity: 0;
+    }
+
+    100% {
+      stroke-dasharray: $path-length;
+      stroke-dashoffset: 0%;
+      stroke-opacity: 0;
+      fill-opacity: 1;
+    }
+  }
+}
+
+.letterA {
+  stroke-dasharray: 1100px;
+  stroke-dashoffset: 1100px;
+  stroke-opacity: 1;
+  fill-opacity: 0;
+  animation: drawletterA 1.3s linear forwards;
+}
+
+@include letter-animation(drawletterA, 1000px, 1%);
+
+.letterP {
+  stroke-dasharray: 500px;
+  stroke-dashoffset: 500px;
+  stroke-opacity: 1;
+  fill-opacity: 0;
+  animation: drawletterP 1.3s linear forwards;
+}
+
+@include letter-animation(drawletterP, 500px, 35%);
