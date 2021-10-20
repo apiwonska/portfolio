@@ -16,13 +16,14 @@
   @extend %nav;
   flex-direction: column;
   height: 100vh;
+  overflow: hidden;
   z-index: -1;
 
   transition: transform .2s ease-out;
 
   &__hidden {
     @extend .navMobile;
-    transform: translateX(-100%);
+    transform: translateX(-100vw);
   }
 }
 
@@ -31,7 +32,7 @@
   height: 7rem;
   transform: translateY(-100%);
   opacity: 0;
-  animation: navDesktopInit .2s ease-out forwards;
+  animation: navDesktopInit .2s ease-out 1s forwards;
   background-color: transparent;
   transition: background-color .3s ease;
 }
@@ -44,6 +45,7 @@
 .navDesktop__light {
   @extend .navDesktop__transparent;
   background-color: rgba(get-color(neutrals-white), .95);
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1);
   color: get-color(neutrals-black);
 }
 
@@ -56,7 +58,7 @@
 
   to {
     transform: translateY(0);
-    opacity: 1.8;
+    opacity: 1;
   }
 }
 

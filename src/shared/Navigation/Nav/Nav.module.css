@@ -1,4 +1,8 @@
-.navDesktop__transparent, .navDesktop__light, .navDesktop__dark, .navMobile, .navMobile__hidden {
+.navDesktop__transparent,
+.navDesktop__light,
+.navDesktop__dark,
+.navMobile,
+.navMobile__hidden {
   position: absolute;
   top: 0;
   left: 0;
@@ -7,54 +11,63 @@
   align-items: center;
   justify-content: center;
   background-color: #333;
-  color: #F9F9F9;
+  color: #f9f9f9;
 }
 
-.navMobile, .navMobile__hidden {
+.navMobile,
+.navMobile__hidden {
   flex-direction: column;
   height: 100vh;
+  overflow: hidden;
   z-index: -1;
   transition: transform 0.2s ease-out;
 }
 .navMobile__hidden {
-  transform: translateX(-100%);
+  transform: translateX(-100vw);
 }
 
-.navDesktop__transparent, .navDesktop__light, .navDesktop__dark {
+.navDesktop__transparent,
+.navDesktop__light,
+.navDesktop__dark {
   height: 7rem;
   transform: translateY(-100%);
   opacity: 0;
-  animation: navDesktopInit 0.2s ease-out forwards;
+  animation: navdesktopinit 0.2s ease-out forwards;
+  animation-delay: 1s;
   background-color: transparent;
   transition: background-color 0.3s ease;
 }
 
 .navDesktop__dark {
   background-color: rgba(51, 51, 51, 0.95);
+  animation-delay: 0;
 }
 
 .navDesktop__light {
   background-color: rgba(249, 249, 249, 0.95);
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1);
   color: #333;
+  animation-delay: 0;
 }
 
-@keyframes navDesktopInit {
+@keyframes navdesktopinit {
   from {
     transform: translateY(-100%);
     opacity: 0;
   }
   to {
     transform: translateY(0);
-    opacity: 1.8;
+    opacity: 1;
   }
 }
-.listDesktop, .listMobile {
+.listDesktop,
+.listMobile {
   list-style: none;
   display: flex;
   align-items: center;
   opacity: 0;
   transform: translateY(-25px);
-  animation: animated-links 0.2s 0.3s linear forwards;
+  animation: animatedlinks 0.2s 0.3s linear forwards;
 }
 
 .listMobile {
@@ -72,7 +85,7 @@
   width: min(100%, 600px);
 }
 
-@keyframes animated-links {
+@keyframes animatedlinks {
   from {
     opacity: 0;
     transform: translateY(-25px);

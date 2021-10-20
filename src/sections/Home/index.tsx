@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 import ArrowDown from 'assets/ArrowDownSVG';
-import BigLogoSVG from 'assets/BigLogoSVG';
+import LogoSVG from 'assets/LogoSVG';
 import { Link } from 'react-scroll';
 import styles from './Home.module.css';
 
@@ -22,8 +22,8 @@ const Home: React.FC = () => {
   return (
     <section id="home" className={styles.section}>
       <div className={styles.wrapper}>
-        <div className={styles.bigLogo_wrapper}>
-          <BigLogoSVG />
+        <div className={styles.logo_wrapper}>
+          <LogoSVG />
         </div>
         <h1 className="sr-only">Anna Piwonska, Front-end Developer</h1>
         <div className={styles.title} aria-hidden="true">

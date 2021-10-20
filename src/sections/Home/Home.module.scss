@@ -23,10 +23,36 @@
   margin: 6em 0;
 }
 
-.bigLogo_wrapper {
+.logo_wrapper {
   width: max(20rem, 12.5vw);
   margin: 1.5em;
-  transform: scale(1);
+  transform: scale(1.5);
+  animation: scalelogomobile .4s ease 1s forwards;
+
+  @media (min-width: 500px) {
+    transform: scale(2);
+    animation: scalelogo .4s ease 1s forwards;
+  }
+}
+
+@keyframes scalelogomobile {
+  0% {
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes scalelogo {
+  0% {
+    transform: scale(2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .title {
