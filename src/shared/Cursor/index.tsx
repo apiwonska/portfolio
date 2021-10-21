@@ -56,7 +56,7 @@ const Cursor: React.FC = () => {
       'a, button, [role="button"], [role="link"]'
     );
     const highlightedElements = document.querySelectorAll(
-      '[class*=BigLogo], [class*=Home_title]'
+      '#logo, [class*=Home_title]'
     );
     const formFields = document.querySelectorAll('input, textarea');
 

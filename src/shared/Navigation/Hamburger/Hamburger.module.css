@@ -22,7 +22,7 @@
   left: 0;
   width: 55px;
   height: 52px;
-  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   background-color: #F9F9F9;
 }
 .bg__open {

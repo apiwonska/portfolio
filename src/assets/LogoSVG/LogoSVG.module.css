@@ -1,4 +1,4 @@
-.letterA {
+.letterA__animated {
   stroke-dasharray: 1100px;
   stroke-dashoffset: 1100px;
   stroke-opacity: 1;
@@ -32,7 +32,7 @@
     fill-opacity: 1;
   }
 }
-.letterP {
+.letterP__animated {
   stroke-dasharray: 500px;
   stroke-dashoffset: 500px;
   stroke-opacity: 1;

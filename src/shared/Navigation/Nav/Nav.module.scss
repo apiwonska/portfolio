@@ -29,7 +29,7 @@
 
 .navDesktop__transparent {
   @extend %nav;
-  height: 7rem;
+  height: 5.5rem;
   transform: translateY(-100%);
   opacity: 0;
   animation: navDesktopInit .2s ease-out 1s forwards;
@@ -44,7 +44,7 @@
 
 .navDesktop__light {
   @extend .navDesktop__transparent;
-  background-color: rgba(get-color(neutrals-white), .95);
+  background-color: rgba(get-color(neutrals-white), .99);
   box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1);
   color: get-color(neutrals-black);
 }
