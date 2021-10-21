@@ -20,10 +20,10 @@ const Home: React.FC = () => {
   });
 
   return (
-    <section id="home" className={styles.section}>
+    <header id="home" className={styles.section}>
       <div className={styles.wrapper}>
         <div className={styles.logo_wrapper}>
-          <LogoSVG />
+          <LogoSVG animated />
         </div>
         <h1 className="sr-only">Anna Piwonska, Front-end Developer</h1>
         <div className={styles.title} aria-hidden="true">
@@ -42,7 +42,7 @@ const Home: React.FC = () => {
       >
         <ArrowDown />
       </Link>
-    </section>
+    </header>
   );
 };
 

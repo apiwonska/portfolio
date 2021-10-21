@@ -16,6 +16,7 @@
   flex-direction: column;
   align-items: center;
   font-size: 1.8rem;
+  overflow: hidden;
 
   @media (min-width: 900px) {
     flex-direction: row;
@@ -24,12 +25,13 @@
   }
 }
 
-.photo_wrapper {
+.photo {
   width: min(300px, 90vw);
   align-self: center;
 
   @media (min-width: 900px) {
     width: 350px;
+    // if you put img inside div remember to move this margin to div
     margin-right: 6%;
   }
 }

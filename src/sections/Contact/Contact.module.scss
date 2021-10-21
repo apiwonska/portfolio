@@ -10,7 +10,6 @@ $breakpoint: 1000px;
   background-color: get-color(neutrals-light-gray);
   display: flex;
   clip-path: polygon(30% 0, 100% 0, 100% 90%, 70% 100%, 0 100%, 0 10%);
-  margin: -1px;
 
   @media (min-width: 1200px) {
     clip-path: polygon(5% 0, 100% 0, 100% 60%, 95% 100%, 0 100%, 0 40%);
@@ -18,7 +17,7 @@ $breakpoint: 1000px;
 }
 
 .content_wrapper {
-  width: min($container-max-width, 100vw);
+  width: min($container-max-width, 100%);
   display: flex;
   align-items: center;
   justify-content: center;

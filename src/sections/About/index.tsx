@@ -1,5 +1,5 @@
 import SectionHeader from 'shared/SectionHeader';
-import photo from 'assets/my-photo.svg';
+import photo from 'assets/my-photo.png';
 import styles from './About.module.css';
 
 const About: React.FC = () => (
@@ -11,9 +11,7 @@ const About: React.FC = () => (
     <div className={styles.content_bg}>
       <div className="container">
         <div className={styles.content_wrapper}>
-          <div className={styles.photo_wrapper}>
-            <img src={photo} alt="" />
-          </div>
+          <img src={photo} alt="" className={styles.photo} />
           <div className={styles.description_wrapper}>
             <div className={styles.description}>
               <p>

@@ -26,18 +26,13 @@
 .logo_wrapper {
   width: max(20rem, 12.5vw);
   margin: 1.5em;
-  transform: scale(1.5);
+  transform: scale(1.8);
   animation: scalelogomobile .4s ease 1s forwards;
-
-  @media (min-width: 500px) {
-    transform: scale(2);
-    animation: scalelogo .4s ease 1s forwards;
-  }
 }
 
 @keyframes scalelogomobile {
   0% {
-    transform: scale(1.5);
+    transform: scale(1.8);
   }
 
   100% {

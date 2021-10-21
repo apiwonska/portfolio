@@ -19,10 +19,12 @@ const App: React.FC = () => {
     <>
       <PageLayout>
         <Home />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
+        <main>
+          <About />
+          <Skills />
+          <Projects />
+          <Contact />
+        </main>
       </PageLayout>
     </>
   );
