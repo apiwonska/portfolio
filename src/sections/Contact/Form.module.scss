@@ -50,6 +50,8 @@
   &:hover {
     cursor: pointer;
     transform: translateY(1px);
+    color: get-color(neutrals-white);
+    background-color: get-color(neutrals-black);
   }
 
   &:focus-visible {

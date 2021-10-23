@@ -5,7 +5,7 @@
 .content_bgClip {
   background-color: #E5E5E5;
   display: flex;
-  clip-path: polygon(30% 0, 100% 0, 100% 90%, 70% 100%, 0 100%, 0 10%);
+  clip-path: polygon(0 0, 70% 0, 100% 7%, 100% 100%, 30% 100%, 0 93%);
 }
 @media (min-width: 1200px) {
   .content_bgClip {
@@ -29,11 +29,11 @@
 
 .form_wrapper {
   width: min(700px, 100%);
-  margin: 4em 0;
+  margin-bottom: 6em;
 }
 @media (min-width: 1000px) {
   .form_wrapper {
-    margin: 4em;
+    margin: 0 4em 5em;
   }
 }
 

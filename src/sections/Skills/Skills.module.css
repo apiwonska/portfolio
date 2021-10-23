@@ -1,23 +1,9 @@
-.content_bg {
+.content_wrapper {
   position: relative;
   background-color: #E5E5E5;
-  width: min(1200px, 100vw);
   margin: 0 auto;
   padding: 3em;
   font-size: 1.6rem;
-}
-.content_bg:before {
-  display: block;
-  content: " ";
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translate(0, -50%);
-  background-image: url("../../assets/triangles-bg.svg");
-  background-size: 4.8em 20em;
-  background-repeat: no-repeat;
-  height: 20em;
-  width: 4.8em;
 }
 
 .skills_group:not(:last-child) {

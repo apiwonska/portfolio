@@ -7,9 +7,6 @@ const Skills: React.FC = () => (
   <section id="skills" className="section">
     <div className="container">
       <SectionHeader>Skills</SectionHeader>
-    </div>
-
-    <div className={styles.content_bg}>
       <div className={styles.content_wrapper}>
         {Object.keys(skills).map((cat) => (
           <div key={nanoid()} className={styles.skills_group}>

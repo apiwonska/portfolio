@@ -1,12 +1,12 @@
 .content_bg {
   background-color: #E5E5E5;
-  clip-path: polygon(0 2.5%, 100% 0%, 100% 97.5%, 0% 100%);
-  padding: 80px 0 60px;
+  clip-path: polygon(0 0%, 100% 0%, 100% 97.5%, 0% 100%);
+  padding: 0.1rem 0 10rem;
 }
 @media (min-width: 900px) {
   .content_bg {
-    clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%);
-    padding: 80px 0 60px;
+    clip-path: polygon(0 0%, 100% 0%, 100% 95%, 0% 100%);
+    padding: 0.1rem 0 10rem;
   }
 }
 

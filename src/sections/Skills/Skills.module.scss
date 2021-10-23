@@ -1,27 +1,13 @@
 @use '../../styles/variables'as *;
-@use '../../styles/mixins'as *;
 
-.content_bg {
+
+
+.content_wrapper {
   position: relative;
   background-color: get-color(neutrals-light-gray);
-  width: min($container-max-width, 100vw);
   margin: 0 auto;
   padding: 3em;
   font-size: 1.6rem;
-
-  &:before {
-    display: block;
-    content: ' ';
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translate(0, -50%);
-    background-image: url('../../assets/triangles-bg.svg');
-    background-size: calc(0.24 * 20em) 20em;
-    background-repeat: no-repeat;
-    height: 20em;
-    width: calc(0.24 * 20em);
-  }
 }
 
 .skills_group:not(:last-child) {
