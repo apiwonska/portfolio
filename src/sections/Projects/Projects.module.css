@@ -1,1 +1,27 @@
+.content_wrapper {
+  margin: 4rem 0 8rem;
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 3rem;
+}
+@media (min-width: 550px) {
+  .content_wrapper {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+}
+@media (min-width: 900px) {
+  .content_wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1200px) {
+  .content_wrapper {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
 
+.project_wrapper {
+  font-size: 1.8rem;
+}

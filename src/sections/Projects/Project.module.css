@@ -1,68 +1,145 @@
-.description {
+.wrapper {
   position: relative;
-  z-index: 0;
-  background-color: #444;
-  font-size: 2rem;
+  font-size: 1.6rem;
   line-height: 1.8;
-  display: grid;
-  align-items: center;
-  padding: 2em 2em;
+  color: #333;
+  height: 100%;
+  min-height: 50rem;
+  z-index: 0;
+}
+.wrapper:hover .background {
+  transform: scale(0.95);
+}
+.wrapper:hover .background_overlay {
+  opacity: 1;
+}
+.wrapper:hover .title_wrapper {
+  left: 0;
+  font-size: 5rem;
+}
+.wrapper:hover .title {
+  color: #F9F9F9;
+}
+.wrapper:hover .index {
+  color: #EF476F;
 }
 
-.project_name {
-  font-size: 4rem;
+.background {
+  position: relative;
+  height: 100%;
+  transform: scale(1);
+  transition: 0.4s ease;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.title_wrapper {
+  position: absolute;
+  font-size: 3rem;
+  top: 3rem;
+  left: 3rem;
+  display: flex;
+  align-items: center;
+  transition: 0.4s ease;
+  z-index: 2;
+}
+
+.index {
+  font-family: "Yeseva One", cursive;
+  font-size: 1em;
+  line-height: 1;
+  color: #333;
+}
+
+.title {
+  font-size: 0.7em;
+  margin-left: 0.5em;
   font-weight: bold;
   line-height: 1;
-  margin: 1em 0 1em;
+}
+
+.background_overlay {
   position: relative;
+  height: 100%;
+  background-color: #333333;
+  color: #F9F9F9;
+  padding: 12rem 2em 2em;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
 }
 
-.project_summary {
-  font-size: 1.8rem;
+.description_wrapper {
+  font-size: 1em;
 }
 
-.project_links {
+.summary {
+  font-size: 1em;
+}
+
+.links {
   display: flex;
   justify-content: center;
-  margin: 2.5rem 0;
+  font-size: 1.2em;
+  margin: 1em 0;
 }
 
-.project_linkItem {
-  margin: 0 2rem;
+.linkIcon {
+  display: inline-block;
+  width: 1em;
+  margin-right: 0.4em;
+  transform: rotate(45deg);
 }
 
-.project_link {
-  margin: 1em;
+.link {
+  margin: 0.8em 1em;
   font-weight: 600;
 }
 
-.project_tags {
+.tags {
   display: flex;
   flex-wrap: wrap;
   margin: 1rem 0;
 }
 
-.project_tag {
-  font-size: 1.6rem;
-  font-weight: 600;
-  padding: 0.3em 1em;
+.tag {
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 0.5em;
   margin: 0.7rem 0.5em;
-  border-radius: 1em;
+  border-radius: 3px;
   background-color: #ddd;
+  color: #333;
 }
 
 .photo {
-  background-color: #F9F9F9;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  max-width: 100%;
 }
 
-.dec_number {
-  position: absolute;
-  font-family: "Yeseva One", cursive;
-  font-size: 18rem;
-  color: #fff;
-  opacity: 0.3;
-  line-height: 1;
-  top: 0;
-  right: 0;
-  z-index: -1;
+.portfolio {
+  background-color: #EF476F;
+}
+
+.favouriteRecipes {
+  background-color: #EF476F;
+}
+
+.forum {
+  background-color: #EF476F;
+}
+
+.tripExpenses {
+  background-color: #EF476F;
+}
+
+.yogaHouse {
+  background-color: #EF476F;
+}
+
+.fotoStudio {
+  background-color: #EF476F;
 }

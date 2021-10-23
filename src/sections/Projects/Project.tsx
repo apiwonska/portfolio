@@ -1,4 +1,6 @@
 import { nanoid } from 'nanoid';
+import classNames from 'classnames';
+import Icon, { iconEnum } from 'assets/Icon';
 import styles from './Project.module.css';
 import { TProject } from './projects';
 
@@ -8,47 +10,83 @@ type Props = {
 };
 
 const Project: React.FC<Props> = ({
-  project: { title, description, links, technologies },
+  project: { title, summary, links, technologies, id, mockupImg },
   ind,
 }) => {
   const index = `${ind < 10 ? 0 : ''}${ind + 1}`;
+
+  const backgroundClasses = classNames(styles.background, styles[id]);
+
   return (
-    <div className={styles.grid}>
-      {/* <div className={styles.dec_watermark}>{index}</div> */}
-      <div className={styles.description}>
-        <div className={styles.dec_number} aria-hidden="true">
-          {index}
+    <>
+      <div className={styles.wrapper}>
+        <div className={styles.title_wrapper}>
+          <span className={styles.index} aria-hidden="true">
+            {index}
+          </span>
+          <h3 className={styles.title}>{title}</h3>
         </div>
-        {/* <div className={styles.dec_hash}>#</div> */}
-        <div className={styles.description_wrapper}>
-          <h3 className={styles.project_name}>{title}</h3>
-          <p className={styles.project_summary}>{description}</p>
-          <ul className={styles.project_links} aria-label="Links">
-            <li className={styles.project_linkItem}>
-              <a href={links.live} className={styles.project_link}>
-                Live
-              </a>
-            </li>
-            <li className={styles.project_linkItem}>
-              <a href={links.github} className={styles.project_link}>
-                Github
-              </a>
-            </li>
-          </ul>
-          <ul
-            className={styles.project_tags}
-            aria-label="Technologies used in the project"
-          >
-            {technologies.map((technology) => (
-              <li className={styles.project_tag} key={nanoid()}>
-                {technology}
-              </li>
-            ))}
-          </ul>
+
+        <div className={backgroundClasses}>
+          {mockupImg && (
+            <img
+              // eslint-disable-next-line
+            src={require(`../../assets/projects/${mockupImg}`).default}
+              className={styles.photo}
+              alt=""
+            />
+          )}
+
+          <div className={styles.background_overlay}>
+            <div className={styles.description_wrapper}>
+              <p className={styles.summary}>{summary}</p>
+              <ul className={styles.links} aria-label="Links">
+                {links.live && (
+                  <li className={styles.linkItem}>
+                    <a
+                      href={links.live}
+                      className={styles.link}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span className={styles.linkIcon}>
+                        <Icon name={iconEnum.ArrowUpRight} />
+                      </span>
+                      Live
+                    </a>
+                  </li>
+                )}
+                {links.github && (
+                  <li className={styles.linkItem}>
+                    <a
+                      href={links.github}
+                      className={styles.link}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span className={styles.linkIcon}>
+                        <Icon name={iconEnum.ArrowUpRight} />
+                      </span>
+                      Github
+                    </a>
+                  </li>
+                )}
+              </ul>
+              <ul
+                className={styles.tags}
+                aria-label="Technologies used in the project"
+              >
+                {technologies.map((technology) => (
+                  <li className={styles.tag} key={nanoid()}>
+                    {technology}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-      <div className={styles.photo}>PICTURE</div>
-    </div>
+    </>
   );
 };
 
