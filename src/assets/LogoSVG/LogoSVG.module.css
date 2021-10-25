@@ -8,25 +8,21 @@
 
 @keyframes drawletterA {
   0% {
-    stroke-dasharray: 1000px;
-    stroke-dashoffset: 1000px;
+    stroke-dashoffset: 1100px;
     stroke-opacity: 1;
     fill-opacity: 0;
   }
   1% {
-    stroke-dasharray: 1000px;
-    stroke-dashoffset: 1000px;
+    stroke-dashoffset: 1100px;
     stroke-opacity: 1;
     fill-opacity: 0;
   }
   75% {
-    stroke-dasharray: 1000px;
     stroke-dashoffset: 0%;
     stroke-opacity: 1;
     fill-opacity: 0;
   }
   100% {
-    stroke-dasharray: 1000px;
     stroke-dashoffset: 0%;
     stroke-opacity: 0;
     fill-opacity: 1;
@@ -42,25 +38,21 @@
 
 @keyframes drawletterP {
   0% {
-    stroke-dasharray: 500px;
     stroke-dashoffset: 500px;
     stroke-opacity: 1;
     fill-opacity: 0;
   }
   35% {
-    stroke-dasharray: 500px;
     stroke-dashoffset: 500px;
     stroke-opacity: 1;
     fill-opacity: 0;
   }
   75% {
-    stroke-dasharray: 500px;
     stroke-dashoffset: 0%;
     stroke-opacity: 1;
     fill-opacity: 0;
   }
   100% {
-    stroke-dasharray: 500px;
     stroke-dashoffset: 0%;
     stroke-opacity: 0;
     fill-opacity: 1;

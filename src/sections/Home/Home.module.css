@@ -55,7 +55,7 @@
   display: inline-block;
   min-width: 0.3em;
   opacity: 0;
-  animation: title-animation 0.2s ease-in 1 forwards;
+  animation: showtitle 0.2s ease-in 1 forwards;
 }
 
 .titleLetter:nth-child(1) {
@@ -110,7 +110,7 @@
   animation-delay: 2.6s;
 }
 
-@keyframes title-animation {
+@keyframes showtitle {
   0% {
     opacity: 0;
     transform: translate(-2em, -2em) skew(10deg, 10deg) rotateY(180deg) rotateZ(30deg);
@@ -122,6 +122,10 @@
     filter: blur(0px);
   }
 }
+.space {
+  width: 0.5em;
+}
+
 .subtitle {
   font-size: max(14px, 1.4em);
   padding: 0 1em 0.6em;
@@ -133,10 +137,10 @@
   display: inline-block;
   opacity: 0;
   transform: translateY(2em);
-  animation: subtitle 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2.5s forwards;
+  animation: showsubtitle 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2.5s forwards;
 }
 
-@keyframes subtitle {
+@keyframes showsubtitle {
   from {
     opacity: 0;
     transform: translateY(2em);

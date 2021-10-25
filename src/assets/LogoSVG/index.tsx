@@ -30,7 +30,7 @@ const Logo: React.FC<ILogo> = ({ animated = false }) => (
         stroke="white"
         strokeOpacity="0"
         id="A"
-        className={animated ? styles.letterP__animated : ''}
+        className={animated ? styles.letterA__animated : ''}
       />
       <defs>
         <linearGradient

@@ -61,7 +61,7 @@
   display: inline-block;
   min-width: .3em;
   opacity: 0;
-  animation: title-animation .2s ease-in 1 forwards;
+  animation: showtitle .2s ease-in 1 forwards;
 }
 
 @for $i from 1 through 13 {
@@ -70,7 +70,7 @@
   }
 }
 
-@keyframes title-animation {
+@keyframes showtitle {
   0% {
     opacity: 0;
     transform: translate(-2em, -2em) skew(10deg, 10deg) rotateY(180deg) rotateZ(30deg);
@@ -82,7 +82,10 @@
     transform: translate(0, 0) skew(0, 0) rotateY(0) rotateZ(0deg);
     filter: blur(0px);
   }
+}
 
+.space {
+  width: 0.5em;
 }
 
 .subtitle {
@@ -96,10 +99,10 @@
   display: inline-block;
   opacity: 0;
   transform: translateY(2em);
-  animation: subtitle .3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2.5s forwards;
+  animation: showsubtitle .3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2.5s forwards;
 }
 
-@keyframes subtitle {
+@keyframes showsubtitle {
   from {
     opacity: 0;
     transform: translateY(2em);

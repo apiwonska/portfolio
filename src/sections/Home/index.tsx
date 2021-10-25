@@ -7,13 +7,9 @@ import styles from './Home.module.css';
 const Home: React.FC = () => {
   const title = 'Anna Piwonska';
   const titleLetters = title.split('').map((letter) => {
-    const style = !letter ? { width: '0.5em' } : {};
+    const styleName = letter === ' ' ? styles.space : styles.titleLetter;
     return (
-      <span
-        key={nanoid()}
-        className={letter !== ' ' ? styles.titleLetter : ''}
-        style={style}
-      >
+      <span key={nanoid()} className={styleName}>
         {letter}
       </span>
     );
