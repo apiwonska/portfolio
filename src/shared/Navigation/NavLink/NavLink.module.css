@@ -1,15 +1,23 @@
-.link__active::after, .link:hover::after, .link::after {
+.link__active::after, .link:hover::after, .link::after, .link__active::before, .link:hover::before, .link::before {
   display: block;
   content: " ";
   position: absolute;
   top: 50%;
-  left: -0.2em;
-  transform: translate(-50%, -50%) scaleX(0.5);
-  background-image: url("../../../assets/two-triangles.svg");
-  background-size: 1em 1.2em;
+  background-image: url("../../../assets/brace.svg");
+  background-size: 0.45em 1.2em;
   background-repeat: no-repeat;
+  width: 0.45em;
   height: 1.2em;
-  width: 1em;
+}
+
+.link__active::before, .link:hover::before, .link::before {
+  left: 0.2em;
+  transform: translate(50%, -50%);
+}
+
+.link__active::after, .link:hover::after, .link::after {
+  right: 0.2em;
+  transform: translate(-50%, -50%) rotate(0.5turn);
 }
 
 .link {
@@ -19,6 +27,11 @@
   text-transform: capitalize;
   padding: 0.5em 1em;
   margin: 0.5em 0;
+}
+.link::before {
+  opacity: 0;
+  transition: 0.3s ease-in;
+  transition-property: transform, opacity;
 }
 .link::after {
   opacity: 0;
@@ -31,11 +44,19 @@
 .link:hover {
   cursor: pointer;
 }
+.link:hover::before {
+  transform: translate(30%, -50%);
+  opacity: 1;
+}
 .link:hover::after {
-  transform: translate(0, -50%) scaleX(1);
+  transform: translate(-30%, -50%) rotate(0.5turn);
+  opacity: 1;
+}
+.link__active::before {
+  transform: translate(0, -50%);
   opacity: 1;
 }
 .link__active::after {
-  transform: translate(0, -50%) scaleX(1);
+  transform: translate(0, -50%) rotate(0.5turn);
   opacity: 1;
 }

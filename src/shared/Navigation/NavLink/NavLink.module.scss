@@ -5,13 +5,25 @@
   content: ' ';
   position: absolute;
   top: 50%;
-  left: -.2em;
-  transform: translate(-50%, -50%) scaleX(.5);
-  background-image: url('../../../assets/two-triangles.svg');
-  background-size: 1em 1.2em;
+  // left: -.2em;
+  // transform: translate(-50%, -50%) scaleX(.5);
+  background-image: url('../../../assets/brace.svg');
+  background-size: .45em 1.2em;
   background-repeat: no-repeat;
+  width: .45em;
   height: 1.2em;
-  width: 1em;
+}
+
+%active-link-pseudo-element-before {
+  @extend %active-link-pseudo-element;
+  left: 0.2em;
+  transform: translate(50%, -50%);
+}
+
+%active-link-pseudo-element-after {
+  @extend %active-link-pseudo-element;
+  right: 0.2em;
+  transform: translate(-50%, -50%) rotate(.5turn);
 }
 
 .link {
@@ -22,8 +34,15 @@
   padding: 0.5em 1em;
   margin: .5em 0;
 
+  &::before {
+    @extend %active-link-pseudo-element-before;
+    opacity: 0;
+    transition: .3s ease-in;
+    transition-property: transform, opacity;
+  }
+
   &::after {
-    @extend %active-link-pseudo-element;
+    @extend %active-link-pseudo-element-after;
     opacity: 0;
     transition: .3s ease-in;
     transition-property: transform, opacity;
@@ -36,18 +55,30 @@
   &:hover {
     cursor: pointer;
 
+    &::before {
+      @extend %active-link-pseudo-element-before;
+      transform: translate(30%, -50%);
+      opacity: 1;
+    }
+
     &::after {
-      @extend %active-link-pseudo-element;
-      transform: translate(0, -50%) scaleX(1);
+      @extend %active-link-pseudo-element-after;
+      transform: translate(-30%, -50%) rotate(.5turn);
       opacity: 1;
     }
   }
 
   &__active {
 
+    &::before {
+      @extend %active-link-pseudo-element-before;
+      transform: translate(0, -50%);
+      opacity: 1;
+    }
+
     &::after {
-      @extend %active-link-pseudo-element;
-      transform: translate(0, -50%) scaleX(1);
+      @extend %active-link-pseudo-element-after;
+      transform: translate(0, -50%) rotate(.5turn);
       opacity: 1;
     }
   }
