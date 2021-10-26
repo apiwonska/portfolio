@@ -9,6 +9,21 @@
   min-height: 50rem;
   z-index: 0;
 
+  &::before {
+    position: absolute;
+    content: "";
+    top: -1px;
+    left: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    background-color: get-color(neutrals-white);
+    z-index: 10;
+    transform: scaleX(1);
+    transform-origin: right;
+    transition: 0.6s cubic-bezier(0.39, 0.575, 0.565, 1);
+    // transition: 0.6s ease-in;
+  }
+
   &:hover .background {
     transform: scale(.95);
   }
@@ -30,6 +45,10 @@
     color: get-color(main);
     ;
   }
+}
+
+.wrapper.wrapper__isVisible::before {
+  transform: scaleX(0);
 }
 
 .background {

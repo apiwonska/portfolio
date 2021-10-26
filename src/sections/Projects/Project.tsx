@@ -1,3 +1,4 @@
+import { useRef, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import classNames from 'classnames';
 import Icon, { iconEnum } from 'assets/Icon';
@@ -13,13 +14,31 @@ const Project: React.FC<Props> = ({
   project: { title, summary, links, technologies, id, mockupImg },
   ind,
 }) => {
+  const projectRef = useRef<HTMLDivElement | null>(null);
   const index = `${ind < 10 ? 0 : ''}${ind + 1}`;
+
+  useEffect(() => {
+    const intersection = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.wrapper__isVisible);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '50px 0px', threshold: 0.3 }
+    );
+    if (projectRef.current) {
+      intersection.observe(projectRef.current);
+    }
+  }, []);
 
   const backgroundClasses = classNames(styles.background, styles[id]);
 
   return (
     <>
-      <div className={styles.wrapper}>
+      <div className={styles.wrapper} ref={projectRef}>
         <div className={styles.title_wrapper}>
           <span className={styles.index} aria-hidden="true">
             {index}
