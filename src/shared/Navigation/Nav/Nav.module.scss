@@ -29,7 +29,7 @@
 
 .navDesktop__transparent {
   @extend %nav;
-  height: 5.5rem;
+  height: 4.5rem;
   transform: translateY(-100%);
   opacity: 0;
   animation: navDesktopInit .2s ease-out 1s forwards;

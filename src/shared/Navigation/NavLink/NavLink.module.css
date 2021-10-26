@@ -26,7 +26,6 @@
   text-decoration: none;
   text-transform: capitalize;
   padding: 0.5em 1em;
-  margin: 0.5em 0;
 }
 .link::before {
   opacity: 0;
@@ -59,4 +58,9 @@
 .link__active::after {
   transform: translate(0, -50%) rotate(0.5turn);
   opacity: 1;
+}
+@media (min-width: 500px) {
+  .link {
+    margin: 0.5em 0;
+  }
 }

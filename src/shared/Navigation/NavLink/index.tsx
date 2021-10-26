@@ -19,7 +19,7 @@ const NavLink: React.FC<Props> = ({ to, setOpen, children }) => {
       activeClass={styles.link__active}
       spy
       smooth
-      offset={1}
+      offset={0}
       duration={500}
       onClick={onClick}
     >

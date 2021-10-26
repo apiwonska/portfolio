@@ -5,8 +5,6 @@
   content: ' ';
   position: absolute;
   top: 50%;
-  // left: -.2em;
-  // transform: translate(-50%, -50%) scaleX(.5);
   background-image: url('../../../assets/brace.svg');
   background-size: .45em 1.2em;
   background-repeat: no-repeat;
@@ -32,7 +30,6 @@
   text-decoration: none;
   text-transform: capitalize;
   padding: 0.5em 1em;
-  margin: .5em 0;
 
   &::before {
     @extend %active-link-pseudo-element-before;
@@ -81,5 +78,9 @@
       transform: translate(0, -50%) rotate(.5turn);
       opacity: 1;
     }
+  }
+
+  @media (min-width: 500px) {
+    margin: .5em 0;
   }
 }
