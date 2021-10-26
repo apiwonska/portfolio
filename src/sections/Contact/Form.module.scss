@@ -1,23 +1,56 @@
 @use '../../styles/variables'as *;
 
-.form {
-  font-size: 16px;
-  padding: 2.5em 2em;
+$breakpoint: 1000px;
+
+.form_wrapper {
+  width: min(700px, 100%);
+  margin-bottom: 5em;
   background-color: get-color(neutrals-white);
+  transform: scaleX(0);
+  transform-origin: left top;
+
+
+  @media (min-width: $breakpoint) {
+    margin: 0 4em 6em;
+  }
+}
+
+.form__visible {
+  animation: revealformbg .8s ease-out forwards;
+}
+
+@keyframes revealformbg {
+  0% {
+    transform: scaleX(0);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.form {
+  font-size: 1.6rem;
+  padding: 2em 2em;
   text-align: center;
+  opacity: 0;
+}
+
+.form__visible .form {
+  opacity: 1;
+  transition: opacity .3s ease 0.7s;
 }
 
 .form_group {
   margin: 1.2em 0;
   text-align: left;
-  ;
 }
 
 .form_label {
   display: flex;
   flex-direction: column;
   font-size: 1em;
-  margin-bottom: .6em;
+  margin-bottom: .5em;
 }
 
 .form_input {
@@ -26,8 +59,8 @@
   font-family: get-font(default);
   color: get-color(neutrals-black);
   background-color: get-color(neutrals-white);
-  padding: .5em;
-  line-height: 1.5;
+  padding: .3em;
+  line-height: 1.45;
   border: none;
   border-bottom: 2px solid get-color(neutrals-black);
 }

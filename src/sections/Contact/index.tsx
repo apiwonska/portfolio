@@ -9,9 +9,7 @@ const Contact: React.FC = () => (
         <SectionHeader>Contact</SectionHeader>
 
         <div className={styles.content_wrapper}>
-          <div className={styles.form_wrapper}>
-            <Form />
-          </div>
+          <Form />
         </div>
       </div>
     </div>

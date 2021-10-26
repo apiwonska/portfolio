@@ -1,8 +1,38 @@
-.form {
-  font-size: 16px;
-  padding: 2.5em 2em;
+.form_wrapper {
+  width: min(700px, 100%);
+  margin-bottom: 5em;
   background-color: #F9F9F9;
+  transform: scaleX(0);
+  transform-origin: left top;
+}
+@media (min-width: 1000px) {
+  .form_wrapper {
+    margin: 0 4em 6em;
+  }
+}
+
+.form__visible {
+  animation: revealformbg 0.8s ease-out forwards;
+}
+
+@keyframes revealformbg {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+.form {
+  font-size: 1.6rem;
+  padding: 2em 2em;
   text-align: center;
+  opacity: 0;
+}
+
+.form__visible .form {
+  opacity: 1;
+  transition: opacity 0.3s ease 0.7s;
 }
 
 .form_group {
@@ -14,7 +44,7 @@
   display: flex;
   flex-direction: column;
   font-size: 1em;
-  margin-bottom: 0.6em;
+  margin-bottom: 0.5em;
 }
 
 .form_input, .form_textarea {
@@ -23,8 +53,8 @@
   font-family: "Open Sans", sans-serif;
   color: #333;
   background-color: #F9F9F9;
-  padding: 0.5em;
-  line-height: 1.5;
+  padding: 0.3em;
+  line-height: 1.45;
   border: none;
   border-bottom: 2px solid #333;
 }

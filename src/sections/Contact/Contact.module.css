@@ -19,30 +19,12 @@
   align-items: center;
   justify-content: center;
   font-size: 16px;
+  overflow: hidden;
 }
 @media (min-width: 1000px) {
   .content_wrapper {
     justify-content: auto;
     margin: 0 auto;
-  }
-}
-
-.form_wrapper {
-  width: min(700px, 100%);
-  margin-bottom: 6em;
-}
-@media (min-width: 1000px) {
-  .form_wrapper {
-    margin: 0 4em 5em;
-  }
-}
-
-.arrows_wrapper {
-  display: none;
-}
-@media (min-width: 1000px) {
-  .arrows_wrapper {
-    display: block;
-    margin: 0 auto;
+    margin-top: 3em;
   }
 }
