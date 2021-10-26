@@ -1,15 +1,13 @@
-.sectionHeader {
-  position: relative;
+.sectionHeader_wrapper {
   display: inline-block;
-  font-family: "Yeseva One", cursive;
-  font-size: 6rem;
-  font-weight: 400;
-  line-height: 1;
-  margin-top: calc(5rem + 0.6em);
+  position: relative;
+  margin-top: calc(6rem + 0.6em);
   margin-bottom: 1em;
-  margin-left: 1em;
+  margin-left: calc(2rem + 1em);
+  font-size: 6rem;
+  line-height: 1;
 }
-.sectionHeader::before {
+.sectionHeader_wrapper::before {
   display: block;
   content: " ";
   position: absolute;
@@ -23,7 +21,7 @@
   width: 0.33em;
   opacity: 0;
 }
-.sectionHeader::after {
+.sectionHeader_wrapper::after {
   display: block;
   content: " ";
   position: absolute;
@@ -37,57 +35,75 @@
   width: 0.33em;
   opacity: 0;
 }
-
-.letter {
-  display: inline-block;
-  opacity: 0;
+@media (min-width: 500px) {
+  .sectionHeader_wrapper {
+    margin-left: calc(6rem + 1em);
+  }
 }
 
-.sectionHeader_show .letter {
-  animation: typeletter 0.1s linear forwards;
+.sectionHeader {
+  position: relative;
+  display: inline-block;
+  font-family: "Yeseva One", cursive;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1;
+  overflow: hidden;
+  padding-bottom: 5px;
+}
+
+.letter {
+  position: relative;
+  display: inline-block;
+  transform: translateY(100%);
+}
+
+.sectionHeader__isVisible .letter {
+  animation: typeletter 0.13s ease-out forwards;
 }
 
 @keyframes typeletter {
   0% {
-    opacity: 0;
+    transform: translateY(100%);
   }
   100% {
     opacity: 1;
+    transform: translateY(0);
   }
 }
-.sectionHeader_show .letter:nth-child(1) {
-  animation-delay: 0.1s;
+.sectionHeader__isVisible .letter:nth-child(1) {
+  animation-delay: 0.13s;
 }
 
-.sectionHeader_show .letter:nth-child(2) {
-  animation-delay: 0.2s;
+.sectionHeader__isVisible .letter:nth-child(2) {
+  animation-delay: 0.26s;
 }
 
-.sectionHeader_show .letter:nth-child(3) {
-  animation-delay: 0.3s;
+.sectionHeader__isVisible .letter:nth-child(3) {
+  animation-delay: 0.39s;
 }
 
-.sectionHeader_show .letter:nth-child(4) {
-  animation-delay: 0.4s;
+.sectionHeader__isVisible .letter:nth-child(4) {
+  animation-delay: 0.52s;
 }
 
-.sectionHeader_show .letter:nth-child(5) {
-  animation-delay: 0.5s;
+.sectionHeader__isVisible .letter:nth-child(5) {
+  animation-delay: 0.65s;
 }
 
-.sectionHeader_show .letter:nth-child(6) {
-  animation-delay: 0.6s;
+.sectionHeader__isVisible .letter:nth-child(6) {
+  animation-delay: 0.78s;
 }
 
-.sectionHeader_show .letter:nth-child(7) {
-  animation-delay: 0.7s;
+.sectionHeader__isVisible .letter:nth-child(7) {
+  animation-delay: 0.91s;
 }
 
-.sectionHeader_show .letter:nth-child(8) {
-  animation-delay: 0.8s;
+.sectionHeader__isVisible .letter:nth-child(8) {
+  animation-delay: 1.04s;
 }
 
-.sectionHeader_show::before, .sectionHeader_show::after {
+.sectionHeader__isVisible::before, .sectionHeader__isVisible::after {
   opacity: 1;
-  transition: opacity linear 0.2s 0.8s;
+  transition: opacity ease 0.5s 0.8s;
 }

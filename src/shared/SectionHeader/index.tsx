@@ -10,12 +10,11 @@ const SectionHeader: React.FC<Props> = ({ children }) => {
   const headerRef = useRef<null | HTMLHeadingElement>(null);
 
   useEffect(() => {
-    const intersection = new IntersectionObserver((entries) => {
+    const intersection = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
         if (entry.intersectionRatio > 0) {
-          headerRef.current?.classList.add(styles.sectionHeader_show);
-        } else {
-          headerRef.current?.classList.remove(styles.sectionHeader_show);
+          entry.target.classList.add(styles.sectionHeader__isVisible);
+          observer.unobserve(entry.target);
         }
       });
     });
@@ -34,9 +33,9 @@ const SectionHeader: React.FC<Props> = ({ children }) => {
   });
 
   return (
-    <h2 className={styles.sectionHeader} ref={headerRef}>
-      {textToLetters}
-    </h2>
+    <div className={styles.sectionHeader_wrapper} ref={headerRef}>
+      <h2 className={styles.sectionHeader}>{textToLetters}</h2>
+    </div>
   );
 };
 

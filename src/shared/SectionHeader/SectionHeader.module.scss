@@ -1,15 +1,13 @@
 @use '../../styles/variables'as *;
 
-.sectionHeader {
-  position: relative;
+.sectionHeader_wrapper {
   display: inline-block;
-  font-family: get-font(title);
-  font-size: 6rem;
-  font-weight: 400;
-  line-height: 1;
-  margin-top: calc(5rem + .6em);
+  position: relative;
+  margin-top: calc(6rem + .6em);
   margin-bottom: 1em;
-  margin-left: calc(1em);
+  margin-left: calc(2rem + 1em);
+  font-size: 6rem;
+  line-height: 1;
 
   &::before {
     display: block;
@@ -40,38 +38,55 @@
     width: .33em;
     opacity: 0;
   }
+
+  @media (min-width:500px) {
+    margin-left: calc(6rem + 1em);
+  }
+}
+
+.sectionHeader {
+  position: relative;
+  display: inline-block;
+  font-family: get-font(title);
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1;
+  overflow: hidden;
+  padding-bottom: 5px;
 }
 
 .letter {
+  position: relative;
   display: inline-block;
-  opacity: 0;
+  transform: translateY(100%);
 }
 
-.sectionHeader_show .letter {
-  animation: typeletter .1s linear forwards;
+.sectionHeader__isVisible .letter {
+  animation: typeletter .13s ease-out forwards;
 }
 
 @keyframes typeletter {
   0% {
-    opacity: 0;
+    transform: translateY(100%);
   }
 
   100% {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
 @for $i from 1 to 9 {
-  .sectionHeader_show .letter:nth-child(#{$i}) {
-    animation-delay: calc($i * .1s);
+  .sectionHeader__isVisible .letter:nth-child(#{$i}) {
+    animation-delay: calc($i * .13s);
   }
 }
 
-.sectionHeader_show {
+.sectionHeader__isVisible {
 
   &::before,
   &::after {
     opacity: 1;
-    transition: opacity linear .2s .8s;
+    transition: opacity ease .5s .8s;
   }
 }
