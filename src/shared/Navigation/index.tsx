@@ -49,7 +49,7 @@ const Navigation: React.FC = () => {
     const onScroll = () => {
       if (window.scrollY < 100) {
         setNavbarTheme('transparent');
-      } else if (window.scrollY <= window.innerHeight - 70) {
+      } else if (window.scrollY <= window.innerHeight - 45) {
         setNavbarTheme('dark');
       } else setNavbarTheme('light');
 
