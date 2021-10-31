@@ -3,9 +3,8 @@
 .sectionHeader_wrapper {
   display: inline-block;
   position: relative;
-  margin-top: calc(6rem + .6em);
-  margin-bottom: 1em;
-  margin-left: calc(2rem + 1em);
+  margin: calc(6rem + .6em) 0.7em 0.3em;
+  padding: 0;
   font-size: 6rem;
   line-height: 1;
 
@@ -39,8 +38,8 @@
     opacity: 0;
   }
 
-  @media (min-width:500px) {
-    margin-left: calc(6rem + 1em);
+  @media(max-width: 300px) {
+    font-size: 5rem;
   }
 }
 
@@ -58,35 +57,72 @@
 .letter {
   position: relative;
   display: inline-block;
-  transform: translateY(100%);
+  transform: translateY(100%) skew(0deg, 20deg);
 }
 
 .sectionHeader__isVisible .letter {
-  animation: typeletter .13s ease-out forwards;
+  animation: typeletter .25s ease-out forwards;
 }
 
 @keyframes typeletter {
   0% {
-    transform: translateY(100%);
+    opacity: 0;
+    transform: translateY(100%) skew(0, 30deg);
   }
 
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) skew(0, 0deg);
   }
 }
 
 @for $i from 1 to 9 {
   .sectionHeader__isVisible .letter:nth-child(#{$i}) {
-    animation-delay: calc($i * .13s);
+    animation-delay: calc($i * .1s);
   }
 }
 
 .sectionHeader__isVisible {
 
-  &::before,
+  &::before {
+    animation: fadeinleftbracket .5s cubic-bezier(.17, .67, .83, .67) .3s forwards;
+  }
+
   &::after {
+    animation: fadeinrightbracket .5s cubic-bezier(.17, .67, .83, .67) .3s forwards;
+  }
+}
+
+@keyframes fadeinleftbracket {
+  0% {
+    opacity: 0;
+    transform: translate(-200%, -5%);
+  }
+
+  70% {
+    opacity: .7;
+    transform: translate(-250%, -5%);
+  }
+
+  100% {
     opacity: 1;
-    transition: opacity ease .5s .8s;
+    transform: translate(-200%, -5%);
+  }
+}
+
+@keyframes fadeinrightbracket {
+  0% {
+    opacity: 0;
+    transform: translate(200%, -5%) rotate(0.5turn);
+  }
+
+  70% {
+    opacity: .7;
+    transform: translate(250%, -5%) rotate(0.5turn);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(200%, -5%) rotate(0.5turn);
   }
 }

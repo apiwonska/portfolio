@@ -104,3 +104,27 @@ $font-size in $header-sizes {
   width: min($container-max-width, 100%);
   margin: 0 auto;
 }
+
+.container_text {
+  padding: 0 2rem;
+
+  @media(min-width:500px) {
+    padding: 0 5rem;
+  }
+}
+
+.text_lg {
+  font-size: 2.8rem;
+  line-height: 1.4;
+  font-weight: 600;
+  margin: 0 0 2.2em;
+  color: lighten(get-color(neutrals-black), 5%);
+  transform: translateY(1em);
+  opacity: 0;
+  transition: .8s ease .3s;
+
+  &.text_lg__isVisible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
