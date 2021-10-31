@@ -65,6 +65,7 @@ module.exports = {
     ],
 
     '@typescript-eslint/explicit-module-boundary-types': ['off'],
+    'no-undef': 'off',
     // rules for jest
     'jest/no-disabled-tests': 'warn',
     'jest/no-focused-tests': 'error',

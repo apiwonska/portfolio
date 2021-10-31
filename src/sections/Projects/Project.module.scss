@@ -1,6 +1,6 @@
 @use '../../styles/variables'as *;
 
-.wrapper {
+.card {
   position: relative;
   font-size: 1.6rem;
   line-height: 1.8;
@@ -9,6 +9,7 @@
   min-height: 50rem;
   z-index: 0;
 
+  // element covering the card, needed for animation
   &::before {
     position: absolute;
     content: "";
@@ -21,46 +22,25 @@
     transform: scaleX(1);
     transform-origin: right;
     transition: 0.6s cubic-bezier(0.39, 0.575, 0.565, 1);
-    // transition: 0.6s ease-in;
-  }
-
-  &:hover .background {
-    transform: scale(.95);
-  }
-
-  &:hover .background_overlay {
-    opacity: 1;
-  }
-
-  &:hover .title_wrapper {
-    left: 0;
-    font-size: 5rem;
-  }
-
-  &:hover .title {
-    color: get-color(neutrals-white);
-  }
-
-  &:hover .index {
-    color: get-color(main);
-    ;
   }
 }
 
-.wrapper.wrapper__isVisible::before {
+// element covering the card, needed for animation, on scroll scales to 0
+.card.wrapper__isVisible::before {
   transform: scaleX(0);
 }
 
-.background {
+.card_background {
   position: relative;
   height: 100%;
   transform: scale(1);
   transition: .4s ease;
   z-index: 0;
   overflow: hidden;
+  background-color: get-color(main);
 }
 
-.title_wrapper {
+.projectName_wrapper {
   position: absolute;
   font-size: 3rem;
   top: 3rem;
@@ -71,40 +51,39 @@
   z-index: 2;
 }
 
-.index {
+.projectName_index {
   font-family: get-font(title);
   font-size: 1em;
   line-height: 1;
   color: get-color(neutrals-black);
 }
 
-.title {
+.projectName {
   font-size: .7em;
   margin-left: .5em;
   font-weight: bold;
   line-height: 1;
 }
 
-.background_overlay {
+.projectInfo_wrapper {
   position: relative;
   height: 100%;
-  background-color: rgba(get-color(neutrals-black), 1);
+  background-color: get-color(neutrals-black);
   color: get-color(neutrals-white);
   padding: 12rem 2em 2em;
   opacity: 0;
   transition: opacity .4s ease;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
 }
 
-.description_wrapper {
+.projectInfo_summary {
   font-size: 1em;
 }
 
-.summary {
-  font-size: 1em;
-}
-
-.links {
+.projectInfo_links {
   display: flex;
   justify-content: center;
   font-size: 1.2em;
@@ -113,26 +92,26 @@
 
 // .linkItem {}
 
-.linkIcon {
+.projectInfo_linkIcon {
   display: inline-block;
   width: 1em;
   margin-right: .4em;
   transform: rotate(45deg);
 }
 
-.link {
+.projectInfo_link {
   margin: .8em 1em;
   font-weight: 600;
 }
 
 
-.tags {
+.projectInfo_tags {
   display: flex;
   flex-wrap: wrap;
   margin: 1rem 0;
 }
 
-.tag {
+.projectInfo_tag {
   font-size: 1.5rem;
   line-height: 1;
   padding: 0.5em;
@@ -142,7 +121,55 @@
   color: get-color(neutrals-black)
 }
 
-.photo {
+.button {
+  color: get-color(neutrals-white);
+  font-size: 1.6rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.card_button {
+  @extend .button;
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  width: 2em;
+  z-index: 2;
+  transition: .4s ease;
+
+  &:focus-visible,
+  &:active {
+    outline-color: get-color(neutrals-black);
+    outline-offset: .2rem;
+  }
+}
+
+.card_button__isOpen {
+  top: 4rem;
+  right: 4rem;
+
+  &:focus-visible,
+  &:active {
+    outline-color: get-color(main);
+  }
+}
+
+// .screenshots_button {
+  //   @extend .button;
+  //   margin-top: 2rem;
+  //   align-self: flex-end;
+  //   display: flex;
+  //   align-items: center;
+  // }
+
+  // .screenshots_icon {
+  //   display: inline-block;
+  //   width: 2em;
+  //   margin: 0 .5em;
+  // }
+
+.card_photo {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -150,28 +177,59 @@
   max-width: 100%;
 }
 
+// If you want to add card hover effect take rules below and add to .card:hover
+.card_background__isActive {
+  @extend .card_background;
+  transform: scale(.95);
+}
+
+.projectInfo_wrapper__isActive {
+  @extend .projectInfo_wrapper;
+  opacity: 1;
+  visibility: initial;
+}
+
+.projectName_wrapper__isActive {
+  @extend .projectName_wrapper;
+  left: 0;
+  font-size: 5rem;
+}
+
+.projectName__isActive {
+  @extend .projectName;
+  color: get-color(neutrals-white);
+}
+
+.projectName_index__isActive {
+  @extend .projectName_index;
+  color: get-color(main);
+  ;
+}
+
+
+
 // Classes describing background color for each element
 
-.portfolio {
-  background-color: get-color(main);
-}
+// .portfolio {
+//   background-color: get-color(main);
+// }
 
-.favouriteRecipes {
-  background-color: get-color(main);
-}
+// .favouriteRecipes {
+//   background-color: get-color(main);
+// }
 
-.forum {
-  background-color: get-color(main);
-}
+// .forum {
+//   background-color: get-color(main);
+// }
 
-.tripExpenses {
-  background-color: get-color(main);
-}
+// .tripExpenses {
+//   background-color: get-color(main);
+// }
 
-.yogaHouse {
-  background-color: get-color(main);
-}
+// .yogaHouse {
+//   background-color: get-color(main);
+// }
 
-.fotoStudio {
-  background-color: get-color(main);
-}
+// .fotoStudio {
+//   background-color: get-color(main);
+// }

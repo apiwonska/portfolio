@@ -21,7 +21,7 @@ const Home: React.FC = () => {
         <div className={styles.logo_wrapper}>
           <LogoSVG animated />
         </div>
-        <h1 className="sr-only">Anna Piwonska, Front-end Developer</h1>
+        <h1 className="sr_only">Anna Piwonska, Front-end Developer</h1>
         <div className={styles.title} aria-hidden="true">
           {titleLetters}
         </div>

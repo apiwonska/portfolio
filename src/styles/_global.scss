@@ -52,7 +52,7 @@ body {
   // select,
   a,
   button {
-    &:focus {
+    &:focus-visible {
       outline-color: get-color(main);
       outline-offset: -.2rem;
       outline-style: dashed;
@@ -83,7 +83,7 @@ $font-size in $header-sizes {
   }
 }
 
-.sr-only {
+.sr_only {
   position: absolute;
   width: 1px;
   height: 1px;

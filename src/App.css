@@ -37,8 +37,8 @@ body {
   outline: none;
 }
 
-body a:focus,
-body button:focus {
+body a:focus-visible,
+body button:focus-visible {
   outline-color: #EF476F;
   outline-offset: -0.2rem;
   outline-style: dashed;
@@ -79,7 +79,7 @@ h5 {
   font-size: 1.3rem;
 }
 
-.sr-only {
+.sr_only {
   position: absolute;
   width: 1px;
   height: 1px;

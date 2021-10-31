@@ -1,4 +1,4 @@
-.wrapper {
+.card {
   position: relative;
   font-size: 1.6rem;
   line-height: 1.8;
@@ -7,7 +7,7 @@
   min-height: 50rem;
   z-index: 0;
 }
-.wrapper::before {
+.card::before {
   position: absolute;
   content: "";
   top: -1px;
@@ -20,37 +20,22 @@
   transform-origin: right;
   transition: 0.6s cubic-bezier(0.39, 0.575, 0.565, 1);
 }
-.wrapper:hover .background {
-  transform: scale(0.95);
-}
-.wrapper:hover .background_overlay {
-  opacity: 1;
-}
-.wrapper:hover .title_wrapper {
-  left: 0;
-  font-size: 5rem;
-}
-.wrapper:hover .title {
-  color: #F9F9F9;
-}
-.wrapper:hover .index {
-  color: #EF476F;
-}
 
-.wrapper.wrapper__isVisible::before {
+.card.wrapper__isVisible::before {
   transform: scaleX(0);
 }
 
-.background {
+.card_background, .card_background__isActive {
   position: relative;
   height: 100%;
   transform: scale(1);
   transition: 0.4s ease;
   z-index: 0;
   overflow: hidden;
+  background-color: #EF476F;
 }
 
-.title_wrapper {
+.projectName_wrapper, .projectName_wrapper__isActive {
   position: absolute;
   font-size: 3rem;
   top: 3rem;
@@ -61,65 +46,64 @@
   z-index: 2;
 }
 
-.index {
+.projectName_index, .projectName_index__isActive {
   font-family: "Yeseva One", cursive;
   font-size: 1em;
   line-height: 1;
   color: #333;
 }
 
-.title {
+.projectName, .projectName__isActive {
   font-size: 0.7em;
   margin-left: 0.5em;
   font-weight: bold;
   line-height: 1;
 }
 
-.background_overlay {
+.projectInfo_wrapper, .projectInfo_wrapper__isActive {
   position: relative;
   height: 100%;
-  background-color: #333333;
+  background-color: #333;
   color: #F9F9F9;
   padding: 12rem 2em 2em;
   opacity: 0;
   transition: opacity 0.4s ease;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
 }
 
-.description_wrapper {
+.projectInfo_summary {
   font-size: 1em;
 }
 
-.summary {
-  font-size: 1em;
-}
-
-.links {
+.projectInfo_links {
   display: flex;
   justify-content: center;
   font-size: 1.2em;
   margin: 1em 0;
 }
 
-.linkIcon {
+.projectInfo_linkIcon {
   display: inline-block;
   width: 1em;
   margin-right: 0.4em;
   transform: rotate(45deg);
 }
 
-.link {
+.projectInfo_link {
   margin: 0.8em 1em;
   font-weight: 600;
 }
 
-.tags {
+.projectInfo_tags {
   display: flex;
   flex-wrap: wrap;
   margin: 1rem 0;
 }
 
-.tag {
+.projectInfo_tag {
   font-size: 1.5rem;
   line-height: 1;
   padding: 0.5em;
@@ -129,7 +113,36 @@
   color: #333;
 }
 
-.photo {
+.button, .card_button {
+  color: #F9F9F9;
+  font-size: 1.6rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.card_button {
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  width: 2em;
+  z-index: 2;
+  transition: 0.4s ease;
+}
+.card_button:focus-visible, .card_button:active {
+  outline-color: #333;
+  outline-offset: 0.2rem;
+}
+
+.card_button__isOpen {
+  top: 4rem;
+  right: 4rem;
+}
+.card_button__isOpen:focus-visible, .card_button__isOpen:active {
+  outline-color: #EF476F;
+}
+
+.card_photo {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -137,26 +150,24 @@
   max-width: 100%;
 }
 
-.portfolio {
-  background-color: #EF476F;
+.card_background__isActive {
+  transform: scale(0.95);
 }
 
-.favouriteRecipes {
-  background-color: #EF476F;
+.projectInfo_wrapper__isActive {
+  opacity: 1;
+  visibility: initial;
 }
 
-.forum {
-  background-color: #EF476F;
+.projectName_wrapper__isActive {
+  left: 0;
+  font-size: 5rem;
 }
 
-.tripExpenses {
-  background-color: #EF476F;
+.projectName__isActive {
+  color: #F9F9F9;
 }
 
-.yogaHouse {
-  background-color: #EF476F;
-}
-
-.fotoStudio {
-  background-color: #EF476F;
+.projectName_index__isActive {
+  color: #EF476F;
 }
