@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { useEffect, useRef } from 'react';
+import useIntersection from 'utilities/useIntersection';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -29,33 +29,15 @@ const Form: React.FC = () => {
   } = useForm<IInputs>({
     resolver: yupResolver(schema),
   });
-  const formRef = useRef<null | HTMLDivElement>(null);
+
+  const formRef = useIntersection<HTMLDivElement>(styles.form__visible, {
+    threshold: 0.3,
+  });
 
   const onSubmit: SubmitHandler<IInputs> = (data) => {
     console.log(data);
     reset();
   };
-
-  useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: '-150px 0px',
-      threshold: 0.3,
-    };
-
-    const intersection = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add(styles.form__visible);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, options);
-
-    if (formRef.current) {
-      intersection.observe(formRef.current);
-    }
-  }, []);
 
   return (
     <div className={styles.form_wrapper} ref={formRef}>

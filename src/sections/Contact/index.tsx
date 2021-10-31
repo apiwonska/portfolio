@@ -6,7 +6,9 @@ const Contact: React.FC = () => (
   <section id="contact" className={styles.content_bg}>
     <div className={styles.content_bgClip}>
       <div className="container">
-        <SectionHeader>Contact</SectionHeader>
+        <div className="container_text">
+          <SectionHeader>Contact</SectionHeader>
+        </div>
 
         <div className={styles.content_wrapper}>
           <Form />
