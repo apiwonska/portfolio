@@ -1,0 +1,16 @@
+@use '../../styles/variables'as *;
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: get-color(neutrals-black);
+  color: get-color(neutrals-white);
+  font-size: 1.6rem;
+  padding: 30px 0;
+}
+
+.heartIcon {
+  width: 1em;
+  margin: 0 .5em 0 .5em;
+}

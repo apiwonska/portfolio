@@ -33,6 +33,12 @@ const useIntersection = <T extends HTMLElement>(
     if (elementRef.current) {
       observer.observe(elementRef.current);
     }
+
+    return () => {
+      if (elementRef.current) {
+        observer.unobserve(elementRef.current);
+      }
+    };
   }, [...dependency]);
 
   return elementRef;

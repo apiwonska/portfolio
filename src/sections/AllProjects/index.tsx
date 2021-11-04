@@ -1,19 +1,21 @@
 import { useState } from 'react';
 import SectionHeader from 'shared/SectionHeader';
 import useIntersection from 'utilities/useIntersection';
-import styles from './Projects.module.css';
-import Project from './Project';
-import projects from './projects';
+import Project from 'shared/ProjectCard';
+import projects from 'data/projects';
+import { Link } from 'react-router-dom';
+import styles from './AllProjects.module.css';
 
-const Projects: React.FC = () => {
+const AllProjects: React.FC = () => {
   const bigTextRef = useIntersection<HTMLHeadingElement>('text_lg__isVisible', {
     rootMargin: '0px 0px -100px 0px',
     threshold: 1,
   });
+  // Don't increase treshold of the link, it will not work because the text is moved vertically
   const [openProjectCardId, setOpenProjectCardId] = useState('');
 
   return (
-    <section id="projects" className="section">
+    <section id="all-projects" className="section">
       <div className="container">
         <div className="container_text">
           <SectionHeader>Projects</SectionHeader>
@@ -37,4 +39,4 @@ const Projects: React.FC = () => {
   );
 };
 
-export default Projects;
+export default AllProjects;

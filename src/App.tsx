@@ -1,33 +1,23 @@
-import { useEffect } from 'react';
-import Home from 'sections/Home';
-import About from 'sections/About';
-import Skills from 'sections/Skills';
-import Projects from 'sections/Projects';
-import Contact from 'sections/Contact';
-import PageLayout from 'shared/PageLayout';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import HomePage from 'pages/HomePage';
+import ProjectsPage from 'pages/ProjectsPage';
+import ProjectPage from 'pages/ProjectPage';
+import ScrollToTop from 'shared/ScrollToTop';
+import Cursor from 'shared/Cursor';
 import 'App.css';
-import { animateScroll } from 'react-scroll';
 
-const App: React.FC = () => {
-  useEffect(() => {
-    // Don't change if it's working. Before changing test in different browsers.
-    // With different options and scroll-behaviour it may not work.
-    animateScroll.scrollToTop({ duration: 300, smooth: true });
-  }, []);
-
-  return (
-    <>
-      <PageLayout>
-        <Home />
-        <main>
-          <About />
-          <Skills />
-          <Projects />
-          <Contact />
-        </main>
-      </PageLayout>
-    </>
-  );
-};
-
+const App: React.FC = () => (
+  <>
+    <Router>
+      <ScrollToTop>
+        <Switch>
+          <Route path="/projects/:projectId" component={ProjectPage} exact />
+          <Route path="/projects" component={ProjectsPage} exact />
+          <Route path="/" component={HomePage} exact />
+        </Switch>
+      </ScrollToTop>
+    </Router>
+    <Cursor />
+  </>
+);
 export default App;

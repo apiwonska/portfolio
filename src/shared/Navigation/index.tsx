@@ -43,6 +43,9 @@ const Navigation: React.FC = () => {
   // Prevent page scroll in the background when mobile navigation open
   useEffect(() => {
     document.body.style.overflow = isOpen && smallScreen ? 'hidden' : 'unset';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
   }, [isOpen, smallScreen]);
 
   useEffect(() => {
@@ -62,7 +65,7 @@ const Navigation: React.FC = () => {
 
     window.addEventListener('scroll', onScroll);
     return () => {
-      window.addEventListener('scroll', onScroll);
+      window.removeEventListener('scroll', onScroll);
     };
   }, []);
 

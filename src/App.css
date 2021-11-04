@@ -19,6 +19,7 @@ html {
 body {
   min-height: 100vh;
   min-width: 300px;
+  background-color: #F9F9F9;
 }
 
 *,

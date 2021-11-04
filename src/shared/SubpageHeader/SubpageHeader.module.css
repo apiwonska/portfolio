@@ -1,0 +1,34 @@
+.wrapper {
+  display: flex;
+}
+
+.container {
+  width: min(1200px, 90%);
+  margin: 0 auto 0;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.2;
+  padding: 1.7em 0 0.7em;
+}
+.link::before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  bottom: -0.5em;
+  left: 0;
+  width: min(120%, 90vw);
+  height: 3px;
+  background-image: linear-gradient(to right, #EF476F, #facad6);
+}
+
+.logo_wrapper {
+  display: inline-block;
+  width: 1.3em;
+  margin-right: 0.7em;
+}

@@ -2,9 +2,9 @@ import { nanoid } from 'nanoid';
 import ArrowDown from 'assets/ArrowDownSVG';
 import LogoSVG from 'assets/LogoSVG';
 import { Link } from 'react-scroll';
-import styles from './Home.module.css';
+import styles from './Hero.module.css';
 
-const Home: React.FC = () => {
+const Hero: React.FC = () => {
   const title = 'Anna Piwonska';
   const titleLetters = title.split('').map((letter) => {
     const styleName = letter === ' ' ? styles.space : styles.titleLetter;
@@ -16,7 +16,7 @@ const Home: React.FC = () => {
   });
 
   return (
-    <header id="home" className={styles.section}>
+    <header id="hero" className={styles.section}>
       <div className={styles.wrapper}>
         <div className={styles.logo_wrapper}>
           <LogoSVG animated />
@@ -42,4 +42,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Hero;

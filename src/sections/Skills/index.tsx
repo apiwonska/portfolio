@@ -1,8 +1,8 @@
 import SectionHeader from 'shared/SectionHeader';
 import { nanoid } from 'nanoid';
 import useIntersection from 'utilities/useIntersection';
+import skills from 'data/skills';
 import styles from './Skills.module.css';
-import skills from './skills';
 
 const Skills: React.FC = () => {
   const bigTextRef = useIntersection<HTMLHeadingElement>('text_lg__isVisible', {

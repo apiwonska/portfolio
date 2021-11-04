@@ -11,7 +11,13 @@ interface IProps {
   theme: TNavbarThemes;
 }
 
-const sections = ['home', 'about', 'skills', 'projects', 'contact'];
+const sections = [
+  { id: 'hero', name: 'home' },
+  { id: 'about', name: 'about' },
+  { id: 'skills', name: 'skills' },
+  { id: 'sample-projects', name: 'projects' },
+  { id: 'contact', name: 'contact' },
+];
 
 const Nav: React.FC<IProps> = ({ smallScreen, isOpen, setOpen, theme }) => {
   const navClass = classNames({
@@ -20,10 +26,10 @@ const Nav: React.FC<IProps> = ({ smallScreen, isOpen, setOpen, theme }) => {
     [styles.navDesktop__transparent]: theme === 'transparent',
   });
 
-  const renderLinks = sections.map((section) => (
-    <li key={section}>
-      <NavLink to={section} setOpen={setOpen}>
-        {section}
+  const renderLinks = sections.map(({ id, name }) => (
+    <li key={id}>
+      <NavLink to={id} setOpen={setOpen}>
+        {name}
       </NavLink>
     </li>
   ));

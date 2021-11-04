@@ -2,11 +2,11 @@ import { nanoid } from 'nanoid';
 import classNames from 'classnames';
 import Icon, { iconEnum } from 'assets/Icon';
 import useIntersection from 'utilities/useIntersection';
-import { ReactComponent as EyeIconSVG } from 'assets/eye-icon.svg';
+// import { ReactComponent as EyeIconSVG } from 'assets/eye-icon.svg';
 import { ReactComponent as ParagraphIconSVG } from 'assets/paragraph-icon.svg';
 import { ReactComponent as CloseIconSVG } from 'assets/close-icon.svg';
-import styles from './Project.module.css';
-import { TProject } from './projects';
+import { TProject } from 'data/projects';
+import styles from './ProjectCard.module.css';
 
 type Props = {
   project: TProject;
@@ -16,14 +16,14 @@ type Props = {
 };
 
 const Project: React.FC<Props> = ({
-  project: { projectName, summary, links, technologies, id, cardImg, images },
+  project: { projectName, summary, links, technologies, id, cardImg },
   ind,
   isOpen,
   setOpenProjectCardId,
 }) => {
   const projectRef = useIntersection<HTMLDivElement>(
     styles.wrapper__isVisible,
-    { threshold: 0.7 }
+    { threshold: 0.5 }
   );
   const index = `${ind < 10 ? 0 : ''}${ind + 1}`;
 
