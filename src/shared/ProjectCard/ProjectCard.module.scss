@@ -96,7 +96,6 @@
   display: inline-block;
   width: 1em;
   margin-right: .4em;
-  transform: rotate(45deg);
 }
 
 .projectInfo_link {
@@ -155,19 +154,20 @@
   }
 }
 
-// .screenshots_button {
-  //   @extend .button;
-  //   margin-top: 2rem;
-  //   align-self: flex-end;
-  //   display: flex;
-  //   align-items: center;
-  // }
+.project_link {
+  @extend .button;
+  margin-top: 2rem;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+}
 
-  // .screenshots_icon {
-  //   display: inline-block;
-  //   width: 2em;
-  //   margin: 0 .5em;
-  // }
+.project_link_icon {
+  width: 2em;
+  margin: 0 .5em;
+  display: flex;
+  align-items: center;
+}
 
 .card_photo {
   position: absolute;

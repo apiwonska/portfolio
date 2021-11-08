@@ -7,13 +7,13 @@ const ProjectsPage: React.FC = () => {
   useDocumentTitle('Anna Piwonska | Projects');
 
   return (
-    <>
+    <div className="page_wrapper">
       <SubpageHeader />
-      <main>
+      <main className="main">
         <Projects />
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

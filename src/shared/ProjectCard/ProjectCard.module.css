@@ -89,7 +89,6 @@
   display: inline-block;
   width: 1em;
   margin-right: 0.4em;
-  transform: rotate(45deg);
 }
 
 .projectInfo_link {
@@ -113,7 +112,7 @@
   color: #333;
 }
 
-.button, .card_button {
+.button, .project_link, .card_button {
   color: #F9F9F9;
   font-size: 1.6rem;
   background-color: transparent;
@@ -140,6 +139,20 @@
 }
 .card_button__isOpen:focus-visible, .card_button__isOpen:active {
   outline-color: #EF476F;
+}
+
+.project_link {
+  margin-top: 2rem;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+}
+
+.project_link_icon {
+  width: 2em;
+  margin: 0 0.5em;
+  display: flex;
+  align-items: center;
 }
 
 .card_photo {

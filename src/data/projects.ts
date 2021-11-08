@@ -114,4 +114,8 @@ const projects: TProject[] = [
     technologies: ['Django', 'Python', 'HTML', 'CSS'],
   },
 ];
+
+export const getProject = (id: string): TProject | undefined =>
+  projects.find((el) => id === el.id);
+
 export default projects;

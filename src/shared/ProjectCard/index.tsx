@@ -2,10 +2,11 @@ import { nanoid } from 'nanoid';
 import classNames from 'classnames';
 import Icon, { iconEnum } from 'assets/Icon';
 import useIntersection from 'utilities/useIntersection';
-// import { ReactComponent as EyeIconSVG } from 'assets/eye-icon.svg';
+import { ReactComponent as EyeIconSVG } from 'assets/eye-icon.svg';
 import { ReactComponent as ParagraphIconSVG } from 'assets/paragraph-icon.svg';
 import { ReactComponent as CloseIconSVG } from 'assets/close-icon.svg';
 import { TProject } from 'data/projects';
+import { Link } from 'react-router-dom';
 import styles from './ProjectCard.module.css';
 
 type Props = {
@@ -16,14 +17,14 @@ type Props = {
 };
 
 const Project: React.FC<Props> = ({
-  project: { projectName, summary, links, technologies, id, cardImg },
+  project: { projectName, summary, links, technologies, id, cardImg, images },
   ind,
   isOpen,
   setOpenProjectCardId,
 }) => {
   const projectRef = useIntersection<HTMLDivElement>(
     styles.wrapper__isVisible,
-    { threshold: 0.5 }
+    { threshold: 0.4 }
   );
   const index = `${ind < 10 ? 0 : ''}${ind + 1}`;
 
@@ -102,7 +103,7 @@ const Project: React.FC<Props> = ({
                     rel="noreferrer"
                   >
                     <span className={styles.projectInfo_linkIcon}>
-                      <Icon name={iconEnum.ArrowUpRight} />
+                      <Icon name={iconEnum.ArrowRight} />
                     </span>
                     Live
                   </a>
@@ -117,7 +118,7 @@ const Project: React.FC<Props> = ({
                     rel="noreferrer"
                   >
                     <span className={styles.projectInfo_linkIcon}>
-                      <Icon name={iconEnum.ArrowUpRight} />
+                      <Icon name={iconEnum.ArrowRight} />
                     </span>
                     Github
                   </a>
@@ -134,18 +135,19 @@ const Project: React.FC<Props> = ({
                 </li>
               ))}
             </ul>
-            {/* {images?.length && (
-              <button
-                className={styles.screenshots_button}
-                aria-label="See screenshots"
-                type="button"
+            {images?.length && (
+              <Link
+                className={styles.project_link}
+                to={`/projects/${id}`}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <span className={styles.screenshots_icon}>
+                <span className={styles.project_link_icon}>
                   <EyeIconSVG />
                 </span>
-                See screenshots
-              </button>
-            )} */}
+                See more
+              </Link>
+            )}
           </div>
         </div>
       </div>

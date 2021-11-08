@@ -1,7 +1,7 @@
 export enum iconEnum {
   Github,
   Heart,
-  ArrowUpRight,
+  ArrowRight,
 }
 
 const icons = {
@@ -17,11 +17,11 @@ const icons = {
       <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z" />
     ),
   },
-  [iconEnum.ArrowUpRight]: {
+  [iconEnum.ArrowRight]: {
     path: (
       <path
         fillRule="evenodd"
-        d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"
+        d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
       />
     ),
   },

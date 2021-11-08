@@ -129,3 +129,14 @@ $font-size in $header-sizes {
     opacity: 1;
   }
 }
+
+.page_wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.main {
+  flex-grow: 1;
+}
