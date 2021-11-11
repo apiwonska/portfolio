@@ -3,7 +3,7 @@ import styles from './Contact.module.css';
 import Form from './Form';
 
 const Contact: React.FC = () => (
-  <section id="contact" className={styles.content_bg}>
+  <section id="contact" className={styles.content_bg} data-testid="contact">
     <div className={styles.content_bgClip}>
       <div className="container">
         <div className="container_text">

@@ -3,6 +3,7 @@ import Icon, { iconEnum } from 'assets/Icon';
 import { nanoid } from 'nanoid';
 import useIntersection from 'utilities/useIntersection';
 import styles from './Project.module.css';
+import Img from './Img';
 
 interface IProps {
   project: TProject;
@@ -17,18 +18,15 @@ const Project: React.FC<IProps> = ({
       threshold: 0,
     }
   );
-  const imageRefs = images?.map(() =>
-    useIntersection<HTMLImageElement>(styles.image__isVisible, {
-      threshold: 0.3,
-    })
-  );
 
   return (
     <section className="section">
       <div className={styles.info_container}>
         <div className={styles.info_wrapper} ref={infoRef}>
           <h2 className={styles.project_name}>{projectName}</h2>
-          <p className={styles.project_summary}>{summary}</p>
+          <p className={styles.project_summary} data-testid="project-summary">
+            {summary}
+          </p>
           <ul className={styles.project_links} aria-label="Links">
             {links.live && (
               <li className={styles.project_linkItem}>
@@ -75,15 +73,9 @@ const Project: React.FC<IProps> = ({
       </div>
 
       <div className={styles.images_wrapper}>
-        {images?.map((image, ind) => (
-          <img
-            // eslint-disable-next-line
-              src={require(`../../assets/projects/${image}`).default}
-            alt=""
-            ref={imageRefs && imageRefs[ind]}
-            className={styles.image}
-            key={nanoid()}
-          />
+        {images?.map((image) => (
+          // Image moved to separate component to mock it in tests
+          <Img image={image} key={nanoid()} />
         ))}
       </div>
     </section>

@@ -1,5 +1,5 @@
 import useDocumentTitle from 'utilities/useDocumentTitle';
-import { getProject } from 'data/projects';
+import projects, { TProject } from 'data/projects';
 import { useParams } from 'react-router-dom';
 import SubpageHeader from 'shared/SubpageHeader';
 import Footer from 'shared/Footer';
@@ -10,7 +10,11 @@ type TParams = { projectId: string };
 
 const ProjectsPage: React.FC = () => {
   const { projectId } = useParams<TParams>();
+
+  const getProject = (id: string): TProject | undefined =>
+    projects.find((el) => id === el.id);
   const project = getProject(projectId);
+
   const documentTitle = project
     ? `Anna Piwonska | Projects | ${project?.projectName}`
     : 'Anna Piwonska | Page Not Found';

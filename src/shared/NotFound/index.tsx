@@ -7,9 +7,12 @@ const NotFound: React.FC = () => {
   useDocumentTitle('Anna Piwonska | Page Not Found');
 
   return (
-    <div className={styles.wrapper}>
+    <main className={styles.wrapper} data-testid="page-not-found">
       <div className={styles.container}>
-        <div className={styles.error_code}>404</div>
+        <h1 className="sr_only">404 Error. Page Not Found</h1>
+        <div className={styles.error_code} aria-hidden>
+          404
+        </div>
         <div className={styles.error_message}>
           We are sorry, the page was not found
         </div>
@@ -30,7 +33,7 @@ const NotFound: React.FC = () => {
         </div>
       </div>
       <WaveSVG className={styles.wave} />
-    </div>
+    </main>
   );
 };
 

@@ -41,7 +41,11 @@ const Form: React.FC = () => {
 
   return (
     <div className={styles.form_wrapper} ref={formRef}>
-      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className={styles.form}
+        data-testid="contact-form"
+      >
         <div className={styles.form_group}>
           <label htmlFor="name">
             <span className={styles.form_label}>Name:</span>

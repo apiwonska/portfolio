@@ -115,7 +115,4 @@ const projects: TProject[] = [
   },
 ];
 
-export const getProject = (id: string): TProject | undefined =>
-  projects.find((el) => id === el.id);
-
 export default projects;

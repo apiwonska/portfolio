@@ -8,6 +8,7 @@ import { ReactComponent as CloseIconSVG } from 'assets/close-icon.svg';
 import { TProject } from 'data/projects';
 import { Link } from 'react-router-dom';
 import styles from './ProjectCard.module.css';
+import Img from './Img';
 
 type Props = {
   project: TProject;
@@ -38,7 +39,7 @@ const Project: React.FC<Props> = ({
 
   return (
     <>
-      <div className={styles.card} ref={projectRef}>
+      <div className={styles.card} ref={projectRef} data-testid="project-card">
         <div
           className={
             !isOpen
@@ -66,23 +67,20 @@ const Project: React.FC<Props> = ({
         </div>
         <button
           className={cardButtonClasses}
-          aria-label={!isOpen ? 'Read about project' : 'Close'}
+          aria-label={!isOpen ? 'Read about the project' : 'Close'}
           type="button"
           onClick={() =>
             !isOpen ? setOpenProjectCardId(id) : setOpenProjectCardId('')
           }
+          data-testid="project-card-toggle-button"
         >
           {!isOpen ? <ParagraphIconSVG /> : <CloseIconSVG />}
         </button>
 
         <div className={cardBackgroundClasses}>
           {cardImg && (
-            <img
-              // eslint-disable-next-line
-            src={require(`../../assets/projects/${cardImg}`).default}
-              className={styles.card_photo}
-              alt=""
-            />
+            // Image moved to separate component to mock it in tests
+            <Img cardImg={cardImg} />
           )}
 
           <div
@@ -91,8 +89,14 @@ const Project: React.FC<Props> = ({
                 ? styles.projectInfo_wrapper
                 : styles.projectInfo_wrapper__isActive
             }
+            data-testid="project-card-info"
           >
-            <p className={styles.projectInfo_summary}>{summary}</p>
+            <p
+              className={styles.projectInfo_summary}
+              data-testid="project-card-summary"
+            >
+              {summary}
+            </p>
             <ul className={styles.projectInfo_links} aria-label="Links">
               {links.live && (
                 <li className={styles.projectInfo_linkItem}>

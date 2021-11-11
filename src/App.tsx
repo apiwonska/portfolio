@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import HomePage from 'pages/HomePage';
 import ProjectsPage from 'pages/ProjectsPage';
 import ProjectPage from 'pages/ProjectPage';
@@ -9,16 +9,14 @@ import 'App.css';
 
 const App: React.FC = () => (
   <>
-    <Router>
-      <ScrollToTop>
-        <Switch>
-          <Route path="/projects/:projectId" component={ProjectPage} exact />
-          <Route path="/projects" component={ProjectsPage} exact />
-          <Route path="/" component={HomePage} exact />
-          <Route path="*" component={NotFound} />
-        </Switch>
-      </ScrollToTop>
-    </Router>
+    <ScrollToTop>
+      <Switch>
+        <Route path="/projects/:projectId" component={ProjectPage} exact />
+        <Route path="/projects" component={ProjectsPage} exact />
+        <Route path="/" component={HomePage} exact />
+        <Route path="*" component={NotFound} />
+      </Switch>
+    </ScrollToTop>
     <Cursor />
   </>
 );

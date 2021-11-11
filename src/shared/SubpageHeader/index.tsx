@@ -16,7 +16,10 @@ const SubpageHeader: React.FC = () => (
         </span>
         <div className={styles.text_wrapper}>
           <span className={styles.text_span1}>
-            <span className={styles.text_span1_inner}>Anna Piwonska</span>
+            <span className={styles.text_span1_inner}>
+              Anna Piwonska
+              <span className="sr_only">,&nbsp;</span>
+            </span>
           </span>
           <span className={styles.text_span2}>
             <span className={styles.text_span2_inner}>
