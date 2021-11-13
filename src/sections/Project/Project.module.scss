@@ -81,7 +81,7 @@
 .image {
   width: 100%;
   object-fit: contain;
-  background-color: get-color(main);
+  background-color: #ddd;
   opacity: 0;
   transform: translateY(2.5rem);
   transition: 1.5s ease;

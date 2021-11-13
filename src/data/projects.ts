@@ -19,10 +19,17 @@ const projects: TProject[] = [
     id: 'portfolio',
     summary: 'This portfolio website.',
     links: {
-      live: '',
+      live: 'https://annapiwonska.netlify.app',
       github: 'https://github.com/apiwonska/portfolio',
     },
-    technologies: ['HTML', 'Sass', 'CSS Modules', 'React', 'TypeScript'],
+    technologies: [
+      'HTML',
+      'Sass',
+      'CSS Modules',
+      'React',
+      'TypeScript',
+      'React Testing Library',
+    ],
     cardImg: 'card_portfolio.png',
   },
   {
@@ -46,9 +53,9 @@ const projects: TProject[] = [
     ],
     cardImg: 'card_favouriteRecipes.png',
     images: [
-      'card_favouriteRecipes.png',
-      'card_favouriteRecipes.png',
-      'card_favouriteRecipes.png',
+      'favouriteRecipes-1.png',
+      'favouriteRecipes-2.png',
+      'favouriteRecipes-3.png',
     ],
   },
   {
@@ -78,7 +85,7 @@ const projects: TProject[] = [
     summary:
       'An application for tracking trip expenses during international trips. Allows to input expenses in various currencies and assign a category to it. For each trip, you will have a summary of expenses in a chart. It was created as a group project during Coders Camp.',
     links: {
-      live: '',
+      live: 'https://tripexpenses.herokuapp.com/',
       github: 'https://github.com/dobrzyckahanna/Trip-Expenses-App',
     },
     technologies: [
@@ -89,6 +96,15 @@ const projects: TProject[] = [
       'Redux',
       'Express',
       'MongoDB',
+    ],
+    cardImg: 'card_tripExpenses.png',
+    images: [
+      'tripExpenses-1.png',
+      'tripExpenses-2.png',
+      'tripExpenses-3.png',
+      'tripExpenses-4.png',
+      'tripExpenses-5.png',
+      'tripExpenses-6.png',
     ],
   },
   {

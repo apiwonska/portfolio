@@ -80,7 +80,9 @@ const Project: React.FC<Props> = ({
         <div className={cardBackgroundClasses}>
           {cardImg && (
             // Image moved to separate component to mock it in tests
-            <Img cardImg={cardImg} />
+            <div className={styles.card_img_wrapper}>
+              <Img cardImg={cardImg} />
+            </div>
           )}
 
           <div

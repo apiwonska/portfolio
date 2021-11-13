@@ -50,7 +50,7 @@ const About: React.FC = () => {
             <div className={styles.additionalInfo}>
               <p className={styles.hideOverflow}>
                 <span className={styles.text}>
-                  <span className={styles.text__underlined}>Location:</span>
+                  <span className={styles.text__underlined}>Location:</span>{' '}
                   Warsaw, Poland
                 </span>
               </p>
