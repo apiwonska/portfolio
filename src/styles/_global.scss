@@ -140,3 +140,7 @@ $font-size in $header-sizes {
 .main {
   flex-grow: 1;
 }
+
+.hidden {
+  visibility: hidden;
+}

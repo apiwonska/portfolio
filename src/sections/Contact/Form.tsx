@@ -34,18 +34,26 @@ const Form: React.FC = () => {
     threshold: 0.3,
   });
 
-  const onSubmit: SubmitHandler<IInputs> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<IInputs> = () => {
+    // console.log(data);
     reset();
   };
 
   return (
     <div className={styles.form_wrapper} ref={formRef}>
       <form
+        name="contact-form"
         onSubmit={handleSubmit(onSubmit)}
         className={styles.form}
+        method="POST"
+        data-netlify="true"
+        data-netlify-recaptcha="true"
+        data-netlify-honeypot="bot-field"
         data-testid="contact-form"
       >
+        <div className="hidden">
+          <input name="bot-field" />
+        </div>
         <div className={styles.form_group}>
           <label htmlFor="name">
             <span className={styles.form_label}>Name:</span>
@@ -82,6 +90,7 @@ const Form: React.FC = () => {
           </label>
           <p className={styles.form_error}>{errors.message?.message}</p>
         </div>
+        <div data-netlify-recaptcha="true" />
 
         <button type="submit" className={styles.form_button}>
           SEND
