@@ -1,6 +1,6 @@
 # Portfolio
 
-Live demo: https://annapiwonska.netlify.app
+[Live demo](https://annapiwonska.netlify.app)
 
 A personal portfolio site built with React library to present my projects
 
@@ -10,7 +10,7 @@ In every project, I practice some new skills. Doing this project, I have learned
 
 - React (functional components, hooks)
 - Typescript
-- Css modules
+- CSS modules
 - Sass
 - React Router
 - React Hook Form
