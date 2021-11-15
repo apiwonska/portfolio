@@ -35,7 +35,6 @@ const Form: React.FC = () => {
   });
 
   const onSubmit: SubmitHandler<IInputs> = () => {
-    // console.log(data);
     reset();
   };
 
@@ -51,6 +50,7 @@ const Form: React.FC = () => {
         data-netlify-honeypot="bot-field"
         data-testid="contact-form"
       >
+        <input type="hidden" name="form-name" value="contact" />
         <div className="hidden">
           <input name="bot-field" />
         </div>
