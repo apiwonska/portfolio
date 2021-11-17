@@ -5,6 +5,7 @@ const Img: React.FC<{ cardImg: string }> = ({ cardImg }) => (
     // eslint-disable-next-line
     src={require(`../../assets/projects/${cardImg}`).default}
     alt=""
+    loading="lazy"
     className={styles.card_img}
   />
 );

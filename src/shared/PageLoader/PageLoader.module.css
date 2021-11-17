@@ -1,0 +1,37 @@
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #F9F9F9;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.loader {
+  border: 0.5rem solid #ccc;
+  width: 4rem;
+  height: 4rem;
+  margin: -1.5rem 0 0 -1.5rem;
+  opacity: 0;
+  border-radius: 50%;
+  animation: pulsate 1s ease-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}

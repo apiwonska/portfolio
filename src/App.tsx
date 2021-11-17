@@ -1,21 +1,26 @@
 import { Switch, Route } from 'react-router-dom';
-import HomePage from 'pages/HomePage';
-import ProjectsPage from 'pages/ProjectsPage';
-import ProjectPage from 'pages/ProjectPage';
+import { lazy, Suspense } from 'react';
+import PageLoader from 'shared/PageLoader';
 import NotFound from 'shared/NotFound';
 import ScrollToTop from 'shared/ScrollToTop';
 import Cursor from 'shared/Cursor';
 import 'App.css';
 
+const HomePage = lazy(() => import('pages/HomePage'));
+const ProjectsPage = lazy(() => import('pages/ProjectsPage'));
+const ProjectPage = lazy(() => import('pages/ProjectPage'));
+
 const App: React.FC = () => (
   <>
     <ScrollToTop>
-      <Switch>
-        <Route path="/projects/:projectId" component={ProjectPage} exact />
-        <Route path="/projects" component={ProjectsPage} exact />
-        <Route path="/" component={HomePage} exact />
-        <Route path="*" component={NotFound} />
-      </Switch>
+      <Suspense fallback={<PageLoader />}>
+        <Switch>
+          <Route path="/projects/:projectId" component={ProjectPage} exact />
+          <Route path="/projects" component={ProjectsPage} exact />
+          <Route path="/" component={HomePage} exact />
+          <Route path="*" component={NotFound} />
+        </Switch>
+      </Suspense>
     </ScrollToTop>
     <Cursor />
   </>

@@ -10,8 +10,9 @@ const Img: React.FC<{ image: string }> = ({ image }) => {
   return (
     <img
       // eslint-disable-next-line
-    src={require(`../../assets/projects/${image}`).default}
+      src={require(`../../assets/projects/${image}`).default}
       alt=""
+      loading="lazy"
       className={styles.image}
       ref={imageRef}
     />
