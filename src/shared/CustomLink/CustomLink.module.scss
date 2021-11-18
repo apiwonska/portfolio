@@ -1,0 +1,86 @@
+@use '../../styles/variables'as *;
+
+.link {
+  display: inline-block;
+  position: relative;
+  font-size: 1.6rem;
+  opacity: 0;
+  transform: translateY(70%);
+  transition: .4s ease;
+  margin: 0 1.5rem;
+
+  &.link__isVisible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.link_nav {
+  border-bottom: 1px solid get-color(neutrals-black);
+}
+
+.link_arrowRight {
+  margin-right: 6rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    right: 0;
+    transform: translate(calc(100% + .5em), -50%);
+    width: 1em;
+    height: 1em;
+    background-image: url('../../assets/arrow-right.svg');
+    background-size: 1em 1em;
+    animation: moveright 3s cubic-bezier(.07, .55, .62, .96) infinite;
+  }
+}
+
+.link_arrowLeft {
+  margin-left: 6rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 0;
+    transform: translate(calc(-100% - .5em), -50%);
+    width: 1em;
+    height: 1em;
+    background-image: url('../../assets/arrow-left.svg');
+    background-size: 1em 1em;
+    animation: moveleft 3s cubic-bezier(.07, .55, .62, .96) infinite;
+  }
+}
+
+.link_no_animation {
+  &::before {
+    animation: none;
+  }
+}
+
+// xsign is 1 for right direction and -1 for left
+@mixin keyframemove($direction, $xsign) {
+  @keyframes move#{$direction} {
+    0% {
+      transform: translate(calc($xsign * (100% + 1em)), -50%);
+    }
+
+    70% {
+      transform: translate(calc($xsign * (100% + 1em)), -50%);
+    }
+
+    85% {
+      transform: translate(calc($xsign * (100% + 1.5em)), -50%);
+    }
+
+    100% {
+      transform: translate(calc($xsign * (100% + 1em)), -50%);
+    }
+  }
+}
+
+@include keyframemove(right, 1);
+@include keyframemove(left, -1);

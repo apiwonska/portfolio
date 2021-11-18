@@ -5,12 +5,7 @@ import styles from './SubpageHeader.module.css';
 const SubpageHeader: React.FC = () => (
   <header className={styles.wrapper}>
     <h1 className={styles.container}>
-      <Link
-        to="/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={styles.link}
-      >
+      <Link to="/" className={styles.link}>
         <span className={styles.logo_wrapper} aria-hidden>
           <LogoSVG />
         </span>

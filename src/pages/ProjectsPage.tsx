@@ -9,9 +9,7 @@ const ProjectsPage: React.FC = () => {
   return (
     <div className="page_wrapper">
       <SubpageHeader />
-      <main className="main">
-        <Projects />
-      </main>
+      <Projects />
       <Footer />
     </div>
   );

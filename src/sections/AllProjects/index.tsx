@@ -3,7 +3,7 @@ import SectionHeader from 'shared/SectionHeader';
 import useIntersection from 'utilities/useIntersection';
 import Project from 'shared/ProjectCard';
 import projects from 'data/projects';
-import { Link } from 'react-router-dom';
+import CustomLink from 'shared/CustomLink';
 import styles from './AllProjects.module.css';
 
 const AllProjects: React.FC = () => {
@@ -15,27 +15,41 @@ const AllProjects: React.FC = () => {
   const [openProjectCardId, setOpenProjectCardId] = useState('');
 
   return (
-    <section id="all-projects" className="section">
-      <div className="container">
-        <div className="container_text">
-          <SectionHeader>Projects</SectionHeader>
-          <div className="text_lg" ref={bigTextRef}>
-            Some of the projects I’ve been working on
+    <>
+      <div className="flex">
+        <nav className="container">
+          <div className={styles.link_wrapper}>
+            <CustomLink to="/" navlink>
+              MAIN PAGE
+            </CustomLink>
+          </div>
+        </nav>
+      </div>
+
+      <main className="main">
+        <div className="section">
+          <div className="container">
+            <div className="container_text">
+              <SectionHeader>Projects</SectionHeader>
+              <div className="text_lg" ref={bigTextRef}>
+                Some of the projects I’ve been working on
+              </div>
+            </div>
+            <div className={styles.content_wrapper}>
+              {projects.map((project, ind) => (
+                <Project
+                  key={project.id}
+                  project={project}
+                  ind={ind}
+                  isOpen={openProjectCardId === project.id}
+                  setOpenProjectCardId={setOpenProjectCardId}
+                />
+              ))}
+            </div>
           </div>
         </div>
-        <div className={styles.content_wrapper}>
-          {projects.map((project, ind) => (
-            <Project
-              key={project.id}
-              project={project}
-              ind={ind}
-              isOpen={openProjectCardId === project.id}
-              setOpenProjectCardId={setOpenProjectCardId}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
+      </main>
+    </>
   );
 };
 

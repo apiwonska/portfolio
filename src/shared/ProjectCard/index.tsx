@@ -142,12 +142,7 @@ const Project: React.FC<Props> = ({
               ))}
             </ul>
             {images?.length && (
-              <Link
-                className={styles.project_link}
-                to={`/projects/${id}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link className={styles.project_link} to={`/projects/${id}`}>
                 <span className={styles.project_link_icon}>
                   <EyeIconSVG />
                 </span>

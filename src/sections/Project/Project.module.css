@@ -1,3 +1,14 @@
+.nav_container {
+  width: min(700px, 90%);
+  margin: 0 auto;
+}
+
+.nav_link_wrapper {
+  text-align: left;
+  overflow: hidden;
+  margin: 4rem 0rem -2rem;
+}
+
 .info_container {
   width: min(700px, 90%);
   margin: 5rem auto 3rem;

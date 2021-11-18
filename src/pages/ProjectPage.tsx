@@ -25,9 +25,7 @@ const ProjectsPage: React.FC = () => {
   return (
     <div className="page_wrapper">
       <SubpageHeader />
-      <main className="main">
-        <Project project={project} />
-      </main>
+      <Project project={project} />
       <Footer />
     </div>
   );
