@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+import { useState } from 'react';
 import useIntersection from 'utilities/useIntersection';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -14,11 +15,16 @@ const schema = yup
   })
   .required();
 
-type IInputs = {
+interface IInputs {
   name: string;
   email: string;
   message: string;
-};
+}
+
+interface IFormData extends IInputs {
+  'form-name': string;
+  [key: string]: string;
+}
 
 const Form: React.FC = () => {
   const {
@@ -34,26 +40,42 @@ const Form: React.FC = () => {
     threshold: 0.3,
   });
 
-  const onSubmit: SubmitHandler<IInputs> = () => {
-    reset();
+  const [submitError, setSubmitError] = useState(false);
+
+  const encode = (data: IFormData) =>
+    Object.keys(data)
+      .map(
+        (key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+      )
+      .join('&');
+
+  const onSubmit: SubmitHandler<IInputs> = async (data) => {
+    const res = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'contact', ...data }),
+    });
+    if (!res.ok) {
+      setSubmitError(true);
+    } else {
+      setSubmitError(false);
+      reset();
+    }
   };
 
   return (
     <div className={styles.form_wrapper} ref={formRef}>
       <form
-        name="contact-form"
+        name="contact"
         onSubmit={handleSubmit(onSubmit)}
         className={styles.form}
-        method="POST"
+        method="post"
         data-netlify="true"
         data-netlify-recaptcha="true"
-        data-netlify-honeypot="bot-field"
         data-testid="contact-form"
+        id="contactForm"
       >
         <input type="hidden" name="form-name" value="contact" />
-        <div className="hidden">
-          <input name="bot-field" />
-        </div>
         <div className={styles.form_group}>
           <label htmlFor="name">
             <span className={styles.form_label}>Name:</span>
@@ -95,9 +117,16 @@ const Form: React.FC = () => {
         <button type="submit" className={styles.form_button}>
           SEND
         </button>
-        {isSubmitSuccessful && Object.keys(touchedFields).length === 0 && (
-          <p>Your message was sent!</p>
+        {submitError && (
+          <p className={styles.form_error}>
+            Something went wrong. Your message was not sent.
+          </p>
         )}
+        {!submitError &&
+          isSubmitSuccessful &&
+          Object.keys(touchedFields).length === 0 && (
+            <p className={styles.form_success}>Your message was sent!</p>
+          )}
       </form>
     </div>
   );
