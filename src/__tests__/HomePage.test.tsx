@@ -10,6 +10,8 @@ const WrappedHomePage = () => (
   </Router>
 );
 
+const originalIntersectionObserver = window.IntersectionObserver;
+
 describe('HomePage', () => {
   beforeEach(() => {
     // IntersectionObserver isn't available in test environment
@@ -20,6 +22,10 @@ describe('HomePage', () => {
       disconnect: () => null,
     });
     window.IntersectionObserver = mockIntersectionObserver;
+  });
+
+  afterAll(() => {
+    window.IntersectionObserver = originalIntersectionObserver;
   });
 
   it('render all sections', () => {

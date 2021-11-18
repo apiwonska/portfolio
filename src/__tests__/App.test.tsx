@@ -8,17 +8,20 @@ jest.mock('pages/HomePage', () => () => <>Home Page</>);
 jest.mock('pages/ProjectsPage', () => () => <>Projects Page</>);
 jest.mock('pages/ProjectPage', () => () => <>Project Page</>);
 jest.mock('shared/NotFound', () => () => <>Not Found</>);
+jest.mock('shared/PageLoader', () => () => <>Loading Page</>);
 
 window.scrollTo = jest.fn();
 
 describe('App', () => {
-  it('render Home Page for a default route', () => {
+  it('render Home Page for a default route', async () => {
     const history = createMemoryHistory();
     render(
       <Router history={history}>
         <App />
       </Router>
     );
+
+    expect(await screen.findByText(/home/i)).toBeInTheDocument();
 
     expect(screen.getByText(/home/i).closest('body')).toMatchInlineSnapshot(`
       <body>
@@ -32,7 +35,7 @@ describe('App', () => {
     `);
   });
 
-  it('render Projects Page for "/projects" route', () => {
+  it('render Projects Page for "/projects" route', async () => {
     const history = createMemoryHistory();
     history.push('/projects');
     render(
@@ -40,6 +43,8 @@ describe('App', () => {
         <App />
       </Router>
     );
+
+    expect(await screen.findByText(/projects/i)).toBeInTheDocument();
 
     expect(screen.getByText(/projects/i).closest('body'))
       .toMatchInlineSnapshot(`
@@ -54,7 +59,7 @@ describe('App', () => {
     `);
   });
 
-  it('render Project Page for "/projects/:id" route', () => {
+  it('render Project Page for "/projects/:id" route', async () => {
     const history = createMemoryHistory();
     history.push('/projects/project-name');
     render(
@@ -62,6 +67,8 @@ describe('App', () => {
         <App />
       </Router>
     );
+
+    expect(await screen.findByText(/project/i)).toBeInTheDocument();
 
     expect(screen.getByText(/project/i).closest('body')).toMatchInlineSnapshot(`
       <body>

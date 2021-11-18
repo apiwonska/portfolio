@@ -3,8 +3,23 @@ import user from '@testing-library/user-event';
 import Form from '../sections/Contact/Form';
 
 jest.mock('../utilities/useIntersection', () => () => ({ current: null }));
+const originalFetch = window.fetch;
 
 describe('Form', () => {
+  beforeEach(() => {
+    const mockFetch = jest.fn();
+    mockFetch.mockReturnValue(
+      Promise.resolve({
+        ok: true,
+      })
+    );
+    window.fetch = mockFetch;
+  });
+
+  afterAll(() => {
+    window.fetch = originalFetch;
+  });
+
   const setup = () => {
     const utils = render(<Form />);
     const form = screen.getByTestId('contact-form');
