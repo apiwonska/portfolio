@@ -12,13 +12,14 @@
 }
 
 .loader {
-  border: 0.5rem solid #ccc;
-  width: 4rem;
-  height: 4rem;
+  border: 3rem solid #ccc;
+  width: min(50vw, 50vh);
+  height: min(50vw, 50vh);
+  transform: scale(0.2);
   margin: -1.5rem 0 0 -1.5rem;
   opacity: 0;
   border-radius: 50%;
-  animation: pulsate 1s ease-out;
+  animation: pulsate 2s ease-out;
   animation-iteration-count: infinite;
 }
 
@@ -26,12 +27,16 @@
   0% {
     transform: scale(0.1);
     opacity: 0;
+    filter: blur(2px);
   }
-  50% {
-    opacity: 1;
+  30% {
+    transform: scale(0.4);
+    opacity: 0.6;
+    filter: blur(5px);
   }
   100% {
-    transform: scale(1.5);
+    transform: scale(1.1);
     opacity: 0;
+    filter: blur(15px);
   }
 }
