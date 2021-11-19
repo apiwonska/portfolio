@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
-import '__mocks__/matchMedia';
 import App from '../App';
 
 jest.mock('pages/HomePage', () => () => <>Home Page</>);
@@ -27,9 +26,6 @@ describe('App', () => {
       <body>
         <div>
           Home Page
-          <div
-            class="cursor"
-          />
         </div>
       </body>
     `);
@@ -51,9 +47,6 @@ describe('App', () => {
       <body>
         <div>
           Projects Page
-          <div
-            class="cursor"
-          />
         </div>
       </body>
     `);
@@ -74,9 +67,6 @@ describe('App', () => {
       <body>
         <div>
           Project Page
-          <div
-            class="cursor"
-          />
         </div>
       </body>
     `);
@@ -96,9 +86,6 @@ describe('App', () => {
       <body>
         <div>
           Not Found
-          <div
-            class="cursor"
-          />
         </div>
       </body>
     `);

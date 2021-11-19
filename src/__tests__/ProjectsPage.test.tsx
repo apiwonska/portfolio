@@ -2,6 +2,7 @@ import { render, screen, waitFor, within } from '@testing-library/react';
 import user from '@testing-library/user-event';
 import { BrowserRouter as Router } from 'react-router-dom';
 import ProjectsPage from '../pages/ProjectsPage';
+import '__mocks__/matchMedia';
 
 const WrappedProjectsPage = () => (
   <Router>

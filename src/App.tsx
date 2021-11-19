@@ -3,7 +3,6 @@ import { lazy, Suspense } from 'react';
 import PageLoader from 'shared/PageLoader';
 import NotFound from 'shared/NotFound';
 import ScrollToTop from 'shared/ScrollToTop';
-import Cursor from 'shared/Cursor';
 import 'App.css';
 
 const HomePage = lazy(() => import('pages/HomePage'));
@@ -22,7 +21,6 @@ const App: React.FC = () => (
         </Switch>
       </Suspense>
     </ScrollToTop>
-    <Cursor />
   </>
 );
 export default App;

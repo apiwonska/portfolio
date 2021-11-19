@@ -2,6 +2,7 @@ import { render, screen, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import ReactRouter from 'react-router';
 import ProjectPage from '../pages/ProjectPage';
+import '__mocks__/matchMedia';
 
 jest.mock('../data/projects.ts', () => [
   {

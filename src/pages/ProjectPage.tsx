@@ -5,6 +5,7 @@ import SubpageHeader from 'shared/SubpageHeader';
 import Footer from 'shared/Footer';
 import NotFound from 'shared/NotFound';
 import Project from 'sections/Project';
+import Cursor from 'shared/Cursor';
 
 type TParams = { projectId: string };
 
@@ -23,11 +24,14 @@ const ProjectsPage: React.FC = () => {
   if (!project) return <NotFound />;
 
   return (
-    <div className="page_wrapper">
-      <SubpageHeader />
-      <Project project={project} />
-      <Footer />
-    </div>
+    <>
+      <div className="page_wrapper">
+        <SubpageHeader />
+        <Project project={project} />
+        <Footer />
+      </div>
+      <Cursor />
+    </>
   );
 };
 
