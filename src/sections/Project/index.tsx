@@ -11,7 +11,14 @@ interface IProps {
 }
 
 const Project: React.FC<IProps> = ({
-  project: { projectName, summary, links, technologies, images },
+  project: {
+    projectName,
+    summary,
+    additionalInfo,
+    links,
+    technologies,
+    images,
+  },
 }) => {
   const infoRef = useIntersection<HTMLDivElement>(
     styles.info_wrapper__isVisible,
@@ -45,6 +52,12 @@ const Project: React.FC<IProps> = ({
                 data-testid="project-summary"
               >
                 {summary}
+              </p>
+              <p
+                className={styles.project_summary}
+                data-testid="project-additional"
+              >
+                {additionalInfo}
               </p>
               <ul className={styles.project_links} aria-label="Links">
                 {links.live && (
