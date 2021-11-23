@@ -1,6 +1,6 @@
 # Portfolio
 
-[Live demo](https://annapiwonska.netlify.app)
+[Live demo](https://annapiwonska.eu)
 
 A personal portfolio site built with React library to present my projects
 
