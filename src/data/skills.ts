@@ -13,13 +13,19 @@ const skills: ISkills = {
     'React',
     'Redux',
     'TypeScript',
-    'Bootstrap4',
+    'Bootstrap',
     'React Testing Library',
     'RWD',
     'REST API',
   ],
-  backend: ['Python', 'Django', 'PostgreSql'],
+  backend: ['Python', 'Django', 'PostgreSQL'],
   tools: ['Figma', 'Visual Studio Code', 'Trello', 'Git', 'Github'],
+  'learning or planning to learn soon': [
+    'TypeScript',
+    'Docker',
+    'NextJS',
+    'GraphQL',
+  ],
 };
 
 export default skills;

@@ -48,12 +48,16 @@
 .skills_title {
   position: relative;
   font-size: 1.8em;
-  text-transform: capitalize;
   line-height: 1;
   margin-left: 1.5em;
   margin-bottom: .6em;
 
-  &:before {
+  &::first-letter {
+    text-transform: uppercase;
+  }
+
+  // don't change to before element, as it conflicts with first-letter rule
+  &::after {
     display: block;
     content: ' ';
     position: absolute;

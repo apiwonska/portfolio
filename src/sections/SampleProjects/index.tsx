@@ -26,7 +26,7 @@ const Projects: React.FC = () => {
         <div className="container_text">
           <SectionHeader>Projects</SectionHeader>
           <div className="text_lg" ref={bigTextRef}>
-            Some of the projects I’ve been working on
+            Some of my projects
           </div>
         </div>
 

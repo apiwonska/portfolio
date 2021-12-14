@@ -12,7 +12,7 @@ const Skills: React.FC = () => {
   const contentRef = useIntersection<HTMLDivElement>(
     styles.content__isVisible,
     {
-      threshold: 0.7,
+      threshold: 0.3,
     }
   );
   const underlinedSkills = ['React', 'JavaScript'];
@@ -23,7 +23,7 @@ const Skills: React.FC = () => {
         <div className="container_text">
           <SectionHeader>Skills</SectionHeader>
           <div className="text_lg" ref={bigTextRef}>
-            Technologies I’ve been using in my projects
+            Technologies I&apos;m using in my projects
           </div>
         </div>
 

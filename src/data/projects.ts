@@ -22,7 +22,7 @@ const projects: TProject[] = [
     additionalInfo:
       'The project was completely designed and coded by me. The images show screenshots of the working application.',
     links: {
-      live: 'https://annapiwonska.netlify.app',
+      live: 'https://annapiwonska.eu',
       github: 'https://github.com/apiwonska/portfolio',
     },
     technologies: [
@@ -69,10 +69,10 @@ const projects: TProject[] = [
     summary:
       'A forum application with access restricted to authenticated users. Users can create accounts, create a profile, create threads and posts, edit and delete posts. An admin panel is also available for users with appropriate permissions.',
     additionalInfo:
-      'The project was completely designed and coded by me. The images show screenshots of the working application.',
+      'The project consists of two separate parts: front-end and back-end which are running on different servers.  For more information check github readme file. The project was completely designed and coded by me. The images show screenshots of the working application.',
     links: {
-      live: '',
-      github: 'https://github.com/apiwonska/forum',
+      live: ' https://forum-ap.netlify.app/ ',
+      github: 'https://github.com/apiwonska/forum-frontend',
     },
     technologies: [
       'HTML',
@@ -84,6 +84,7 @@ const projects: TProject[] = [
       'Django',
       'PostgreSQL',
       'Django REST Framework',
+      'Swagger UI',
     ],
   },
   {
@@ -123,7 +124,7 @@ const projects: TProject[] = [
     additionalInfo:
       'The project was completely designed and coded by me. The images show screenshots of the working application.',
     links: {
-      live: '',
+      live: 'https://yogahouse-ap.herokuapp.com',
       github: 'https://github.com/apiwonska/yogahouse',
     },
     technologies: ['Django', 'Python', 'HTML', 'CSS'],
