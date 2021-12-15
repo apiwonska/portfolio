@@ -83,14 +83,15 @@
 }
 
 .images_wrapper {
-  width: min(700px, 100%);
+  width: min(1400px, 100vw);
   display: grid;
+  justify-items: center;
   grid-gap: 2rem;
   margin: 2rem auto 5rem;
 }
 
 .image {
-  width: 100%;
+  max-width: 100vw;
   object-fit: contain;
   background-color: #ddd;
   opacity: 0;

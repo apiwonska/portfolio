@@ -35,12 +35,14 @@
 .skills_title {
   position: relative;
   font-size: 1.8em;
-  text-transform: capitalize;
   line-height: 1;
   margin-left: 1.5em;
   margin-bottom: 0.6em;
 }
-.skills_title:before {
+.skills_title::first-letter {
+  text-transform: uppercase;
+}
+.skills_title::after {
   display: block;
   content: " ";
   position: absolute;

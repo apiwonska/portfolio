@@ -86,6 +86,15 @@ const projects: TProject[] = [
       'Django REST Framework',
       'Swagger UI',
     ],
+    cardImg: 'card_forum.webp',
+    images: [
+      'forum-1.webp',
+      'forum-2.webp',
+      'forum-3.webp',
+      'forum-adm-1.webp',
+      'forum-adm-2.webp',
+      'forum-adm-3.webp',
+    ],
   },
   {
     projectName: 'Trip Expenses',
@@ -120,7 +129,7 @@ const projects: TProject[] = [
     projectName: 'Yoga House',
     id: 'yogaHouse',
     summary:
-      'The website of a fictionary yoga school with a system to manage class schedule and attendance. Authenticated users can sign up or sign off the classes. If the number of attendees reaches the limit for the group, signing up is disabled.',
+      'The website of a yoga school with a system to manage class schedule and attendance. Authenticated users can sign up or sign off the classes. If the number of attendees reaches the limit for the group, signing up is disabled.',
     additionalInfo:
       'The project was completely designed and coded by me. The images show screenshots of the working application.',
     links: {
@@ -128,20 +137,31 @@ const projects: TProject[] = [
       github: 'https://github.com/apiwonska/yogahouse',
     },
     technologies: ['Django', 'Python', 'HTML', 'CSS'],
+    cardImg: 'card_yogaHouse.webp',
+    images: [
+      'yogaHouse-1.webp',
+      'yogaHouse-2.webp',
+      'yogaHouse-3.webp',
+      'yogaHouse-4.webp',
+      'yogaHouse-5.webp',
+      'yogaHouse-adm-1.webp',
+      'yogaHouse-adm-2.webp',
+      'yogaHouse-adm-3.webp',
+    ],
   },
-  {
-    projectName: 'Foto Studio',
-    id: 'fotoStudio',
-    summary:
-      'The website of a fictionary photo studio. A simple business website with a blog.',
-    additionalInfo:
-      'The project was completely designed and coded by me. The images show screenshots of the working application.',
-    links: {
-      live: '',
-      github: 'https://github.com/apiwonska/foto-studio',
-    },
-    technologies: ['Django', 'Python', 'HTML', 'CSS'],
-  },
+  // {
+  //   projectName: 'Foto Studio',
+  //   id: 'fotoStudio',
+  //   summary:
+  //     'The website of a photo studio. A simple business website with a blog.',
+  //   additionalInfo:
+  //     'The project was completely designed and coded by me. The images show screenshots of the working application.',
+  //   links: {
+  //     live: '',
+  //     github: 'https://github.com/apiwonska/foto-studio',
+  //   },
+  //   technologies: ['Django', 'Python', 'HTML', 'CSS'],
+  // },
 ];
 
 export default projects;

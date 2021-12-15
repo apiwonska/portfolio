@@ -26,7 +26,7 @@ const Hero: React.FC = () => {
           {titleLetters}
         </div>
         <div className={styles.subtitle} aria-hidden="true">
-          <span className={styles.subtitleText}>Front-End Developer</span>
+          <span className={styles.subtitleText}>Front-end Developer</span>
         </div>
       </div>
       <Link
