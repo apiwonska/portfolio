@@ -149,19 +149,20 @@ const projects: TProject[] = [
       'yogaHouse-adm-3.webp',
     ],
   },
-  // {
-  //   projectName: 'Foto Studio',
-  //   id: 'fotoStudio',
-  //   summary:
-  //     'The website of a photo studio. A simple business website with a blog.',
-  //   additionalInfo:
-  //     'The project was completely designed and coded by me. The images show screenshots of the working application.',
-  //   links: {
-  //     live: '',
-  //     github: 'https://github.com/apiwonska/foto-studio',
-  //   },
-  //   technologies: ['Django', 'Python', 'HTML', 'CSS'],
-  // },
+  {
+    projectName: 'Foto Studio',
+    id: 'fotoStudio',
+    summary:
+      'The website of a photo studio. A simple business website with a blog.',
+    additionalInfo:
+      'The project was completely designed and coded by me. The images show screenshots of the working application.',
+    links: {
+      live: 'https://foto-studio-ap.herokuapp.com',
+      github: 'https://github.com/apiwonska/foto-studio',
+    },
+    technologies: ['Django', 'Python', 'HTML', 'CSS'],
+    cardImg: 'card_fotoStudio.webp',
+  },
 ];
 
 export default projects;
