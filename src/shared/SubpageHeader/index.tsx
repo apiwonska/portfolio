@@ -1,30 +1,32 @@
 import { Link } from 'react-router-dom';
-import LogoSVG from 'assets/LogoSVG';
+import classNames from 'classnames';
 import styles from './SubpageHeader.module.css';
 
-const SubpageHeader: React.FC = () => (
-  <header className={styles.wrapper}>
-    <h1 className={styles.container}>
-      <Link to="/" className={styles.link}>
-        <span className={styles.logo_wrapper} aria-hidden>
-          <LogoSVG />
-        </span>
-        <div className={styles.text_wrapper}>
-          <span className={styles.text_span1}>
-            <span className={styles.text_span1_inner}>
-              Anna Piwonska
-              <span className="sr_only">,&nbsp;</span>
-            </span>
-          </span>
-          <span className={styles.text_span2}>
-            <span className={styles.text_span2_inner}>
-              Front&#8209;End&nbsp;Developer
-            </span>
-          </span>
+const SubpageHeader: React.FC = () => {
+  const navlinkClasses = classNames(styles.headerlink, styles.navlink);
+  const nameClasses = classNames(styles.headerlink, styles.name)
+
+  return (
+    <header className={styles.header}>
+      <div className={styles.container}>
+        <div className={styles.headerlink_wrapper}>
+          <Link to="/" className={nameClasses}>
+            Anna Piwońska
+          </Link>
         </div>
-      </Link>
-    </h1>
-  </header>
-);
+        <nav className={styles.nav}>
+          <div className={styles.headerlink_wrapper}>
+            <Link to="/" className={navlinkClasses}>
+              Main page
+            </Link>
+            <Link to="/projects" className={navlinkClasses}>
+              Projects
+            </Link>
+          </div>
+        </nav>
+      </div>
+    </header>
+  );
+};
 
 export default SubpageHeader;

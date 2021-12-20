@@ -55,14 +55,8 @@ describe('ProjectPage', () => {
       'Anna Piwonska | Projects | Fake Project Name'
     );
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
-      'Anna Piwonska, Front‑End Developer'
-    );
-    expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
       'Fake Project Name'
     );
-    expect(
-      within(screen.getByRole('banner')).getByRole('link')
-    ).toHaveAttribute('href', '/');
     expect(screen.getByTestId('project-summary')).toHaveTextContent(
       'Fake Project summary'
     );

@@ -1,12 +1,12 @@
 export interface ISkills {
-  frontend: string[];
-  backend: string[];
+  'front-end': string[];
+  'back-end': string[];
   tools: string[];
   [key: string]: string[];
 }
 
 const skills: ISkills = {
-  frontend: [
+  'front-end': [
     'HTML',
     'CSS',
     'JavaScript',
@@ -18,7 +18,7 @@ const skills: ISkills = {
     'RWD',
     'REST API',
   ],
-  backend: ['Python', 'Django', 'PostgreSQL'],
+  'back-end': ['Python', 'Django', 'PostgreSQL'],
   tools: ['Figma', 'Visual Studio Code', 'Trello', 'Git', 'Github'],
   'learning or planning to learn soon': [
     'TypeScript',

@@ -4,7 +4,11 @@ $colors: (main: #EF476F,
   neutrals-white: #F9F9F9,
   neutrals-light-gray:#E5E5E5,
   form-error: #8b201c,
-  form-success: #10664c);
+  form-success: #10664c,
+  card-col-1:#EF476F,
+  card-col-2:#e5e5e5,
+  card-col-3:#bbbbbb,
+);
 
 @function get-color($color) {
   @return map-get($colors, $color)

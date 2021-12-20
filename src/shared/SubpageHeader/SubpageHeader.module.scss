@@ -1,98 +1,71 @@
 @use '../../styles/variables'as *;
 
-.wrapper {
+.header {
   display: flex;
-  background-color: get-color(neutrals-black);
-  color: get-color(neutrals-white);
-  opacity: 0;
-  animation: showheader .4s ease forwards;
-}
-
-@keyframes showheader {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+  justify-content: center;
+  color: get-color(neutrals-black);
+  line-height: 1;
+  font-size: 1.6rem;
 }
 
 .container {
   width: min(1200px, 90%);
-  margin: 0 auto;
-  font-size: 2rem;
-  font-weight: 400;
-  padding: 0 0 1rem 0;
+  display: flex;
 }
 
-.link {
+.headerlink_wrapper {
+  overflow: hidden;
+}
+
+.headerlink {
+  display: inline-block;
+  padding: 1em 0;
+  margin: 1em .6em;
+}
+
+.name {
+  transform: translateY(-100%);
+  opacity: 0;
+  animation: showlink ease .4s .3s forwards;
+}
+
+.nav {
+  margin-left: auto;
+  display: flex;
+}
+
+.navlink {
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  line-height: 1.3;
-  margin: 1.3em .5em;
+  transform: translateY(-100%);
+  opacity: 0;
+  animation: showlink ease .4s forwards;
 
-  @media(min-width: 1000px) {
-    margin: 1.3em .5em 1.3em 2.5em;
+  &::after {
+    position: absolute;
+    display: inline-block;
+    content: '';
+    width: 100%;
+    height: 1px;
+    bottom: 0.7em;
+    left: 0;
+    background-color: get-color(neutrals-black);
   }
 }
 
-.logo_wrapper {
-  display: grid;
-  align-content: center;
-  width: 2.1em;
-  margin-right: 1em;
-  opacity: 0;
-  animation: showlogo .7s ease .6s forwards;
-}
-
-@keyframes showlogo {
+@keyframes showlink {
   0% {
     opacity: 0;
+    transform: translateY(-100%);
   }
 
   100% {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.text_wrapper {}
-
-.text_span1 {
-  display: block;
-  overflow: hidden;
-  font-size: 1.1em;
-}
-
-.text_span2 {
-  display: block;
-  overflow: hidden;
-  font-size: 0.8em;
-}
-
-.text_span1_inner {
-  display: inline-block;
-  transform: translateY(80%);
-  opacity: 0;
-  animation: showtext .4s ease .4s forwards;
-}
-
-.text_span2_inner {
-  display: inline-block;
-  transform: translateY(80%);
-  opacity: 0;
-  animation: showtext .4s ease .6s forwards;
-}
-
-@keyframes showtext {
-  0% {
-    opacity: 0;
-    transform: translateY(80%);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0%);
+@for $i from 1 to 3 {
+  .navlink:nth-child(#{$i}) {
+    animation-delay: calc(.3s + $i * .2s);
   }
 }

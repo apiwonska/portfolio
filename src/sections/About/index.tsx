@@ -36,14 +36,13 @@ const About: React.FC = () => {
                 <span className={styles.text}>
                   I’m a self-taught developer based in Warsaw, Poland. I love to
                   create beautiful, functional and accessible applications. I’m
-                  interested mostly in front-end part. Former structural
-                  enginer.
+                  interested mostly in creating the front-end.
                 </span>
               </p>
               <p className={styles.hideOverflow}>
                 <span className={styles.text}>
-                  Except passion for coding I enjoy afro-cuban dance, spanish
-                  language, travelling and painting.
+                  Except for my passion for coding, I enjoy Afro-Cuban dance,
+                  yoga, travelling, painting.
                 </span>
               </p>
             </div>

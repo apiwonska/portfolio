@@ -29,24 +29,11 @@ const Project: React.FC<IProps> = ({
 
   return (
     <>
-      <div className="flex">
-        <nav className={styles.nav_container}>
-          <div className={styles.nav_link_wrapper}>
-            <CustomLink to="/" navlink>
-              MAIN PAGE
-            </CustomLink>
-            <CustomLink to="/projects" navlink>
-              PROJECTS
-            </CustomLink>
-          </div>
-        </nav>
-      </div>
-
       <main className="main">
         <div className="section">
           <div className={styles.info_container}>
             <div className={styles.info_wrapper} ref={infoRef}>
-              <h2 className={styles.project_name}>{projectName}</h2>
+              <h1 className={styles.project_name}>{projectName}</h1>
               <p
                 className={styles.project_summary}
                 data-testid="project-summary"

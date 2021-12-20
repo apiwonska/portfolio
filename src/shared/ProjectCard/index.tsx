@@ -15,13 +15,15 @@ type Props = {
   ind: number;
   isOpen: boolean;
   setOpenProjectCardId: React.Dispatch<React.SetStateAction<string>>;
+  headingLevel?: 'h2' | 'h3';
 };
 
-const Project: React.FC<Props> = ({
+const ProjectCard: React.FC<Props> = ({
   project: { projectName, summary, links, technologies, id, cardImg, images },
   ind,
   isOpen,
   setOpenProjectCardId,
+  headingLevel,
 }) => {
   const projectRef = useIntersection<HTMLDivElement>(
     styles.wrapper__isVisible,
@@ -29,8 +31,9 @@ const Project: React.FC<Props> = ({
   );
   const index = `${ind < 10 ? 0 : ''}${ind + 1}`;
 
-  const cardBackgroundClasses = classNames(styles[id], {
+  const cardBackgroundClasses = classNames({
     [styles.card_background]: !isOpen,
+    [styles[id]]: true,
     [styles.card_background__isActive]: isOpen,
   });
   const cardButtonClasses = classNames(styles.card_button, {
@@ -57,13 +60,24 @@ const Project: React.FC<Props> = ({
           >
             {index}
           </span>
-          <h3
-            className={
-              !isOpen ? styles.projectName : styles.projectName__isActive
-            }
-          >
-            {projectName}
-          </h3>
+          {headingLevel === 'h3' && (
+            <h3
+              className={
+                !isOpen ? styles.projectName : styles.projectName__isActive
+              }
+            >
+              {projectName}
+            </h3>
+          )}
+          {headingLevel === 'h2' && (
+            <h2
+              className={
+                !isOpen ? styles.projectName : styles.projectName__isActive
+              }
+            >
+              {projectName}
+            </h2>
+          )}
         </div>
         <button
           className={cardButtonClasses}
@@ -156,4 +170,6 @@ const Project: React.FC<Props> = ({
   );
 };
 
-export default Project;
+ProjectCard.defaultProps = { headingLevel: 'h3' };
+
+export default ProjectCard;

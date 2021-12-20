@@ -34,7 +34,7 @@
 
 .skills_title {
   position: relative;
-  font-size: 1.8em;
+  font-size: 1.6em;
   line-height: 1;
   margin-left: 1.5em;
   margin-bottom: 0.6em;
@@ -63,7 +63,7 @@
 }
 
 .skills_item {
-  font-size: 1.1em;
+  font-size: 1em;
   margin: 0.4em 0.6em;
   line-height: 1.3;
 }

@@ -3,7 +3,6 @@ import SectionHeader from 'shared/SectionHeader';
 import useIntersection from 'utilities/useIntersection';
 import Project from 'shared/ProjectCard';
 import projects from 'data/projects';
-import CustomLink from 'shared/CustomLink';
 import styles from './AllProjects.module.css';
 
 const AllProjects: React.FC = () => {
@@ -16,23 +15,13 @@ const AllProjects: React.FC = () => {
 
   return (
     <>
-      <div className="flex">
-        <nav className="container">
-          <div className={styles.link_wrapper}>
-            <CustomLink to="/" navlink>
-              MAIN PAGE
-            </CustomLink>
-          </div>
-        </nav>
-      </div>
-
       <main className="main">
         <div className="section">
           <div className="container">
             <div className="container_text">
-              <SectionHeader>Projects</SectionHeader>
+              <SectionHeader level="h1">Projects</SectionHeader>
               <div className="text_lg" ref={bigTextRef}>
-                Some of the projects I’ve been working on
+                Some of the projects I’ve been working&nbsp;on
               </div>
             </div>
             <div className={styles.content_wrapper}>
@@ -43,6 +32,7 @@ const AllProjects: React.FC = () => {
                   ind={ind}
                   isOpen={openProjectCardId === project.id}
                   setOpenProjectCardId={setOpenProjectCardId}
+                  headingLevel="h2"
                 />
               ))}
             </div>

@@ -40,6 +40,10 @@
   }
 }
 
+.h1TopMargin {
+  margin-top: calc(3rem + 0.3em);
+}
+
 .sectionHeader {
   position: relative;
   display: inline-block;

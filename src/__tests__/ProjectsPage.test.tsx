@@ -31,9 +31,6 @@ describe('ProjectsPage', () => {
     render(<WrappedProjectsPage />);
 
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
-      'Anna Piwonska, Front‑End Developer'
-    );
-    expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
       'Projects'
     );
   });

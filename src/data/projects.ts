@@ -52,7 +52,7 @@ const projects: TProject[] = [
       'React',
       'TypeScript',
       'React Query',
-      'Bootstrap 4',
+      'Bootstrap',
       'React Testing Library',
       'Rest API',
     ],
@@ -136,7 +136,7 @@ const projects: TProject[] = [
       live: 'https://yogahouse-ap.herokuapp.com',
       github: 'https://github.com/apiwonska/yogahouse',
     },
-    technologies: ['Django', 'Python', 'HTML', 'CSS'],
+    technologies: ['Django', 'Python', 'HTML', 'CSS', 'Bootstrap'],
     cardImg: 'card_yogaHouse.webp',
     images: [
       'yogaHouse-1.webp',
@@ -160,7 +160,7 @@ const projects: TProject[] = [
       live: 'https://foto-studio-ap.herokuapp.com',
       github: 'https://github.com/apiwonska/foto-studio',
     },
-    technologies: ['Django', 'Python', 'HTML', 'CSS'],
+    technologies: ['Django', 'Python', 'HTML', 'CSS', 'Bootstrap'],
     cardImg: 'card_fotoStudio.webp',
   },
 ];

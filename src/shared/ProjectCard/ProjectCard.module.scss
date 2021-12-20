@@ -219,30 +219,28 @@
   ;
 }
 
-
-
 // Classes describing background color for each element
 
-// .portfolio {
-//   background-color: get-color(main);
-// }
+.portfolio {
+  background-color: get-color(card-col-2);
+}
 
-// .favouriteRecipes {
-//   background-color: get-color(main);
-// }
+.favouriteRecipes {
+  background-color: get-color(card-col-1);
+}
 
-// .forum {
-//   background-color: get-color(main);
-// }
+.forum {
+  background-color: get-color(card-col-1);
+}
 
-// .tripExpenses {
-//   background-color: get-color(main);
-// }
+.tripExpenses {
+  background-color: get-color(card-col-3);
+}
 
-// .yogaHouse {
-//   background-color: get-color(main);
-// }
+.yogaHouse {
+  background-color: get-color(card-col-1);
+}
 
-// .fotoStudio {
-//   background-color: get-color(main);
-// }
+.fotoStudio {
+  background-color: get-color(card-col-2);
+}
